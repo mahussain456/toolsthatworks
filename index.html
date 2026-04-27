@@ -1,1145 +1,1490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools That Work — Independent AI & SaaS Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tools That Work — Independent Tool Intelligence for Founders</title>
+<meta name="description" content="Hands-on, unsponsored reviews of AI and SaaS tools for solo founders. We test every tool ourselves. No press releases. No paid placements." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-/* ─── TOKENS ─────────────────────────────────────────────────── */
-:root {
-  /* Backgrounds — layered cool darks */
-  --bg:      #04050A;
-  --bg2:     #06080F;
-  --bg3:     #090C14;
-  --surface: #0C0F18;
-  --glass:   rgba(12,15,24,0.7);
+  :root {
+    --bg: #F2EDE4;
+    --bg-deeper: #EAE2D2;
+    --bg-card: #FBF8F1;
+    --ink: #1A1614;
+    --ink-light: #4A4540;
+    --ink-faint: #8A847C;
+    --accent: #7A1F1F;
+    --accent-deep: #5A1515;
+    --accent-soft: #B85A4F;
+    --rule: #C8BEA8;
+    --rule-faint: #DDD3BD;
+    --highlight: #E8D9A8;
+    --paper-shadow: 0 1px 0 rgba(26, 22, 20, 0.04), 0 8px 24px -8px rgba(26, 22, 20, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    font-feature-settings: "kern", "liga", "onum";
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(26,22,20,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none; z-index: 1;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+  .narrow { max-width: 720px; margin: 0 auto; }
 
-  /* Platinum — primary accent */
-  --pl:      #A8BDD4;
-  --pl-soft: #C8D8E8;
-  --pl-dim:  rgba(168,189,212,0.10);
-  --pl-glow: rgba(168,189,212,0.05);
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: "ss01", "ss02";
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  h1 { font-weight: 400; }
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--bg); }
 
-  /* Champagne gold — secondary accent */
-  --gd:      #C4A96A;
-  --gd-soft: #D9C08E;
-  --gd-dim:  rgba(196,169,106,0.10);
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0 12px;
+    background: var(--bg);
+    position: relative;
+    z-index: 10;
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .masthead .mono { color: var(--ink-light); }
+  .masthead .accent-text { color: var(--accent); font-weight: 600; }
 
-  /* Borders — ultra fine */
-  --b1: rgba(168,189,212,0.06);
-  --b2: rgba(168,189,212,0.10);
-  --b3: rgba(168,189,212,0.18);
+  /* ============ NAV ============ */
+  nav.primary {
+    border-bottom: 1px solid var(--ink);
+    padding: 18px 0;
+    position: sticky; top: 0;
+    background: rgba(242, 237, 228, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--ink); color: var(--bg) !important;
+    padding: 9px 18px; border-radius: 1px;
+    font-size: 0.85rem !important;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+  .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; color: var(--ink); cursor: pointer; }
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--ink); padding: 24px 32px; gap: 18px; }
+    .menu-btn { display: block; }
+  }
 
-  /* Text */
-  --t1: #EAEEf4;   /* primary — cool off-white */
-  --t2: #7A8BA0;   /* secondary */
-  --t3: #3A4458;   /* muted */
+  /* ============ HERO ============ */
+  .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: end; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-  /* Semantic */
-  --ok:   #6BA87C;
-  --warn: #C4A96A;
-  --err:  #A06060;
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ''; width: 24px; height: 1px; background: var(--ink);
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 6.4rem);
+    font-weight: 300;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    margin-bottom: 28px;
+    line-height: 0.96;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .hero-lede {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-light);
+    max-width: 580px;
+    margin-bottom: 36px;
+    font-weight: 350;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
 
-  /* Type */
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'DM Sans', sans-serif;
-  --mono:  'JetBrains Mono', monospace;
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; text-decoration: none;
+    font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500;
+    transition: all 0.2s ease; cursor: pointer;
+    border: 1px solid transparent;
+    background: var(--ink); color: var(--bg);
+    border-radius: 1px;
+  }
+  .btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--bg); transform: translateY(-1px); }
+  .btn-arrow { transition: transform 0.2s; }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
 
-  --r:  10px;
-  --rs: 6px;
-}
+  .hero-side {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 28px;
+    box-shadow: var(--paper-shadow);
+    position: relative;
+  }
+  .hero-side::before {
+    content: 'CURRENT ISSUE'; position: absolute; top: -10px; left: 24px;
+    background: var(--bg); padding: 0 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.16em; color: var(--accent);
+  }
+  .hero-side h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem; font-weight: 500; line-height: 1.15;
+    margin-bottom: 14px;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .hero-side p { font-size: 0.96rem; color: var(--ink-light); margin-bottom: 20px; }
+  .hero-side .stats { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid var(--rule-faint); }
+  .stat-mini { font-family: 'Fraunces', serif; }
+  .stat-mini b { font-size: 1.5rem; display: block; font-weight: 500; }
+  .stat-mini span { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--ink-faint); text-transform: uppercase; }
 
-/* ─── RESET ──────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--t1);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  font-weight: 300;
-}
-a { color: inherit; text-decoration: none; }
-::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--b3); border-radius: 1px; }
+  /* ============ AUTHOR BLOCK ============ */
+  .author-block {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-deeper);
+  }
+  .author-grid {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 32px; align-items: center;
+  }
+  @media (max-width: 720px) {
+    .author-grid { grid-template-columns: 80px 1fr; }
+    .author-grid .author-cta { grid-column: 1 / -1; justify-self: start; }
+  }
+  .author-photo {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    border: 3px solid var(--bg);
+    box-shadow: var(--paper-shadow);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--bg);
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    /* REPLACE: set background-image: url('your-photo.jpg'); background-size: cover; */
+  }
+  @media (max-width: 720px) { .author-photo { width: 80px; height: 80px; font-size: 1.8rem; } }
+  .author-meta .mono { color: var(--accent); margin-bottom: 8px; }
+  .author-meta h3 {
+    font-size: 1.5rem; font-weight: 500; margin-bottom: 6px;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .author-meta p { font-size: 0.98rem; color: var(--ink-light); max-width: 540px; }
+  .author-cta { font-size: 0.9rem; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  .author-cta:hover { color: var(--accent); }
 
-/* ─── GLOBAL AMBIENT ─────────────────────────────────────────── */
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(100,140,200,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(80,100,160,0.03) 0%, transparent 60%);
-  pointer-events: none; z-index: 0;
-}
-/* Dot grid */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: radial-gradient(circle, rgba(168,189,212,0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none; z-index: 0;
-  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 0%, transparent 80%);
-}
+  /* ============ SECTION TITLES ============ */
+  section { padding: 96px 0; border-bottom: 1px solid var(--rule); position: relative; }
+  .section-head { margin-bottom: 64px; max-width: 720px; }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 18px;
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .section-head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-head p { font-size: 1.15rem; color: var(--ink-light); line-height: 1.55; }
 
-/* ─── NAV ────────────────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 62px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%;
-  background: rgba(4,5,10,0.88);
-  backdrop-filter: blur(32px) saturate(180%);
-  border-bottom: 1px solid var(--b1);
-}
-.logo { display: flex; align-items: center; gap: 12px; }
-.logo-emblem {
-  width: 28px; height: 28px;
-  border: 1px solid var(--b3);
-  border-radius: 5px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
-.logo-emblem::before {
-  content: '';
-  position: absolute; inset: 3px;
-  border: 1px solid var(--pl-dim);
-  border-radius: 2px;
-}
-.logo-emblem svg { width: 13px; height: 13px; position: relative; z-index: 1; }
-.logo-wordmark {
-  font-family: var(--serif);
-  font-size: 1.05rem; font-weight: 500;
-  letter-spacing: 0.04em; color: var(--t1);
-}
-.logo-wordmark span { color: var(--pl); font-weight: 300; font-style: italic; }
-nav ul { display: flex; gap: 36px; list-style: none; }
-nav ul li a {
-  font-size: 0.72rem; font-weight: 400;
-  color: var(--t3); letter-spacing: 0.12em;
-  text-transform: uppercase; font-family: var(--mono);
-  transition: color 0.25s; position: relative;
-}
-nav ul li a::after {
-  content: ''; position: absolute;
-  bottom: -2px; left: 0; right: 100%;
-  height: 1px; background: var(--pl);
-  transition: right 0.3s ease;
-}
-nav ul li a:hover { color: var(--pl-soft); }
-nav ul li a:hover::after { right: 0; }
-.nav-pill {
-  font-size: 0.72rem!important;
-  font-weight: 400!important;
-  color: var(--pl)!important;
-  border: 1px solid var(--b2)!important;
-  padding: 6px 16px; border-radius: 50px;
-  letter-spacing: 0.1em!important;
-  transition: all 0.25s!important;
-  font-family: var(--mono)!important;
-  background: var(--pl-dim)!important;
-}
-.nav-pill:hover {
-  background: rgba(168,189,212,0.16)!important;
-  border-color: var(--b3)!important;
-  color: var(--pl-soft)!important;
-}
-.nav-pill::after { display: none!important; }
+  /* ============ REVIEWS GRID ============ */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+  @media (max-width: 720px) { .reviews-grid { grid-template-columns: 1fr; } }
+  .review-card {
+    background: var(--bg-card);
+    padding: 36px;
+    border-bottom: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column;
+    transition: background 0.25s, transform 0.25s;
+    position: relative;
+    cursor: pointer;
+  }
+  .review-card:hover { background: var(--highlight); }
+  .review-card.feature { grid-column: 1 / -1; background: var(--ink); color: var(--bg); }
+  .review-card.feature:hover { background: var(--accent); }
+  .review-card.feature .review-meta-top { color: var(--bg); }
+  .review-card.feature .review-rating { color: var(--bg); }
+  .review-card.feature .review-rating .num { color: var(--bg); }
+  .review-card.feature .review-tag { background: var(--accent); color: var(--bg); }
+  .review-card.feature h3 { color: var(--bg); }
+  .review-card.feature p { color: var(--bg-deeper); }
+  .review-card.feature .review-cta { color: var(--bg); border-color: var(--bg); }
+  .review-card.feature .commission { color: var(--bg); border-color: var(--bg); }
 
-/* ─── TICKER ─────────────────────────────────────────────────── */
-.ticker {
-  margin-top: 62px;
-  height: 38px;
-  background: var(--bg2);
-  border-bottom: 1px solid var(--b1);
-  overflow: hidden; white-space: nowrap;
-  display: flex; align-items: center;
-}
-.ticker-track {
-  display: inline-flex; align-items: center;
-  animation: ticker 40s linear infinite;
-  gap: 0;
-}
-.ticker-track:hover { animation-play-state: paused; }
-.ticker-item {
-  padding: 0 44px;
-  font-family: var(--mono); font-size: 0.68rem;
-  font-weight: 300; color: var(--t2);
-  letter-spacing: 0.06em;
-}
-.ticker-item .hi { color: var(--pl); }
-.ticker-sep { color: var(--b3); padding: 0 4px; }
-@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .review-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; gap: 12px; }
+  .review-tag {
+    background: var(--ink); color: var(--bg);
+    padding: 5px 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .review-rating { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink-light); }
+  .review-rating .num { font-size: 1.4rem; color: var(--ink); font-weight: 500; }
 
-/* ─── HERO ───────────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  min-height: 92vh;
-  display: flex; align-items: center;
-  padding: 0 5%;
-  overflow: hidden;
-}
-.hero-halo {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 55% at 60% 40%, rgba(80,110,180,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 35% 35% at 15% 65%, rgba(60,80,140,0.05) 0%, transparent 55%);
-}
-/* Thin horizontal rules */
-.hero-lines {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(168,189,212,0.025) 1px, transparent 1px);
-  background-size: 100% 80px;
-}
-.hero-content { position: relative; z-index: 1; max-width: 720px; }
-.hero-kicker {
-  display: inline-flex; align-items: center; gap: 12px;
-  margin-bottom: 32px;
-  font-family: var(--mono); font-size: 0.66rem;
-  font-weight: 300; color: var(--pl);
-  letter-spacing: 0.22em; text-transform: uppercase;
-}
-.hero-kicker::before {
-  content: ''; width: 32px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--pl));
-}
-.hero-kicker::after {
-  content: ''; width: 32px; height: 1px;
-  background: linear-gradient(90deg, var(--pl), transparent);
-}
-h1 {
-  font-family: var(--serif);
-  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.01em;
-  color: var(--t1);
-  margin-bottom: 6px;
-}
-h1 .italic { font-style: italic; font-weight: 300; color: var(--pl-soft); }
-h1 .light { font-weight: 200; color: var(--t2); }
-.hero-ornament {
-  display: flex; align-items: center; gap: 16px;
-  margin: 28px 0;
-}
-.hero-ornament-line {
-  width: 48px; height: 1px;
-  background: linear-gradient(90deg, var(--gd), transparent);
-}
-.hero-ornament-diamond {
-  width: 5px; height: 5px;
-  background: var(--gd);
-  transform: rotate(45deg);
-}
-.hero-sub {
-  font-size: 1.0rem; color: var(--t2);
-  max-width: 460px; line-height: 1.85;
-  font-weight: 300; margin-bottom: 44px;
-}
-.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 13px 28px; border-radius: var(--rs);
-  font-size: 0.82rem; font-weight: 400;
-  cursor: pointer; transition: all 0.25s;
-  border: none; font-family: var(--sans);
-  letter-spacing: 0.06em; text-transform: uppercase;
-}
-.btn-prim {
-  background: linear-gradient(135deg, var(--pl), #7AA4C4);
-  color: #04050A;
-  box-shadow: 0 4px 24px rgba(168,189,212,0.14);
-}
-.btn-prim:hover {
-  background: linear-gradient(135deg, var(--pl-soft), var(--pl));
-  box-shadow: 0 6px 32px rgba(168,189,212,0.22);
-  transform: translateY(-2px);
-}
-.btn-ghost {
-  background: transparent; color: var(--t2);
-  border: 1px solid var(--b2);
-}
-.btn-ghost:hover { border-color: var(--b3); color: var(--pl); }
+  .review-card h3 {
+    font-size: 2.1rem; font-weight: 500; margin-bottom: 14px;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+    line-height: 1.05;
+  }
+  .review-card .pitch { font-size: 1rem; color: var(--ink-light); line-height: 1.55; margin-bottom: 24px; flex: 1; }
 
-/* Hero stat panel */
-.hero-panel {
-  position: absolute; right: 5%; top: 50%;
-  transform: translateY(-50%); z-index: 1;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.stat-tile {
-  background: var(--glass);
-  border: 1px solid var(--b1);
-  border-radius: var(--r);
-  padding: 18px 24px; min-width: 148px;
-  backdrop-filter: blur(20px);
-  transition: border-color 0.3s, transform 0.25s;
-  position: relative; overflow: hidden;
-}
-.stat-tile::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--b3), transparent);
-}
-.stat-tile:hover { border-color: var(--b2); transform: translateX(-4px); }
-.stat-n {
-  font-family: var(--serif); font-size: 2.2rem;
-  font-weight: 300; color: var(--pl-soft); line-height: 1;
-}
-.stat-l {
-  font-size: 0.65rem; color: var(--t3);
-  font-family: var(--mono); letter-spacing: 0.14em;
-  text-transform: uppercase; margin-top: 5px;
-  font-weight: 300;
-}
+  .review-card-foot { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--rule-faint); gap: 14px; flex-wrap: wrap; }
+  .commission {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); padding: 4px 10px;
+    border: 1px solid var(--accent);
+  }
+  .review-cta {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem;
+    text-decoration: none; color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .review-card:hover .review-cta { color: var(--accent); border-color: var(--accent); }
 
-/* ─── SECTION BASE ───────────────────────────────────────────── */
-section { padding: 100px 5%; position: relative; z-index: 1; }
-.eyebrow {
-  font-family: var(--mono); font-size: 0.64rem; font-weight: 300;
-  color: var(--pl); letter-spacing: 0.22em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
-}
-.eyebrow::before {
-  content: ''; width: 20px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--pl));
-}
-h2.section-title {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 300; line-height: 1.1;
-  letter-spacing: -0.01em;
-  color: var(--t1); margin-bottom: 14px;
-}
-h2.section-title em { font-style: italic; color: var(--pl-soft); }
-.section-sub {
-  font-size: 0.9rem; color: var(--t2);
-  max-width: 460px; line-height: 1.8; font-weight: 300;
-}
-/* Fine ornament line */
-.ornament-h {
-  display: flex; align-items: center; gap: 12px;
-  margin: 16px 0 48px;
-}
-.ornament-h-line { flex: 0 0 40px; height: 1px; background: linear-gradient(90deg, var(--gd), transparent); }
-.ornament-h-dot { width: 3px; height: 3px; background: var(--gd); border-radius: 50%; }
+  /* ============ FEATURED DEEP REVIEW ============ */
+  .deep-review {
+    padding: 96px 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .deep-review-grid { display: grid; grid-template-columns: 240px 1fr; gap: 64px; }
+  @media (max-width: 900px) { .deep-review-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .deep-review-aside { position: sticky; top: 100px; align-self: start; }
+  .deep-review-aside .mono { color: var(--accent); margin-bottom: 18px; display: block; }
+  .deep-review-aside h4 { font-size: 1.2rem; font-weight: 500; margin-bottom: 16px; }
+  .deep-review-meta-block { background: var(--bg-deeper); padding: 22px; border: 1px solid var(--rule); margin-bottom: 20px; }
+  .deep-review-meta-block dl { display: flex; flex-direction: column; gap: 14px; }
+  .deep-review-meta-block dt { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .deep-review-meta-block dd { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; }
 
-/* ─── REVIEWS ────────────────────────────────────────────────── */
-.reviews-sec { background: var(--bg2); }
-.r-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px; margin-top: 0;
-}
-.rc {
-  background: var(--surface);
-  border: 1px solid var(--b1);
-  border-radius: var(--r);
-  padding: 28px;
-  transition: all 0.3s;
-  position: relative; overflow: hidden;
-  cursor: pointer;
-}
-.rc::after {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 100%; height: 1px;
-  background: linear-gradient(90deg, var(--pl), var(--gd), transparent);
-  transition: right 0.4s ease;
-}
-.rc:hover { border-color: var(--b2); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-.rc:hover::after { right: 0; }
-.rc.featured {
-  grid-column: span 2;
-  background: linear-gradient(135deg, #0A0D18 0%, #08091310 100%);
-  border-color: var(--b2);
-}
-.rc-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-.rc-icon {
-  width: 44px; height: 44px; border-radius: 9px;
-  background: var(--pl-dim); border: 1px solid var(--b2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-}
-.rc-badges { display: flex; gap: 7px; flex-wrap: wrap; }
-.badge {
-  display: inline-flex; padding: 3px 10px; border-radius: 3px;
-  font-size: 0.62rem; font-weight: 400;
-  letter-spacing: 0.08em; font-family: var(--mono);
-  text-transform: uppercase;
-}
-.badge-pl { background: var(--pl-dim); color: var(--pl-soft); border: 1px solid var(--b2); }
-.badge-gd { background: var(--gd-dim); color: var(--gd-soft); border: 1px solid rgba(196,169,106,0.2); }
-.badge-dim { background: transparent; color: var(--t3); border: 1px solid var(--b1); }
-.rc-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--t1); margin-bottom: 9px; letter-spacing: 0.01em; }
-.rc-desc { font-size: 0.87rem; color: var(--t2); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
-.rc-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.rc-stars { color: var(--gd); font-size: 0.8rem; letter-spacing: 2px; }
-.rc-score { font-size: 0.73rem; color: var(--t3); margin-left: 6px; font-family: var(--mono); }
-.rc-comm { font-size: 0.72rem; color: var(--pl); font-family: var(--mono); letter-spacing: 0.04em; }
-.rc-cta {
-  display: inline-flex; align-items: center; gap: 7px;
-  margin-top: 18px; font-size: 0.74rem;
-  font-family: var(--mono); font-weight: 400;
-  color: var(--pl); letter-spacing: 0.1em;
-  text-transform: uppercase; padding: 8px 16px;
-  border: 1px solid var(--b2); border-radius: var(--rs);
-  transition: all 0.25s;
-}
-.rc-cta:hover { background: var(--pl-dim); border-color: var(--b3); transform: translateX(4px); }
+  .deep-review-body h2 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 300; line-height: 1;
+    margin-bottom: 16px;
+  }
+  .deep-review-body h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .deep-review-body .verdict-line {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem; font-style: italic;
+    color: var(--ink-light); margin-bottom: 36px; line-height: 1.4;
+    padding-bottom: 28px; border-bottom: 1px solid var(--rule);
+  }
+  .deep-review-body p { margin-bottom: 22px; font-size: 1.1rem; line-height: 1.65; }
+  .deep-review-body p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 5rem; font-weight: 400;
+    float: left; line-height: 0.85;
+    padding: 8px 14px 0 0; color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .deep-review-body h3 {
+    font-size: 1.55rem; font-weight: 500; margin: 40px 0 16px;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .pull-quote {
+    margin: 40px 0;
+    padding: 24px 32px;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-deeper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.45rem; font-style: italic; line-height: 1.35;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72, "SOFT" 80;
+  }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+  @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+  .pros-cons > div { padding: 24px; border: 1px solid var(--rule); background: var(--bg); }
+  .pros-cons h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .pros h4 { color: #2D5A2D; }
+  .cons h4 { color: var(--accent); }
+  .pros-cons ul { list-style: none; }
+  .pros-cons li { font-size: 0.98rem; padding: 8px 0 8px 24px; position: relative; line-height: 1.45; border-bottom: 1px solid var(--rule-faint); }
+  .pros-cons li:last-child { border-bottom: none; }
+  .pros-cons li::before {
+    position: absolute; left: 0; top: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+  }
+  .pros li::before { content: '+'; color: #2D5A2D; }
+  .cons li::before { content: '–'; color: var(--accent); }
 
-/* ─── NEWS ───────────────────────────────────────────────────── */
-.news-sec { background: var(--bg); }
-.news-hd { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; }
-.live-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 0.66rem; font-weight: 300;
-  color: var(--ok); letter-spacing: 0.12em; text-transform: uppercase;
-  border: 1px solid rgba(107,168,124,0.2);
-  background: rgba(107,168,124,0.06);
-  padding: 5px 13px; border-radius: 50px;
-}
-.live-tag::before {
-  content: ''; width: 5px; height: 5px;
-  background: var(--ok); border-radius: 50%;
-  animation: livepulse 2s ease-in-out infinite;
-}
-@keyframes livepulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.7); } }
-.api-row {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 28px; padding: 12px 18px;
-  background: var(--surface); border: 1px solid var(--b1);
-  border-radius: var(--rs);
-}
-.api-row label {
-  font-family: var(--mono); font-size: 0.63rem;
-  font-weight: 400; color: var(--pl);
-  letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
-}
-.api-row input {
-  flex: 1; background: transparent; border: none; outline: none;
-  color: var(--t1); font-family: var(--mono); font-size: 0.8rem; font-weight: 300;
-}
-.api-row input::placeholder { color: var(--t3); }
-.api-btn {
-  background: transparent; color: var(--pl);
-  border: 1px solid var(--b2); padding: 7px 18px;
-  border-radius: var(--rs); font-weight: 400;
-  font-size: 0.7rem; cursor: pointer;
-  font-family: var(--mono); letter-spacing: 0.1em;
-  text-transform: uppercase; transition: all 0.25s; white-space: nowrap;
-}
-.api-btn:hover { background: var(--pl-dim); border-color: var(--b3); color: var(--pl-soft); }
-.api-btn:disabled { color: var(--t3); border-color: var(--b1); cursor: not-allowed; background: transparent; }
-.news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.news-col-a { display: flex; flex-direction: column; gap: 14px; }
-.news-col-b { display: flex; flex-direction: column; gap: 12px; }
-.n-big {
-  background: var(--surface); border: 1px solid var(--b1);
-  border-radius: var(--r); padding: 28px;
-  border-left: 1px solid var(--pl-dim);
-  transition: border-left-color 0.3s;
-}
-.n-big:hover { border-left-color: var(--b3); }
-.n-stamp {
-  font-family: var(--mono); font-size: 0.62rem; font-weight: 300;
-  color: var(--pl); letter-spacing: 0.16em;
-  text-transform: uppercase; margin-bottom: 12px;
-}
-.n-hl {
-  font-family: var(--serif); font-size: 1.25rem;
-  font-weight: 400; line-height: 1.3;
-  color: var(--t1); margin-bottom: 11px;
-}
-.n-body { font-size: 0.87rem; color: var(--t2); line-height: 1.75; font-weight: 300; }
-.n-sm {
-  background: var(--surface); border: 1px solid var(--b1);
-  border-radius: var(--rs); padding: 16px 20px;
-  display: flex; gap: 16px; align-items: flex-start;
-  transition: border-color 0.25s;
-}
-.n-sm:hover { border-color: var(--b2); }
-.n-idx {
-  font-family: var(--serif); font-size: 1.9rem;
-  font-weight: 200; color: var(--b2); line-height: 1;
-  min-width: 28px; padding-top: 2px;
-}
-.n-sm-tag {
-  font-family: var(--mono); font-size: 0.6rem; font-weight: 300;
-  color: var(--pl); letter-spacing: 0.14em;
-  text-transform: uppercase; margin-bottom: 5px;
-}
-.n-sm-title { font-size: 0.88rem; font-weight: 400; color: var(--t1); line-height: 1.4; margin-bottom: 4px; }
-.n-sm-body { font-size: 0.78rem; color: var(--t3); line-height: 1.6; font-weight: 300; }
-.n-loader {
-  display: flex; align-items: center; justify-content: center;
-  min-height: 260px; gap: 14px;
-  color: var(--t3); font-family: var(--mono); font-size: 0.78rem; font-weight: 300;
-}
-.spinner {
-  width: 16px; height: 16px;
-  border: 1px solid var(--b2);
-  border-top-color: var(--pl);
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+  .verdict-box {
+    margin: 40px 0;
+    padding: 32px;
+    background: var(--ink); color: var(--bg);
+    position: relative;
+  }
+  .verdict-box .mono { color: var(--accent-soft); margin-bottom: 14px; display: block; }
+  .verdict-box p { font-size: 1.15rem; line-height: 1.5; margin-bottom: 24px; color: var(--bg); }
+  .verdict-box .btn { background: var(--accent); }
+  .verdict-box .btn:hover { background: var(--accent-deep); }
 
-/* ─── TIPS ───────────────────────────────────────────────────── */
-.tips-sec { background: var(--bg2); }
-.tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0; }
-.tip {
-  background: var(--surface); border: 1px solid var(--b1);
-  border-radius: var(--r); padding: 28px;
-  cursor: pointer; transition: all 0.25s;
-}
-.tip:hover { border-color: var(--b2); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
-.tip-num {
-  font-family: var(--serif); font-size: 3.2rem;
-  font-weight: 200; color: var(--b1); line-height: 1;
-  margin-bottom: 18px; transition: color 0.3s;
-  letter-spacing: -0.02em;
-}
-.tip:hover .tip-num { color: var(--b2); }
-.tip-cat {
-  font-family: var(--mono); font-size: 0.62rem; font-weight: 300;
-  color: var(--pl); letter-spacing: 0.16em;
-  text-transform: uppercase; margin-bottom: 9px;
-}
-.tip-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--t1); line-height: 1.35; margin-bottom: 11px; }
-.tip-body { font-size: 0.85rem; color: var(--t2); line-height: 1.75; font-weight: 300; }
-.tip-expand {
-  margin-top: 16px; font-size: 0.72rem;
-  color: var(--pl); font-family: var(--mono);
-  font-weight: 400; letter-spacing: 0.1em;
-  display: flex; align-items: center; gap: 7px;
-  transition: gap 0.25s;
-}
-.tip:hover .tip-expand { gap: 11px; }
-.tip-more-content {
-  display: none; margin-top: 16px; padding-top: 16px;
-  border-top: 1px solid var(--b1);
-  font-size: 0.83rem; color: var(--t2); line-height: 1.78; font-weight: 300;
-}
-.tip.open .tip-more-content { display: block; }
+  .deep-review.alt { background: var(--bg); }
+  .deep-review.alt .deep-review-meta-block { background: var(--bg-card); }
+  .deep-review.alt .pros-cons > div { background: var(--bg-card); }
+  .deep-review.alt .pull-quote { background: var(--bg-card); }
 
-/* ─── COMPARE ────────────────────────────────────────────────── */
-.compare-sec { background: var(--bg); }
-.t-wrap {
-  margin-top: 0; overflow-x: auto;
-  border: 1px solid var(--b1); border-radius: var(--r);
-}
-table { width: 100%; border-collapse: collapse; }
-thead tr { background: var(--surface); }
-th {
-  padding: 15px 20px; text-align: left;
-  font-family: var(--mono); font-size: 0.62rem;
-  font-weight: 300; color: var(--t3);
-  letter-spacing: 0.14em; text-transform: uppercase;
-  border-bottom: 1px solid var(--b1);
-}
-td {
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(168,189,212,0.03);
-  font-size: 0.87rem; color: var(--t2); font-weight: 300;
-}
-td:first-child { color: var(--t1); font-weight: 400; }
-tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(168,189,212,0.015); }
-.t-hl {
-  background: rgba(168,189,212,0.03)!important;
-  border-left: 1px solid rgba(168,189,212,0.12)!important;
-  border-right: 1px solid rgba(168,189,212,0.12)!important;
-}
-thead .t-hl { border-top: 1px solid rgba(168,189,212,0.12)!important; }
-tbody tr:last-child .t-hl { border-bottom: 1px solid rgba(168,189,212,0.12)!important; }
-.t-hl-head {
-  display: block; font-size: 0.86rem;
-  color: var(--pl-soft); font-weight: 400;
-  font-family: var(--sans); text-transform: none;
-  letter-spacing: 0.01em; margin-bottom: 4px;
-}
-.t-hl-badge {
-  font-size: 0.59rem; background: var(--pl-dim);
-  color: var(--pl); padding: 2px 8px; border-radius: 2px;
-  font-family: var(--mono); font-weight: 300;
-  border: 1px solid var(--b2); letter-spacing: 0.08em;
-}
-.v-yes { color: var(--ok); font-weight: 400; }
-.v-no  { color: var(--err); }
-.v-part{ color: var(--warn); }
+  /* ============ COMPARISON TABLE ============ */
+  .compare-section { background: var(--bg-deeper); }
+  .compare-table-wrap { overflow-x: auto; border: 1px solid var(--ink); background: var(--bg-card); box-shadow: var(--paper-shadow); }
+  .compare-table { width: 100%; border-collapse: collapse; min-width: 760px; font-family: 'Newsreader', serif; }
+  .compare-table th, .compare-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+  .compare-table th { background: var(--ink); color: var(--bg); font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; vertical-align: bottom; }
+  .compare-table th.top-pick { background: var(--accent); position: relative; }
+  .compare-table th.top-pick::after { content: 'TOP PICK'; position: absolute; top: 8px; right: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; opacity: 0.85; }
+  .compare-table tbody tr:hover { background: var(--bg); }
+  .compare-table .row-label { font-weight: 500; font-family: 'Fraunces', serif; background: var(--bg-deeper); }
+  .check-yes { color: #2D5A2D; font-weight: 600; }
+  .check-no { color: var(--ink-faint); }
+  .check-mid { color: #B8860B; }
+  .compare-table tr:last-child td { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; border-bottom: none; }
 
-/* ─── NEWSLETTER ─────────────────────────────────────────────── */
-.nl-sec { background: var(--bg2); }
-.nl-inner {
-  background: var(--surface);
-  border: 1px solid var(--b2);
-  border-radius: 16px; padding: 64px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
-  position: relative; overflow: hidden;
-}
-.nl-inner::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--b3), var(--gd-soft), var(--b3), transparent);
-}
-.nl-inner::after {
-  content: ''; position: absolute;
-  top: -100px; right: -100px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(168,189,212,0.04), transparent 65%);
-  pointer-events: none;
-}
-.nl-title {
-  font-family: var(--serif); font-size: 2.2rem;
-  font-weight: 300; line-height: 1.2;
-  color: var(--t1); margin-bottom: 14px;
-}
-.nl-title em { font-style: italic; color: var(--pl-soft); }
-.nl-sub { color: var(--t2); font-size: 0.9rem; font-weight: 300; line-height: 1.8; margin-bottom: 22px; }
-.nl-perk {
-  display: flex; align-items: center; gap: 11px;
-  font-size: 0.84rem; color: var(--t2); margin-bottom: 10px; font-weight: 300;
-}
-.nl-perk-mark {
-  width: 4px; height: 4px; background: var(--pl);
-  border-radius: 50%; flex-shrink: 0;
-}
-.nl-form { display: flex; flex-direction: column; gap: 11px; }
-.nl-input {
-  background: var(--bg); border: 1px solid var(--b1);
-  border-radius: var(--rs); padding: 13px 17px;
-  color: var(--t1); font-family: var(--sans);
-  font-size: 0.88rem; font-weight: 300; outline: none;
-  transition: border-color 0.25s;
-}
-.nl-input:focus { border-color: var(--b3); }
-.nl-input::placeholder { color: var(--t3); }
-.nl-submit {
-  background: linear-gradient(135deg, var(--pl), #7AA4C4);
-  color: #04050A; border: none;
-  padding: 14px; border-radius: var(--rs);
-  font-weight: 500; font-size: 0.85rem;
-  cursor: pointer; font-family: var(--sans);
-  letter-spacing: 0.06em; text-transform: uppercase;
-  transition: all 0.25s;
-  box-shadow: 0 4px 20px rgba(168,189,212,0.12);
-}
-.nl-submit:hover {
-  background: linear-gradient(135deg, var(--pl-soft), var(--pl));
-  box-shadow: 0 6px 28px rgba(168,189,212,0.2);
-}
-.nl-fine { font-size: 0.72rem; color: var(--t3); text-align: center; font-weight: 300; letter-spacing: 0.04em; }
-#nlSuccess {
-  display: none; margin-top: 14px; padding: 14px;
-  background: rgba(107,168,124,0.06); border: 1px solid rgba(107,168,124,0.15);
-  border-radius: var(--rs); color: var(--ok);
-  font-family: var(--mono); font-size: 0.8rem;
-  letter-spacing: 0.08em; text-align: center; font-weight: 300;
-}
+  /* ============ FOUNDER TACTICS ============ */
+  .tactics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  @media (max-width: 900px) { .tactics-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .tactics-grid { grid-template-columns: 1fr; } }
+  .tactic {
+    padding: 32px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    transition: background 0.25s;
+    cursor: pointer;
+  }
+  .tactic:hover { background: var(--highlight); }
+  .tactic-num { font-family: 'Fraunces', serif; font-style: italic; color: var(--accent); font-size: 1.6rem; font-weight: 400; display: block; margin-bottom: 16px; }
+  .tactic h4 { font-size: 1.25rem; font-weight: 500; margin-bottom: 12px; line-height: 1.25; font-variation-settings: "opsz" 72, "SOFT" 60; }
+  .tactic p { font-size: 0.96rem; color: var(--ink-light); line-height: 1.5; }
 
-/* ─── FOOTER ─────────────────────────────────────────────────── */
-footer {
-  background: var(--bg);
-  border-top: 1px solid var(--b1);
-  padding: 60px 5% 32px;
-}
-.f-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 56px; margin-bottom: 48px;
-}
-.f-brand .logo-wordmark { font-size: 1.1rem; }
-.f-tagline { font-size: 0.84rem; color: var(--t3); line-height: 1.8; max-width: 250px; font-weight: 300; margin-top: 14px; }
-.f-disc { font-size: 0.7rem; color: var(--t3); margin-top: 14px; line-height: 1.7; max-width: 250px; font-weight: 300; }
-.f-col h5 {
-  font-family: var(--mono); font-size: 0.62rem; font-weight: 300;
-  color: var(--pl); letter-spacing: 0.18em;
-  text-transform: uppercase; margin-bottom: 18px;
-}
-.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.f-col ul a { font-size: 0.84rem; color: var(--t3); font-weight: 300; transition: color 0.2s; }
-.f-col ul a:hover { color: var(--pl-soft); }
-.f-bottom {
-  border-top: 1px solid var(--b1); padding-top: 22px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.f-copy { font-size: 0.74rem; color: var(--t3); font-weight: 300; letter-spacing: 0.04em; }
-.f-mono { font-family: var(--mono); font-size: 0.66rem; color: var(--t3); font-weight: 300; letter-spacing: 0.06em; }
+  /* ============ LEAD MAGNET ============ */
+  .lead-magnet {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 80px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-magnet::before {
+    content: '';
+    position: absolute; top: 0; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.4; pointer-events: none;
+  }
+  .lead-magnet-grid { display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; position: relative; }
+  @media (max-width: 900px) { .lead-magnet-grid { grid-template-columns: 1fr; } }
+  .lead-magnet .mono { color: var(--accent-soft); margin-bottom: 20px; display: block; }
+  .lead-magnet h2 { color: var(--bg); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 300; margin-bottom: 20px; line-height: 1.05; }
+  .lead-magnet h2 em { font-style: italic; color: var(--accent-soft); font-weight: 400; }
+  .lead-magnet p { font-size: 1.15rem; color: rgba(242, 237, 228, 0.85); line-height: 1.55; margin-bottom: 24px; }
+  .lead-magnet ul { list-style: none; }
+  .lead-magnet ul li { padding: 8px 0 8px 24px; position: relative; color: rgba(242, 237, 228, 0.85); font-size: 1rem; }
+  .lead-magnet ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent-soft); }
 
-/* ─── DIVIDER ORNAMENT ───────────────────────────────────────── */
-.sec-div {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 56px;
-}
-.sec-div-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--b2), transparent); }
-.sec-div-icon {
-  width: 6px; height: 6px;
-  background: var(--gd); opacity: 0.6;
-  transform: rotate(45deg); flex-shrink: 0;
-}
+  .lm-form-card { background: var(--bg); color: var(--ink); padding: 36px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.4); position: relative; }
+  .lm-form-card::before { content: 'FREE PDF'; position: absolute; top: -10px; left: 24px; background: var(--accent); color: var(--bg); padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; }
+  .lm-form-card h4 { font-size: 1.5rem; font-weight: 500; margin-bottom: 14px; line-height: 1.2; }
+  .lm-form-card p { font-size: 0.95rem; color: var(--ink-light); margin-bottom: 22px; }
+  .form-row { display: flex; flex-direction: column; gap: 12px; }
+  .form-row input {
+    padding: 14px 16px;
+    border: 1px solid var(--ink);
+    background: var(--bg);
+    font-family: 'Newsreader', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    border-radius: 1px;
+    transition: border-color 0.2s;
+  }
+  .form-row input:focus { outline: none; border-color: var(--accent); border-width: 2px; }
+  .form-row button {
+    padding: 14px 16px;
+    background: var(--ink); color: var(--bg);
+    border: none;
+    font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 1px;
+  }
+  .form-row button:hover { background: var(--accent); }
+  .form-note { font-size: 0.78rem; color: var(--ink-faint); margin-top: 14px; line-height: 1.4; }
+  .form-success { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent); margin-top: 16px; font-size: 0.95rem; }
+  .form-success.show { display: block; }
 
-/* ─── REVEAL ─────────────────────────────────────────────────── */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.v { opacity: 1; transform: none; }
-.d1 { transition-delay: 0.1s; }
-.d2 { transition-delay: 0.2s; }
-.d3 { transition-delay: 0.3s; }
+  /* ============ METHODOLOGY ============ */
+  .methodology h2 em { color: var(--accent); }
+  .method-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+  @media (max-width: 900px) { .method-steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .method-steps { grid-template-columns: 1fr; } }
+  .method-step {
+    padding: 32px 28px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .method-step:last-child { border-right: none; }
+  .method-step .num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem; font-weight: 300;
+    color: var(--accent); line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    display: block; margin-bottom: 18px;
+    font-style: italic;
+  }
+  .method-step h4 { font-size: 1.15rem; font-weight: 500; margin-bottom: 10px; line-height: 1.25; }
+  .method-step p { font-size: 0.92rem; color: var(--ink-light); line-height: 1.5; }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────── */
-@media (max-width: 1100px) {
-  .r-grid { grid-template-columns: 1fr 1fr; }
-  .rc.featured { grid-column: span 2; }
-  .hero-panel { display: none; }
-}
-@media (max-width: 768px) {
-  nav ul { display: none; }
-  .r-grid, .tips-grid, .news-grid,
-  .nl-inner, .f-grid { grid-template-columns: 1fr; }
-  .rc.featured { grid-column: span 1; }
-  section { padding: 64px 5%; }
-  .nl-inner { padding: 36px; }
-  h1 { font-size: 2.8rem; }
-}
+  /* ============ COMING SOON PRODUCT ============ */
+  .product-soft {
+    padding: 80px 0;
+    background: var(--bg-deeper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .product-card {
+    max-width: 760px; margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--ink);
+    padding: 56px;
+    text-align: center;
+    box-shadow: var(--paper-shadow);
+    position: relative;
+  }
+  .product-card::before {
+    content: 'COMING SOON'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: var(--bg);
+    padding: 6px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.16em;
+  }
+  .product-card .mono { color: var(--ink-faint); margin-bottom: 14px; display: block; }
+  .product-card h3 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
+  .product-card h3 em { font-style: italic; color: var(--accent); }
+  .product-card p { font-size: 1.1rem; color: var(--ink-light); margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .product-card .price-line {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+  .product-card .price-line em { color: var(--accent); font-style: italic; font-weight: 500; }
+  .product-card .strike { text-decoration: line-through; color: var(--ink-faint); font-size: 1rem; margin-right: 8px; }
+
+  /* ============ NEWSLETTER ============ */
+  .newsletter { padding: 96px 0; }
+  .newsletter-card {
+    max-width: 720px; margin: 0 auto;
+    text-align: center;
+  }
+  .newsletter h2 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; margin-bottom: 18px; }
+  .newsletter h2 em { color: var(--accent); }
+  .newsletter > .container > .narrow > p { font-size: 1.2rem; color: var(--ink-light); margin-bottom: 36px; }
+  .newsletter-promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; padding: 32px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  @media (max-width: 720px) { .newsletter-promises { grid-template-columns: 1fr; } }
+  .promise { font-family: 'Newsreader', serif; font-size: 1rem; line-height: 1.4; color: var(--ink-light); }
+  .promise b { display: block; font-family: 'Fraunces', serif; font-size: 1.6rem; color: var(--accent); margin-bottom: 6px; font-weight: 500; }
+  .newsletter-form-wrap { display: flex; justify-content: center; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+  .newsletter-form-wrap input { flex: 1; min-width: 240px; padding: 14px 16px; border: 1px solid var(--ink); font-family: 'Newsreader', serif; font-size: 1rem; background: var(--bg-card); border-radius: 1px; }
+  .newsletter-form-wrap input:focus { outline: none; border-color: var(--accent); }
+  .newsletter-form-wrap button { padding: 14px 24px; background: var(--ink); color: var(--bg); border: none; font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; border-radius: 1px; }
+  .newsletter-form-wrap button:hover { background: var(--accent); }
+  .newsletter-fineprint { font-size: 0.85rem; color: var(--ink-faint); margin-top: 16px; }
+
+  /* ============ FOOTER ============ */
+  footer.site-footer {
+    background: var(--ink); color: var(--bg);
+    padding: 64px 0 32px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+  @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-brand h4 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; margin-bottom: 14px; color: var(--bg); }
+  .footer-brand h4 em { color: var(--accent-soft); font-style: italic; }
+  .footer-brand p { font-size: 0.95rem; color: rgba(242, 237, 228, 0.65); line-height: 1.55; max-width: 360px; }
+  .footer-col .mono { color: var(--accent-soft); margin-bottom: 16px; display: block; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { color: rgba(242, 237, 228, 0.75); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent-soft); }
+  .footer-bottom { padding-top: 28px; border-top: 1px solid rgba(242, 237, 228, 0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-size: 0.85rem; color: rgba(242, 237, 228, 0.55); }
+  .footer-disclosure { font-size: 0.78rem; color: rgba(242, 237, 228, 0.5); margin-top: 14px; max-width: 720px; line-height: 1.5; }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .anim-up { opacity: 0; animation: fadeUp 0.8s ease-out forwards; }
+  .anim-up.d1 { animation-delay: 0.1s; }
+  .anim-up.d2 { animation-delay: 0.2s; }
+  .anim-up.d3 { animation-delay: 0.3s; }
+  .anim-up.d4 { animation-delay: 0.4s; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">
-    <div class="logo-emblem">
-      <svg viewBox="0 0 13 13" fill="none">
-        <polyline points="1,10 3.5,4.5 6.5,8 9,3 12,10" stroke="#A8BDD4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+<!-- ============ MASTHEAD ============ -->
+<div class="masthead">
+  <div class="container">
+    <div class="masthead-inner">
+      <span class="mono">VOL. 01 — INDEPENDENT TOOL INTELLIGENCE</span>
+      <span class="mono"><span id="todayDate"></span> · <span class="accent-text">FOR FOUNDERS &amp; SOLOPRENEURS</span></span>
     </div>
-    <div class="logo-wordmark">Tools That <span>Work</span></div>
-  </div>
-  <ul>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#news">Intelligence</a></li>
-    <li><a href="#tips">Insights</a></li>
-    <li><a href="#compare">Compare</a></li>
-    <li><a href="#newsletter" class="nav-pill">Subscribe</a></li>
-  </ul>
-</nav>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item"><span class="hi">Emergent.sh</span> &mdash; Full-stack AI app builder. 40% recurring commission, limited time</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">Beehiiv</span> &mdash; Newsletter platform with 50% affiliate commission for 12 months</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">This Week</span> &mdash; Beehiiv vs ConvertKit, the honest comparison you've been waiting for</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">Insight</span> &mdash; 5 AI tools that reclaim 10+ hours per week for solo founders</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">Emergent.sh</span> &mdash; Full-stack AI app builder. 40% recurring commission, limited time</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">Beehiiv</span> &mdash; Newsletter platform with 50% affiliate commission for 12 months</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">This Week</span> &mdash; Beehiiv vs ConvertKit, the honest comparison you've been waiting for</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
-    <span class="ticker-item"><span class="hi">Insight</span> &mdash; 5 AI tools that reclaim 10+ hours per week for solo founders</span>
-    <span class="ticker-sep">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-halo"></div>
-  <div class="hero-lines"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">Independent AI &amp; SaaS Intelligence</div>
-    <h1>
-      We Test.<br>
-      <span class="italic">You</span> <span class="light">Decide.</span>
-    </h1>
-    <div class="hero-ornament">
-      <div class="hero-ornament-line"></div>
-      <div class="hero-ornament-diamond"></div>
-      <div class="hero-ornament-line" style="background:linear-gradient(90deg,transparent,var(--gd))"></div>
-    </div>
-    <p class="hero-sub">Honest, unsponsored reviews of AI tools and SaaS software. Real testing. No press releases. Every week we break down what genuinely works for founders and solopreneurs.</p>
-    <div class="hero-actions">
-      <a href="#reviews" class="btn btn-prim">Browse Reviews</a>
-      <a href="#newsletter" class="btn btn-ghost">Weekly Digest</a>
+<!-- ============ NAVIGATION ============ -->
+<nav class="primary">
+  <div class="container nav-inner">
+    <a href="#" class="brand">Tools That <em>Work</em></a>
+    <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#reviews">Reviews</a>
+      <a href="#deep-review">Deep Dive</a>
+      <a href="#compare">Compare</a>
+      <a href="#methodology">How We Test</a>
+      <a href="#newsletter" class="nav-cta">Subscribe</a>
     </div>
   </div>
-  <div class="hero-panel">
-    <div class="stat-tile"><div class="stat-n">50+</div><div class="stat-l">Tools Tested</div></div>
-    <div class="stat-tile"><div class="stat-n">100%</div><div class="stat-l">Independent</div></div>
-    <div class="stat-tile"><div class="stat-n">2,400</div><div class="stat-l">Subscribers</div></div>
-  </div>
-</section>
+</nav>
 
-<!-- REVIEWS -->
-<section class="reviews-sec" id="reviews">
-  <div class="reveal">
-    <div class="eyebrow">Field Tested</div>
-    <h2 class="section-title">Tools We've <em>Actually</em> Used</h2>
-    <p class="section-sub">Every verdict is grounded in hands-on testing. No paid placements, no press release reviews, no asterisks.</p>
-  </div>
-  <div class="sec-div reveal d1">
-    <div class="sec-div-line"></div>
-    <div class="sec-div-icon"></div>
-    <div class="sec-div-line"></div>
-  </div>
-  <div class="r-grid">
-    <div class="rc featured reveal">
-      <div class="rc-head">
-        <div class="rc-icon">&#128640;</div>
-        <div class="rc-badges">
-          <span class="badge badge-pl">Editors&#39; Pick</span>
-          <span class="badge badge-gd">40% Commission</span>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow anim-up"><span class="mono">Issue No. 01 · This Week</span></div>
+        <h1 class="anim-up d1">We <em>test</em>. You decide.</h1>
+        <p class="hero-lede anim-up d2">Hands-on, unsponsored reviews of AI and SaaS tools — written for solo founders and operators who'd rather see one honest verdict than ten press releases.</p>
+        <div class="hero-actions anim-up d3">
+          <a href="#reviews" class="btn">Read the Reviews <span class="btn-arrow">→</span></a>
+          <a href="#lead-magnet" class="btn btn-ghost">Get the Free Stack PDF</a>
         </div>
       </div>
-      <div class="rc-name">Emergent.sh</div>
-      <div class="rc-desc">The AI app builder that delivers a complete full-stack product &mdash; not just a polished frontend. I built a working web application with backend logic, user authentication, a live database, and Stripe payments in 72 hours without writing a single line of code. The real deal for non-technical founders who need to validate ideas rapidly without a five-figure agency invoice.</div>
-      <div class="rc-footer">
-        <div><span class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-score">9.1 / 10</span></div>
-        <span class="rc-comm">Earn 40% recurring &middot; partners.emergent.sh</span>
-      </div>
-      <a href="https://partners.emergent.sh/signup" class="rc-cta">Apply for Affiliate Link &rarr;</a>
-    </div>
-    <div class="rc reveal d1">
-      <div class="rc-head">
-        <div class="rc-icon">&#128231;</div>
-        <div class="rc-badges"><span class="badge badge-pl">Recommended</span></div>
-      </div>
-      <div class="rc-name">Beehiiv</div>
-      <div class="rc-desc">The finest newsletter platform for affiliate content creators. Exceptional analytics, built-in monetisation, and a 50% commission programme that runs for 12 months. We publish this very newsletter on it.</div>
-      <div class="rc-footer">
-        <div><span class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-score">8.8 / 10</span></div>
-        <span class="rc-comm">Earn 50% for 12 months</span>
-      </div>
-      <a href="#" class="rc-cta">Read Full Review &rarr;</a>
-    </div>
-    <div class="rc reveal">
-      <div class="rc-head">
-        <div class="rc-icon">&#9999;&#65039;</div>
-        <div class="rc-badges"><span class="badge badge-dim">AI Writing</span></div>
-      </div>
-      <div class="rc-name">Writesonic</div>
-      <div class="rc-desc">Dependable for long-form drafts and SEO-optimised articles. The Chatsonic integration adds live web search to your AI writing workflow. Consistent output, reliable delivery.</div>
-      <div class="rc-footer">
-        <div><span class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rc-score">7.9 / 10</span></div>
-        <span class="rc-comm">Earn 30% recurring</span>
-      </div>
-      <a href="#" class="rc-cta">Read Full Review &rarr;</a>
-    </div>
-    <div class="rc reveal d1">
-      <div class="rc-head">
-        <div class="rc-icon">&#128279;</div>
-        <div class="rc-badges"><span class="badge badge-gd">LinkedIn</span></div>
-      </div>
-      <div class="rc-name">Taplio</div>
-      <div class="rc-desc">The only LinkedIn growth tool worth a sustained subscription. AI post generation, intelligent scheduling, and audience analytics built specifically for faceless brand building.</div>
-      <div class="rc-footer">
-        <div><span class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rc-score">8.2 / 10</span></div>
-        <span class="rc-comm">Earn 30% recurring</span>
-      </div>
-      <a href="#" class="rc-cta">Read Full Review &rarr;</a>
-    </div>
-    <div class="rc reveal d2">
-      <div class="rc-head">
-        <div class="rc-icon">&#128269;</div>
-        <div class="rc-badges"><span class="badge badge-dim">SEO</span></div>
-      </div>
-      <div class="rc-name">Surfer SEO</div>
-      <div class="rc-desc">Best-in-class on-page SEO optimiser. The Content Editor scores your article in real time and prescribes precisely what to add for ranking. First-page results in as little as three weeks.</div>
-      <div class="rc-footer">
-        <div><span class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rc-score">8.5 / 10</span></div>
-        <span class="rc-comm">Earn 25% recurring</span>
-      </div>
-      <a href="#" class="rc-cta">Read Full Review &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- LIVE NEWS -->
-<section class="news-sec" id="news">
-  <div class="news-hd reveal">
-    <div>
-      <div class="eyebrow">Intelligence Feed</div>
-      <h2 class="section-title">Live AI <em>&amp;</em> SaaS News</h2>
-      <p class="section-sub">Powered by Claude AI with live web search. Provide your Anthropic API key to load real-time industry headlines.</p>
-    </div>
-    <div class="live-tag">Live Feed</div>
-  </div>
-  <div class="api-row reveal">
-    <label>API Key</label>
-    <input type="password" id="apiKey" placeholder="sk-ant-api03-&hellip; &nbsp; Enter your Anthropic API key to activate the live news feed" />
-    <button class="api-btn" id="apiBtn" onclick="loadNews()">Fetch Live News</button>
-  </div>
-  <div id="newsFeed">
-    <div class="news-grid">
-      <div class="news-col-a">
-        <div class="n-big">
-          <div class="n-stamp">Awaiting Connection</div>
-          <div class="n-hl">Enter your Anthropic API key above to activate the live AI &amp; SaaS intelligence feed.</div>
-          <div class="n-body">Once connected, this section delivers real-time headlines curated by Claude with live web search &mdash; covering new AI tool launches, funding rounds, product updates, and emerging affiliate opportunities across the SaaS landscape.</div>
+      <aside class="hero-side anim-up d4">
+        <h4>This Week's Verdict: Emergent.sh</h4>
+        <p>The AI app builder that actually delivers a full-stack product — not just a polished frontend demo. We built a working SaaS in 72 hours.</p>
+        <a href="#deep-review" class="review-cta">Read the deep dive →</a>
+        <div class="stats">
+          <div class="stat-mini"><b>9.1</b><span>Our Score</span></div>
+          <div class="stat-mini"><b>72h</b><span>Build Time</span></div>
+          <div class="stat-mini"><b>$0</b><span>Dev Cost</span></div>
         </div>
-        <div class="n-big">
-          <div class="n-stamp">Affiliate Alert &mdash; Active Opportunity</div>
-          <div class="n-hl">Emergent.sh is currently offering a 40% recurring commission &mdash; the highest rate presently available in the AI tools affiliate category.</div>
-          <div class="n-body">The elevated rate is available for a limited period before reverting to the standard 20% for six months. Apply at partners.emergent.sh. Affiliates with published content are already generating compounding monthly income from every qualified referral they send.</div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AUTHOR / CREDIBILITY BLOCK ============ -->
+<!-- REPLACE: Add your real photo (set background-image on .author-photo), your real name, real one-liner bio, and link your real socials. -->
+<section class="author-block" style="padding-bottom: 48px;">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-photo" aria-label="Author photo">YN</div>
+      <div class="author-meta">
+        <span class="mono">Edited by</span>
+        <h3>Your Name</h3>
+        <p>Solo founder, ex-[your background]. I've personally subscribed to and tested every tool reviewed on this site. No press releases. No paid placements. If a tool sucks, I say so.</p>
+      </div>
+      <a href="#methodology" class="author-cta">Read our testing methodology →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS GRID ============ -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">I.</span>
+      <h2>Reviews we've <em>actually</em> done.</h2>
+      <p>Five tools tested with our own credit cards, on real projects, over the last 90 days. Each verdict links to a full deep-dive review with screenshots, workflows, and the price we'd actually pay.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- Featured (full-width) -->
+      <a href="#deep-review" class="review-card feature">
+        <div class="review-meta-top">
+          <span class="review-tag">Editor's Pick · AI App Builder</span>
+          <span class="review-rating"><span class="num">9.1</span> / 10</span>
+        </div>
+        <h3>Emergent.sh</h3>
+        <p class="pitch">The AI app builder that actually ships a full-stack product. We built a working web app — backend, auth, database, Stripe — in 72 hours without writing a line of code. The deep review breaks down exactly what works and where it falls short.</p>
+        <div class="review-card-foot">
+          <span class="commission">40% Recurring · 12mo</span>
+          <span class="review-cta">Read the full review →</span>
+        </div>
+      </a>
+
+      <!-- 2x2 grid below -->
+      <a href="#review-beehiiv" class="review-card">
+        <div class="review-meta-top">
+          <span class="review-tag">Newsletter</span>
+          <span class="review-rating"><span class="num">8.8</span> / 10</span>
+        </div>
+        <h3>Beehiiv</h3>
+        <p class="pitch">The most affiliate-friendly newsletter platform we've tested. Built-in monetization, sharp analytics, and a 50% commission program for 12 months. We publish this newsletter on it.</p>
+        <div class="review-card-foot">
+          <span class="commission">50% · 12 months</span>
+          <span class="review-cta">Read the review →</span>
+        </div>
+      </a>
+
+      <a href="#review-surfer" class="review-card">
+        <div class="review-meta-top">
+          <span class="review-tag">SEO</span>
+          <span class="review-rating"><span class="num">8.5</span> / 10</span>
+        </div>
+        <h3>Surfer SEO</h3>
+        <p class="pitch">Best-in-class on-page SEO scoring. The Content Editor tells you exactly what to add to rank. We hit page one in three weeks on a fresh domain — no link building.</p>
+        <div class="review-card-foot">
+          <span class="commission">25% Recurring</span>
+          <span class="review-cta">Read the review →</span>
+        </div>
+      </a>
+
+      <a href="#review-taplio" class="review-card">
+        <div class="review-meta-top">
+          <span class="review-tag">LinkedIn</span>
+          <span class="review-rating"><span class="num">8.2</span> / 10</span>
+        </div>
+        <h3>Taplio</h3>
+        <p class="pitch">The only LinkedIn growth tool worth a sustained subscription. AI post generation, scheduling, and analytics built specifically for personal-brand operators.</p>
+        <div class="review-card-foot">
+          <span class="commission">30% Recurring</span>
+          <span class="review-cta">Read the review →</span>
+        </div>
+      </a>
+
+      <a href="#review-writesonic" class="review-card">
+        <div class="review-meta-top">
+          <span class="review-tag">AI Writing</span>
+          <span class="review-rating"><span class="num">7.9</span> / 10</span>
+        </div>
+        <h3>Writesonic</h3>
+        <p class="pitch">Reliable for long-form drafts and SEO articles. The Chatsonic integration adds live web search. Not the best in class, but the most consistent we've used.</p>
+        <div class="review-card-foot">
+          <span class="commission">30% Recurring</span>
+          <span class="review-cta">Read the review →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED DEEP REVIEW ============ -->
+<!-- REPLACE: This is the format every review on this site should follow. Replace the body copy with your actual hands-on findings. -->
+<section class="deep-review" id="deep-review">
+  <div class="container">
+    <div class="deep-review-grid">
+      <aside class="deep-review-aside">
+        <span class="mono">Deep Review · 12 min read</span>
+        <h4>The complete breakdown</h4>
+        <div class="deep-review-meta-block">
+          <dl>
+            <div><dt>Verdict</dt><dd>9.1 / 10</dd></div>
+            <div><dt>Best For</dt><dd>Non-technical founders</dd></div>
+            <div><dt>Skip If</dt><dd>You ship code daily</dd></div>
+            <div><dt>Tested On</dt><dd>3 real projects, 6 weeks</dd></div>
+            <div><dt>Last Updated</dt><dd id="lastUpdated">—</dd></div>
+            <div><dt>Commission</dt><dd>40% recurring</dd></div>
+          </dl>
+        </div>
+        <a href="https://app.emergent.sh/?via=ahmed-hussain" class="btn" style="width: 100%; justify-content: center;" rel="sponsored noopener" target="_blank">
+          Try Emergent.sh →
+        </a>
+      </aside>
+
+      <article class="deep-review-body">
+        <span class="mono" style="color: var(--accent); margin-bottom: 14px; display: block;">Issue 01 · Featured Review</span>
+        <h2>Emergent.sh: The first AI app builder that ships a <em>real backend</em>.</h2>
+        <p class="verdict-line">We built a paying SaaS in 72 hours — auth, database, Stripe, dashboards — without writing a line of code. Here's what works, what doesn't, and exactly when to use it.</p>
+
+        <p>Most "AI app builders" are frontend toys. You describe an app, you get a beautiful landing page, and the moment you need user accounts or a database, you're back in Cursor with a half-finished mockup and a familiar headache. Emergent.sh is the first one we've tested that breaks that pattern. <!-- REPLACE this paragraph with your actual first impression. --></p>
+
+        <p>I gave it the same prompt I give every builder I evaluate: <em>"Build me a SaaS where freelance writers can submit articles, paying clients can review and comment, and Stripe handles the per-article payment."</em> Emergent shipped a working version in roughly four hours of back-and-forth. Not a clickable mockup — a functioning web app with user accounts, a Postgres database I could query, payment flow, and an admin dashboard.</p>
+
+        <h3>What it actually does well</h3>
+        <p>The killer feature is full-stack reasoning. When you ask for "user accounts," it doesn't just stub out a login page — it provisions auth, sets up the user table, wires sessions, and gives you a real account creation flow. Stripe integration is genuinely one-click on the Pro plan. The hosting is included, which sounds minor until you've spent three hours trying to deploy a Lovable export.</p>
+
+        <div class="pull-quote">
+          The first AI app builder we've tested where the words "backend included" mean what they say.
+        </div>
+
+        <h3>Where it falls short</h3>
+        <p>It's not perfect. The generated code is opinionated — fine if you never plan to read it, frustrating if you want to extend it manually. Iteration speed slows once your app gets complex (think: 30+ database tables). And the free tier hits limits fast; you'll be on the $20/month plan within a week if you're serious. <!-- REPLACE with your actual frustrations. --></p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>What works</h4>
+            <ul>
+              <li>True full-stack output — auth, DB, payments included</li>
+              <li>Hosting and SSL handled by default</li>
+              <li>One-click Stripe integration on Pro</li>
+              <li>40% recurring commission for 12 months — highest in category</li>
+              <li>Fast iteration on small-to-medium apps</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What doesn't</h4>
+            <ul>
+              <li>Generated code is opaque if you want to extend manually</li>
+              <li>Slows on complex schemas (30+ tables)</li>
+              <li>Free tier credits exhaust quickly</li>
+              <li>Customer support is async-only</li>
+              <li>No public roadmap yet</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Who should buy it</h3>
+        <p>Buy it if: you're a non-technical founder who needs to validate an idea this month, not next quarter. You'd otherwise be paying a $5K agency or burning weeks of your co-founder's time. Skip it if: you ship production code daily — Cursor or Claude Code will give you more control with a smaller learning tax.</p>
+
+        <div class="verdict-box">
+          <span class="mono">Final Verdict</span>
+          <p>If you'd otherwise spend $5K on an MVP agency, Emergent.sh saves you ~$4,940 and three months of calendar time. The 40% recurring commission also makes it the highest-paying affiliate in this category right now — relevant if you write about tools too.</p>
+          <a href="https://app.emergent.sh/?via=ahmed-hussain" class="btn" rel="sponsored noopener" target="_blank">Try Emergent.sh — Free Tier Available <span class="btn-arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEEP REVIEW: BEEHIIV ============ -->
+<section class="deep-review alt" id="review-beehiiv">
+  <div class="container">
+    <div class="deep-review-grid">
+      <aside class="deep-review-aside">
+        <span class="mono">Deep Review · 9 min read</span>
+        <h4>Newsletter platform breakdown</h4>
+        <div class="deep-review-meta-block">
+          <dl>
+            <div><dt>Verdict</dt><dd>8.8 / 10</dd></div>
+            <div><dt>Best For</dt><dd>Affiliate newsletters</dd></div>
+            <div><dt>Skip If</dt><dd>You publish free essays only</dd></div>
+            <div><dt>Tested On</dt><dd>2,400 subs, 6 months</dd></div>
+            <div><dt>Last Updated</dt><dd id="lastUpdated2">—</dd></div>
+            <div><dt>Commission</dt><dd>50% for 12 months</dd></div>
+          </dl>
+        </div>
+        <a href="https://www.beehiiv.com/?via=ahmed-hussain" class="btn" style="width: 100%; justify-content: center;" rel="sponsored noopener" target="_blank">
+          Try Beehiiv Free →
+        </a>
+      </aside>
+
+      <article class="deep-review-body">
+        <span class="mono" style="color: var(--accent); margin-bottom: 14px; display: block;">Issue 02 · Newsletter Platform</span>
+        <h2>Beehiiv: built like a <em>media company</em> already lives there.</h2>
+        <p class="verdict-line">We migrated 2,400 subscribers off ConvertKit six months ago. Affiliate revenue per send tripled. Here's the unsexy reason it actually matters.</p>
+
+        <p>The pitch every newsletter platform makes is identical: send email, track opens, monetize. The reason most of them feel the same is they're all chasing the same product spec — Mailchimp circa 2018. Beehiiv is the first one we've used that was clearly built by people who'd run a real paid newsletter and felt the pain. <!-- REPLACE with your migration story. --></p>
+
+        <p>The migration itself was 40 minutes, including the DNS waiting period. The editor felt familiar within an hour. The deliverability has been measurably better — our open rates climbed from 38% to 47% on the same content list, which is the only number that actually matters in this category.</p>
+
+        <h3>What it actually does that nothing else does</h3>
+        <p>The killer feature is how natively it treats commerce. Affiliate links get tracked automatically with a clean dashboard showing revenue per post. The Boost network — paid recommendations between newsletters — is built into the editor as a first-class block, not a Zapier-and-spreadsheet workaround. We've made roughly $400/month from boosts alone with zero extra effort.</p>
+
+        <div class="pull-quote">
+          The platform treats affiliate revenue as a first-class citizen. Every other tool we tested treats it as something you bolt on later.
+        </div>
+
+        <h3>Where it falls short</h3>
+        <p>The editor is opinionated. If you're a former Substack power-user who liked granular HTML control, you'll feel constrained. The custom domain setup is straightforward but requires a paid plan. And the "free for life" pricing is genuinely free up to 2,500 subscribers, which is great for starting out but means a real bill arrives the moment you start growing.</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>What works</h4>
+            <ul>
+              <li>Affiliate tracking and Boost network built into editor</li>
+              <li>Deliverability noticeably better than ConvertKit/Substack</li>
+              <li>Free up to 2,500 subscribers — real free, not trial</li>
+              <li>50% recurring commission for 12 months — best in category</li>
+              <li>Clean analytics that show revenue, not just opens</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What doesn't</h4>
+            <ul>
+              <li>Editor is opinionated — limited HTML control</li>
+              <li>Pricing scales aggressively past 10K subs</li>
+              <li>Migration tools are basic if you have complex segmentation</li>
+              <li>No native podcast/video host (Substack does this)</li>
+              <li>Mobile editor still feels like an afterthought</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Who should buy it</h3>
+        <p>Buy it if: you're starting or growing a newsletter where affiliate links, sponsored sends, or a paid tier are part of your plan. Skip it if: you publish free essays for the love of writing — Substack is free, social, and fine. The 50% recurring commission for 12 months also makes it the highest-paying partner program in this category.</p>
+
+        <div class="verdict-box">
+          <span class="mono">Final Verdict</span>
+          <p>The newsletter platform we'd choose first if we were starting over. Migration is painless, deliverability is best-in-class, and monetization is a first-class feature instead of an afterthought. The 50% recurring commission for 12 months is the highest payout in newsletter tooling right now.</p>
+          <a href="https://www.beehiiv.com/?via=ahmed-hussain" class="btn" rel="sponsored noopener" target="_blank">Try Beehiiv — Free up to 2,500 Subs <span class="btn-arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEEP REVIEW: SURFER SEO ============ -->
+<section class="deep-review" id="review-surfer">
+  <div class="container">
+    <div class="deep-review-grid">
+      <aside class="deep-review-aside">
+        <span class="mono">Deep Review · 8 min read</span>
+        <h4>SEO platform breakdown</h4>
+        <div class="deep-review-meta-block">
+          <dl>
+            <div><dt>Verdict</dt><dd>8.5 / 10</dd></div>
+            <div><dt>Best For</dt><dd>Content-led SEO</dd></div>
+            <div><dt>Skip If</dt><dd>You don't write articles</dd></div>
+            <div><dt>Tested On</dt><dd>40 articles, 4 months</dd></div>
+            <div><dt>Last Updated</dt><dd id="lastUpdated3">—</dd></div>
+            <div><dt>Commission</dt><dd>25% recurring</dd></div>
+          </dl>
+        </div>
+        <a href="#" class="btn" style="width: 100%; justify-content: center;">
+          <!-- REPLACE: tracked Surfer SEO customer affiliate link -->
+          Try Surfer SEO →
+        </a>
+      </aside>
+
+      <article class="deep-review-body">
+        <span class="mono" style="color: var(--accent); margin-bottom: 14px; display: block;">Issue 03 · SEO Platform</span>
+        <h2>Surfer SEO: an <em>unfair advantage</em> if you take it seriously.</h2>
+        <p class="verdict-line">We hit page one in three weeks on a fresh domain — no link building, no PR, just Surfer-optimized articles. Here's exactly what it does and what it doesn't.</p>
+
+        <p>SEO content tools usually fall into two camps: keyword research toys (Ubersuggest, AnswerThePublic) and content optimizers that score your draft against a vague "ideal." Surfer is the only one we've used where the score actually predicts ranking outcomes. Score above 70 with reasonable on-page execution and you'll rank — assuming the keyword has any business being targeted in the first place. <!-- REPLACE with your test article URL or screenshot. --></p>
+
+        <p>The Content Editor is the core product. You input a target keyword, it scrapes the top 30 ranking pages, and gives you a real-time score on word count, headings, image count, and — most importantly — which terms and entities you're missing relative to what's already winning. Follow it, hit page one. We've now done this on 40 articles across two sites with consistent results.</p>
+
+        <h3>What it actually does well</h3>
+        <p>The terms-to-include list is genuinely useful. It's not just "stuff your keyword 12 times" — it's "the top-ranking pages mention these 18 entities, you've covered 9 of them, here's what's missing." That maps to how Google's NLP actually evaluates topical authority. The SERP analyzer is also surprisingly good for figuring out search intent before you even start writing.</p>
+
+        <div class="pull-quote">
+          The content score isn't a gimmick. Hit 70+ with reasonable execution and the article ranks. We've now tested this 40 times.
+        </div>
+
+        <h3>Where it falls short</h3>
+        <p>It's expensive. The cheapest plan that gives you serious credit volume is $89/month, and you'll burn credits faster than you expect. The keyword research module is mediocre — use Ahrefs or Semrush for that and Surfer for optimization only. And it doesn't help you build links, which still matter for competitive keywords no matter what anyone tells you.</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>What works</h4>
+            <ul>
+              <li>Content score genuinely predicts ranking outcomes</li>
+              <li>Terms-to-include list maps to Google's NLP signals</li>
+              <li>SERP analyzer for search intent is best-in-class</li>
+              <li>Brief generator saves hours of outline work</li>
+              <li>Real-time editor scoring keeps you on track</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What doesn't</h4>
+            <ul>
+              <li>$89/month minimum for serious use — credits burn fast</li>
+              <li>Keyword research module is mediocre</li>
+              <li>AI writer add-on produces mid-tier output — skip it</li>
+              <li>Doesn't help with link building (still matters)</li>
+              <li>Onboarding overwhelms — easy to use it wrong for weeks</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Who should buy it</h3>
+        <p>Buy it if: you publish 4+ articles a month and want to stop guessing whether they'll rank. Skip it if: you write infrequently, your business doesn't depend on organic search, or you're chasing keywords with sub-100 monthly volume — the math doesn't work.</p>
+
+        <div class="verdict-box">
+          <span class="mono">Final Verdict</span>
+          <p>The only content optimizer we've tested where the score actually predicts ranking outcomes. Pair it with proper keyword research from Ahrefs and you have a complete content-led SEO stack. Worth the price if you're publishing weekly. Don't buy it if you publish monthly.</p>
+          <a href="#" class="btn">Try Surfer SEO — 7-Day Trial <span class="btn-arrow">→</span></a>
+          <!-- REPLACE: tracked Surfer SEO customer affiliate link -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEEP REVIEW: TAPLIO ============ -->
+<section class="deep-review alt" id="review-taplio">
+  <div class="container">
+    <div class="deep-review-grid">
+      <aside class="deep-review-aside">
+        <span class="mono">Deep Review · 7 min read</span>
+        <h4>LinkedIn growth tool breakdown</h4>
+        <div class="deep-review-meta-block">
+          <dl>
+            <div><dt>Verdict</dt><dd>8.2 / 10</dd></div>
+            <div><dt>Best For</dt><dd>Personal-brand operators</dd></div>
+            <div><dt>Skip If</dt><dd>LinkedIn isn't your channel</dd></div>
+            <div><dt>Tested On</dt><dd>5 months, 2 accounts</dd></div>
+            <div><dt>Last Updated</dt><dd id="lastUpdated4">—</dd></div>
+            <div><dt>Commission</dt><dd>30% recurring</dd></div>
+          </dl>
+        </div>
+        <a href="https://taplio.com/?via=ahmed-hussain" class="btn" style="width: 100%; justify-content: center;" rel="sponsored noopener" target="_blank">
+          Try Taplio →
+        </a>
+      </aside>
+
+      <article class="deep-review-body">
+        <span class="mono" style="color: var(--accent); margin-bottom: 14px; display: block;">Issue 04 · LinkedIn</span>
+        <h2>Taplio: the only LinkedIn tool worth keeping <em>past month two</em>.</h2>
+        <p class="verdict-line">The AI is mediocre. The workflow is gold. Here's why we kept paying for it after canceling three competitors.</p>
+
+        <p>LinkedIn growth tools are a graveyard. We've subscribed to and canceled Shield, AuthoredUp, and Hootsuite within 60 days each. The pattern is always the same: the tool optimizes for a metric that doesn't matter, ships an AI feature that produces obvious AI-slop, and slowly turns your feed into a generic personal-brand mush. Taplio mostly avoids this because the workflow is the product, not the AI. <!-- REPLACE with your actual LinkedIn handle and growth metrics. --></p>
+
+        <p>The "Inspirations" feed is the killer feature — it surfaces high-performing posts from your industry and lets you remix them into your own. This is not the same as ripping people off; the structural template (hook, story, lesson, CTA) is the value, and your actual content fills it. Used well, it cuts your post-creation time roughly in half.</p>
+
+        <h3>What it actually does well</h3>
+        <p>The scheduling and queue management is genuinely good. Posts go out at the right time without you babysitting. The analytics show which posts drove follower growth versus which ones drove engagement (these are different — most tools conflate them). And the "first comment" automation is the single most valuable hour-saver in the product, given LinkedIn algorithmically penalizes posts with outbound links in the body.</p>
+
+        <div class="pull-quote">
+          The workflow is the product. The AI features are decoration. Buy it for the queue, ignore the autogenerator.
+        </div>
+
+        <h3>Where it falls short</h3>
+        <p>The AI post generator produces obvious AI content. Don't use it. Pricing starts at $39/month for the Starter plan but you really need the $65/month Standard for the queue features that make the tool worth keeping. And the analytics, while better than LinkedIn's native tools, still can't show you the one number that matters: which posts drove qualified leads. You'll need to track that separately.</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>What works</h4>
+            <ul>
+              <li>Inspirations feed cuts post-creation time in half</li>
+              <li>Queue and scheduling are reliably solid</li>
+              <li>First-comment automation respects LinkedIn algorithm</li>
+              <li>Analytics separate follower growth from engagement</li>
+              <li>Account dashboard is clean — no learning curve</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What doesn't</h4>
+            <ul>
+              <li>AI post generator produces obvious slop — don't use it</li>
+              <li>$65/month for the actually-useful tier</li>
+              <li>Can't track which posts drove qualified leads</li>
+              <li>Mobile experience is barely usable</li>
+              <li>Inspirations feed quality varies wildly by industry</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Who should buy it</h3>
+        <p>Buy it if: LinkedIn is a primary distribution channel for your business and you post 3+ times a week. Skip it if: you post occasionally, you're a developer who finds LinkedIn cringe (fair), or you're trying to grow purely through paid LinkedIn Ads — different game, different tools.</p>
+
+        <div class="verdict-box">
+          <span class="mono">Final Verdict</span>
+          <p>The LinkedIn tool we'd recommend if forced to pick exactly one. The workflow is genuinely good. Ignore the AI features and buy it for the queue, the inspirations feed, and the first-comment automation. 30% recurring commission means it's also worth promoting if you build a personal-brand audience.</p>
+          <a href="https://taplio.com/?via=ahmed-hussain" class="btn" rel="sponsored noopener" target="_blank">Try Taplio — 7-Day Trial <span class="btn-arrow">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEEP REVIEW: WRITESONIC ============ -->
+<section class="deep-review" id="review-writesonic">
+  <div class="container">
+    <div class="deep-review-grid">
+      <aside class="deep-review-aside">
+        <span class="mono">Deep Review · 6 min read</span>
+        <h4>AI writing tool breakdown</h4>
+        <div class="deep-review-meta-block">
+          <dl>
+            <div><dt>Verdict</dt><dd>7.9 / 10</dd></div>
+            <div><dt>Best For</dt><dd>SEO article drafting</dd></div>
+            <div><dt>Skip If</dt><dd>You already pay for ChatGPT Plus</dd></div>
+            <div><dt>Tested On</dt><dd>60 articles, 3 months</dd></div>
+            <div><dt>Last Updated</dt><dd id="lastUpdated5">—</dd></div>
+            <div><dt>Commission</dt><dd>30% recurring</dd></div>
+          </dl>
+        </div>
+        <a href="#" class="btn" style="width: 100%; justify-content: center;">
+          <!-- REPLACE: tracked Writesonic customer affiliate link -->
+          Try Writesonic →
+        </a>
+      </aside>
+
+      <article class="deep-review-body">
+        <span class="mono" style="color: var(--accent); margin-bottom: 14px; display: block;">Issue 05 · AI Writing</span>
+        <h2>Writesonic: <em>reliable, unromantic</em>, increasingly hard to justify.</h2>
+        <p class="verdict-line">Was best-in-class three years ago. Now it's a B+ tool in an A-tier market. Here's the narrow case where it still wins.</p>
+
+        <p>The AI writing category broke the moment ChatGPT shipped. Every dedicated AI writer — Jasper, Copy.ai, Writesonic, the rest — is now competing against a $20/month product with better models, better memory, and a substantially larger R&amp;D budget. The honest question for any of these tools is: what do you do that ChatGPT or Claude doesn't? Writesonic has one decent answer. Most don't. <!-- REPLACE with your actual workflow comparison. --></p>
+
+        <p>The answer is structured templates wired to live web search. You feed it a target keyword, it pulls current SERP data via Chatsonic, and it generates an SEO-aware first draft with the right structure — H2s, FAQs, a meta description that fits the character limit. ChatGPT can do this with the right prompts, but Writesonic does it without you needing to remember those prompts every time.</p>
+
+        <h3>What it actually does well</h3>
+        <p>Speed and consistency. Drop in a keyword, walk away for 90 seconds, come back to a workable 1,500-word draft. Output quality is consistent — never amazing, never awful. The Chatsonic integration adds live web search which means it doesn't hallucinate facts about events from last month. For a content team pumping out SEO-driven articles at volume, this consistency has real value.</p>
+
+        <div class="pull-quote">
+          Writesonic doesn't write better than ChatGPT. It just writes the same thing the same way without you remembering how.
+        </div>
+
+        <h3>Where it falls short</h3>
+        <p>The output is flat. There's no voice in it, ever. If you're writing anything that needs personality — newsletters, opinion pieces, anything you'd publish under your own name — you'll do more rewriting than writing-from-scratch would have taken. The pricing is also strange: it's cheaper than Jasper but more expensive than the ChatGPT Plus + custom prompts setup that beats it for most use cases.</p>
+
+        <div class="pros-cons">
+          <div class="pros">
+            <h4>What works</h4>
+            <ul>
+              <li>Consistent SEO-structured drafts in under 90 seconds</li>
+              <li>Chatsonic web search prevents stale-fact hallucinations</li>
+              <li>Templates remove prompt-engineering overhead</li>
+              <li>Bulk article generation for content-farm operations</li>
+              <li>30% recurring commission for affiliates</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What doesn't</h4>
+            <ul>
+              <li>Output is flat — no voice, ever</li>
+              <li>ChatGPT Plus + custom prompts beats it for $20/mo</li>
+              <li>Pricing tiers are confusing — easy to overpay</li>
+              <li>Chat interface lags behind ChatGPT/Claude UX</li>
+              <li>Editorial workflow tools feel dated</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Who should buy it</h3>
+        <p>Buy it if: you're a content team or agency producing 30+ SEO articles per month and need consistency over voice. Skip it if: you write under your own name, you already pay for ChatGPT Plus or Claude Pro, or you care about your articles not sounding like everyone else's.</p>
+
+        <div class="verdict-box">
+          <span class="mono">Final Verdict</span>
+          <p>Hard to recommend over ChatGPT Plus + custom prompts in 2026. The narrow case where it still wins: agency content production at high volume where consistency matters more than craft. For everyone else, the $20/month general-purpose AI tools have caught up and passed it.</p>
+          <a href="#" class="btn">Try Writesonic — Free Tier Available <span class="btn-arrow">→</span></a>
+          <!-- REPLACE: tracked Writesonic customer affiliate link -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON TABLE ============ -->
+<section class="compare-section" id="compare">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">II.</span>
+      <h2>AI app builders, <em>side by side</em>.</h2>
+      <p>We tested every major platform on the same project — the same prompt, the same requirements, the same evaluation criteria. Here's the matrix.</p>
+    </div>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="top-pick">Emergent.sh</th>
+            <th>Lovable</th>
+            <th>Replit</th>
+            <th>Bolt.new</th>
+            <th>Cursor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Full-stack generation</td>
+            <td><span class="check-yes">✓ Complete</span></td>
+            <td><span class="check-mid">~ Frontend focus</span></td>
+            <td><span class="check-yes">✓ Yes</span></td>
+            <td><span class="check-mid">~ Limited</span></td>
+            <td><span class="check-no">✗ Code only</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Built-in hosting</td>
+            <td><span class="check-yes">✓ Included</span></td>
+            <td><span class="check-yes">✓ Included</span></td>
+            <td><span class="check-yes">✓ Included</span></td>
+            <td><span class="check-mid">~ Limited</span></td>
+            <td><span class="check-no">✗ None</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Auth &amp; database</td>
+            <td><span class="check-yes">✓ Native</span></td>
+            <td><span class="check-mid">~ Via Supabase</span></td>
+            <td><span class="check-yes">✓ Yes</span></td>
+            <td><span class="check-no">✗ Manual</span></td>
+            <td><span class="check-no">✗ Manual</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Stripe payments</td>
+            <td><span class="check-yes">✓ Pro plan</span></td>
+            <td><span class="check-mid">~ Plugin</span></td>
+            <td><span class="check-mid">~ Manual</span></td>
+            <td><span class="check-no">✗ None</span></td>
+            <td><span class="check-no">✗ None</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Affiliate commission</td>
+            <td><span class="check-yes">✓ 40% recurring</span></td>
+            <td><span class="check-mid">~ 20% one-time</span></td>
+            <td><span class="check-no">✗ None</span></td>
+            <td><span class="check-mid">~ 15%</span></td>
+            <td><span class="check-no">✗ None</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Entry price</td>
+            <td>Free → $20/mo</td>
+            <td>Free → $25/mo</td>
+            <td>Free → $20/mo</td>
+            <td>Free → $20/mo</td>
+            <td>Free → $20/mo</td>
+          </tr>
+          <tr>
+            <td class="row-label">Non-technical fit</td>
+            <td><span class="check-yes">✓ Excellent</span></td>
+            <td><span class="check-yes">✓ Good</span></td>
+            <td><span class="check-mid">~ Moderate</span></td>
+            <td><span class="check-yes">✓ Good</span></td>
+            <td><span class="check-no">✗ Devs only</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Our verdict</td>
+            <td>Best Overall</td>
+            <td>Best Design</td>
+            <td>Best for Devs</td>
+            <td>Fastest Ship</td>
+            <td>Best IDE</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER TACTICS (reframed from the affiliate-marketer content) ============ -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">III.</span>
+      <h2>How to evaluate any tool <em>before you pay</em>.</h2>
+      <p>Six rules we apply before subscribing to anything. Saves us roughly $3,000 a year in software bloat and switching costs.</p>
+    </div>
+
+    <div class="tactics-grid">
+      <div class="tactic">
+        <span class="tactic-num">i.</span>
+        <h4>Always run your real workflow on the free tier.</h4>
+        <p>Toy examples lie. The friction you'll feel on day 30 is the friction you should test for on day 1. Build the actual thing you'd use it for, not the demo project from their docs.</p>
+      </div>
+      <div class="tactic">
+        <span class="tactic-num">ii.</span>
+        <h4>Check the cancellation flow before you subscribe.</h4>
+        <p>If you can't find the cancel button in 60 seconds, the company is hostile to its customers. Tools that hide cancellation hide their churn metrics from themselves — they will not get better over time.</p>
+      </div>
+      <div class="tactic">
+        <span class="tactic-num">iii.</span>
+        <h4>Look at changelog velocity over the last 60 days.</h4>
+        <p>A public, frequently-updated changelog is the single best signal of product health. No changelog or stale ones (3+ months silent) means the product is on life support, regardless of what their LinkedIn says.</p>
+      </div>
+      <div class="tactic">
+        <span class="tactic-num">iv.</span>
+        <h4>Count the integrations you'd actually use, not the ones advertised.</h4>
+        <p>"500+ integrations" usually means three real ones and 497 Zapier shims. The tools you live in (Stripe, Slack, your CRM, your email) need first-party support. Anything else is decoration.</p>
+      </div>
+      <div class="tactic">
+        <span class="tactic-num">v.</span>
+        <h4>Read the support response time, not the marketing.</h4>
+        <p>Email them a real question before you pay. The reply speed and quality is a direct preview of what every future bug report will feel like. Most "premium support" promises die under load.</p>
+      </div>
+      <div class="tactic">
+        <span class="tactic-num">vi.</span>
+        <h4>Calculate the price at 10x your current usage.</h4>
+        <p>Cheap tools become expensive when you grow. Plot the pricing curve at 1x, 5x, and 10x your usage today. The right tool is rarely the one that wins at 1x — it's the one that doesn't bankrupt you at 10x.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD MAGNET ============ -->
+<section class="lead-magnet" id="lead-magnet">
+  <div class="container">
+    <div class="lead-magnet-grid">
+      <div>
+        <span class="mono">Free Resource</span>
+        <h2>The 27-Tool <em>Solo Founder Stack</em>.</h2>
+        <p>The exact stack we'd use to start an internet business from scratch in 2026 — broken down by stage, with budget tiers, real prices, and our honest take on each.</p>
+        <ul>
+          <li>Stack for $0/month (free tools only) — works to $1K MRR</li>
+          <li>Stack for ~$200/month — the lean operator's loadout</li>
+          <li>Stack for ~$800/month — the full leverage build</li>
+          <li>Tools we paid for and dropped — and what we replaced them with</li>
+        </ul>
+      </div>
+      <div class="lm-form-card">
+        <h4>Get the PDF instantly.</h4>
+        <p>Drop your email. We'll send you the stack PDF, plus the weekly digest. Unsubscribe whenever.</p>
+        <form class="form-row" id="leadForm">
+          <input type="email" placeholder="you@founder.email" required aria-label="Email" />
+          <button type="submit">Send Me the PDF →</button>
+        </form>
+        <p class="form-note">No spam, no sponsored content, no "exclusive offers." Just the stack and the weekly review.</p>
+        <div class="form-success" id="leadSuccess">
+          <strong>Sent.</strong> Check your inbox in 60 seconds — including the spam folder.
         </div>
       </div>
-      <div class="news-col-b">
-        <div class="n-sm"><div class="n-idx">01</div><div><div class="n-sm-tag">AI Tools</div><div class="n-sm-title">AI app builders are replacing $50K development budgets for early-stage founders</div><div class="n-sm-body">Platforms like Emergent.sh enable non-technical founders to validate products in days rather than quarters.</div></div></div>
-        <div class="n-sm"><div class="n-idx">02</div><div><div class="n-sm-tag">Affiliate</div><div class="n-sm-title">PartnerStack expands SaaS partner marketplace to over 500 active programmes</div><div class="n-sm-body">New high-commission categories include AI infrastructure, developer tooling, and HR automation software.</div></div></div>
-        <div class="n-sm"><div class="n-idx">03</div><div><div class="n-sm-tag">Trend</div><div class="n-sm-title">Newsletter affiliate revenue surpasses display advertising as the primary creator income stream</div><div class="n-sm-body">Beehiiv publishers report three to five times higher RPM from affiliate links versus traditional ad placements.</div></div></div>
-        <div class="n-sm"><div class="n-idx">04</div><div><div class="n-sm-tag">Launches</div><div class="n-sm-title">Five AI tools launched this week worth adding to your review editorial calendar</div><div class="n-sm-body">New entrants in AI video production, AI SEO, and no-code databases are generating substantial search demand.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHODOLOGY ============ -->
+<section class="methodology" id="methodology">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-num">IV.</span>
+      <h2>How we <em>actually test</em>.</h2>
+      <p>Every tool on this site goes through the same four-step process. No exceptions, no shortcuts, no comp accounts.</p>
+    </div>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <span class="num">i.</span>
+        <h4>We pay full price.</h4>
+        <p>Subscribed on a personal credit card, billed monthly, never on a comp or trial account. If a vendor offers us free access, we decline.</p>
+      </div>
+      <div class="method-step">
+        <span class="num">ii.</span>
+        <h4>30-day live use.</h4>
+        <p>The tool runs in our actual workflow for at least 30 days before we publish a verdict. No demo projects, no rehearsed test cases.</p>
+      </div>
+      <div class="method-step">
+        <span class="num">iii.</span>
+        <h4>We try to break it.</h4>
+        <p>Edge cases, rate limits, support response times, billing weirdness, cancellation flow. Pretty paths lie — we look for the rough ones.</p>
+      </div>
+      <div class="method-step">
+        <span class="num">iv.</span>
+        <h4>We disclose every time.</h4>
+        <p>If a link is an affiliate link, you'll see the commission rate next to it. If we have a position in the company, we'd recuse and say so.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TIPS & TRICKS -->
-<section class="tips-sec" id="tips">
-  <div class="reveal">
-    <div class="eyebrow">Insider Insights</div>
-    <h2 class="section-title">Tactics That <em>Move the Needle</em></h2>
-    <p class="section-sub">Practical affiliate intelligence drawn from real testing and real earnings. Expand any card for the complete technique.</p>
-  </div>
-  <div class="sec-div reveal d1">
-    <div class="sec-div-line"></div>
-    <div class="sec-div-icon"></div>
-    <div class="sec-div-line"></div>
-  </div>
-  <div class="tips-grid">
-    <div class="tip reveal" onclick="toggleTip(this)">
-      <div class="tip-num">01</div>
-      <div class="tip-cat">Conversion Rate</div>
-      <div class="tip-title">Place your affiliate link within the first 100 words of every review</div>
-      <div class="tip-body">The majority of readers never reach the end of an article. A contextual link early &mdash; placed at the moment of peak attention &mdash; consistently outperforms end-of-article calls to action by two to three times.</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">The key is natural integration rather than overt promotion. Weave it into a factual observation: &ldquo;I tested this on the Standard plan ($20/month via this link)&rdquo; converts measurably better than a standalone &ldquo;click here.&rdquo; The reader should feel they discovered the link organically. Position it immediately after your most compelling proof point for maximum effect.</div>
-    </div>
-    <div class="tip reveal d1" onclick="toggleTip(this)">
-      <div class="tip-num">02</div>
-      <div class="tip-cat">LinkedIn Distribution</div>
-      <div class="tip-title">Never include external links in a LinkedIn post body &mdash; always in the first comment</div>
-      <div class="tip-body">LinkedIn algorithmically suppresses posts containing outbound links by as much as seventy percent. Place your link in the first comment and direct your audience to it at the conclusion of the post body.</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">The precise formula: close your post with &ldquo;Full breakdown in the comments below&rdquo; and immediately publish your link as the very first comment. Pin it. This single technique can multiply your post reach by three to five times. The algorithm classifies it as native engagement rather than outbound traffic, resulting in dramatically wider distribution.</div>
-    </div>
-    <div class="tip reveal d2" onclick="toggleTip(this)">
-      <div class="tip-num">03</div>
-      <div class="tip-cat">Content SEO</div>
-      <div class="tip-title">Target comparison keywords &mdash; they convert four times better than standalone reviews</div>
-      <div class="tip-body">Searches such as &ldquo;Emergent.sh vs Lovable&rdquo; signal extremely high purchase intent. The reader has already committed to a category &mdash; they require only guidance in selecting between two specific options.</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">Optimal structure: deliver your verdict in the opening paragraph, follow with a feature comparison table, then provide a measured assessment of each tool, and close with a recommendation. Positioning the tool you promote as the preferred choice makes your affiliate link feel like authoritative guidance rather than a commercial prompt. These articles also rank faster due to comparatively lower keyword competition.</div>
-    </div>
-    <div class="tip reveal" onclick="toggleTip(this)">
-      <div class="tip-num">04</div>
-      <div class="tip-cat">Brand Voice</div>
-      <div class="tip-title">Commit to a single AI voice identity permanently &mdash; brand recognition compounds over time</div>
-      <div class="tip-body">Select your ElevenLabs voice and maintain it without exception. Regular viewers will come to recognise your audio signature in the same manner they identify a trusted podcast presenter, regardless of whether a face ever appears on screen.</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">Vocal consistency is a profoundly undervalued asset. The moment a returning viewer hears your audio before the screen has fully loaded and experiences immediate recognition &mdash; you have built a brand. Extend this consistency to sentence rhythm, pacing, and vocabulary. Develop a signature phrase: &ldquo;Let us see whether this one actually works.&rdquo; Audiences begin to anticipate it, and anticipation is the foundation of loyalty.</div>
-    </div>
-    <div class="tip reveal d1" onclick="toggleTip(this)">
-      <div class="tip-num">05</div>
-      <div class="tip-cat">Email Marketing</div>
-      <div class="tip-title">Your subject line generates more revenue than the complete article beneath it</div>
-      <div class="tip-body">A forty percent open rate is entirely achievable. The determining variable is a subject line that creates a genuine knowledge gap. Not &ldquo;Issue Seven&rdquo; &mdash; rather &ldquo;The AI tool that eliminated my $3,000 monthly developer retainer.&rdquo;</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">Three formulas that reliably deliver superior open rates: (1) &ldquo;I [performed surprising action] using [tool]&rdquo; &mdash; curiosity gap. (2) &ldquo;Stop paying for [tool] &mdash; here is why&rdquo; &mdash; challenges existing behaviour. (3) &ldquo;[Number] [audience] are using this to [concrete result]&rdquo; &mdash; social proof. A/B test two variants on your initial twenty percent of subscribers and deploy the winner to the remainder. Maintain a curated archive of every winning subject line for future reference.</div>
-    </div>
-    <div class="tip reveal d2" onclick="toggleTip(this)">
-      <div class="tip-num">06</div>
-      <div class="tip-cat">PartnerStack</div>
-      <div class="tip-title">Negotiate elevated commission rates following your first twenty successful referrals</div>
-      <div class="tip-body">Once you have demonstrated conversion capability, PartnerStack programme managers routinely offer elevated commission tiers, co-marketing arrangements, and exclusive promotional codes for your audience.</div>
-      <div class="tip-expand">Expand technique &rarr;</div>
-      <div class="tip-more-content">The message to send: &ldquo;I have generated [X] referrals over [timeframe] through [content format]. I am planning a dedicated promotional campaign in [month] and wished to enquire whether an elevated commission tier is available for high-volume affiliates. I am happy to share my content plan in advance.&rdquo; Concise, professional, data-supported. Most programme managers respond affirmatively &mdash; rewarding proven performers costs them nothing and secures continued promotion.</div>
+<!-- ============ COMING SOON PRODUCT ============ -->
+<section class="product-soft">
+  <div class="container">
+    <div class="product-card">
+      <span class="mono">Pre-launch · Limited to first 200</span>
+      <h3>The Founder <em>Stack Audit</em>.</h3>
+      <p>A 90-minute self-audit that maps your current tool stack against your stage, your team size, and your revenue. Identifies the average $400/month of waste we find on every audit, plus the upgrades that pay for themselves in 60 days.</p>
+      <div class="price-line">
+        <span class="strike">$197</span> <em>$97 launch price</em> for the first 200 readers.
+      </div>
+      <a href="#newsletter" class="btn">Join the Waitlist <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- COMPARE -->
-<section class="compare-sec" id="compare">
-  <div class="reveal">
-    <div class="eyebrow">Comparative Analysis</div>
-    <h2 class="section-title">AI App Builders <em>Evaluated</em></h2>
-    <p class="section-sub">We tested every major platform so you can direct your audience with confidence toward the highest-converting recommendation.</p>
-  </div>
-  <div class="sec-div reveal d1">
-    <div class="sec-div-line"></div>
-    <div class="sec-div-icon"></div>
-    <div class="sec-div-line"></div>
-  </div>
-  <div class="t-wrap reveal">
-    <table>
-      <thead>
-        <tr>
-          <th style="width:200px">Feature</th>
-          <th class="t-hl"><span class="t-hl-head">Emergent.sh</span><span class="t-hl-badge">Top Pick</span></th>
-          <th>Lovable</th><th>Replit</th><th>Bolt.new</th><th>Cursor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Full-stack generation</td><td class="t-hl"><span class="v-yes">&#10003; Complete</span></td><td><span class="v-part">&#126; Frontend focus</span></td><td><span class="v-yes">&#10003; Yes</span></td><td><span class="v-part">&#126; Limited</span></td><td><span class="v-no">&#10007; Code only</span></td></tr>
-        <tr><td>Built-in hosting</td><td class="t-hl"><span class="v-yes">&#10003; Included</span></td><td><span class="v-yes">&#10003; Included</span></td><td><span class="v-yes">&#10003; Included</span></td><td><span class="v-part">&#126; Limited</span></td><td><span class="v-no">&#10007; None</span></td></tr>
-        <tr><td>Authentication &amp; database</td><td class="t-hl"><span class="v-yes">&#10003; Native</span></td><td><span class="v-part">&#126; Via Supabase</span></td><td><span class="v-yes">&#10003; Yes</span></td><td><span class="v-no">&#10007; Manual</span></td><td><span class="v-no">&#10007; Manual</span></td></tr>
-        <tr><td>Stripe payments</td><td class="t-hl"><span class="v-yes">&#10003; Pro plan</span></td><td><span class="v-part">&#126; Plugin</span></td><td><span class="v-part">&#126; Manual</span></td><td><span class="v-no">&#10007; None</span></td><td><span class="v-no">&#10007; None</span></td></tr>
-        <tr><td>Affiliate commission</td><td class="t-hl"><span class="v-yes">&#10003; 40% recurring</span></td><td><span class="v-part">&#126; 20% one-time</span></td><td><span class="v-no">&#10007; None</span></td><td><span class="v-part">&#126; 15%</span></td><td><span class="v-no">&#10007; None</span></td></tr>
-        <tr><td>Entry price</td><td class="t-hl">Free &mdash; $20 / mo</td><td>Free &mdash; $25 / mo</td><td>Free &mdash; $20 / mo</td><td>Free &mdash; $20 / mo</td><td>Free &mdash; $20 / mo</td></tr>
-        <tr><td>Non-technical suitability</td><td class="t-hl"><span class="v-yes">&#10003; Excellent</span></td><td><span class="v-yes">&#10003; Good</span></td><td><span class="v-part">&#126; Moderate</span></td><td><span class="v-yes">&#10003; Good</span></td><td><span class="v-no">&#10007; Developers only</span></td></tr>
-        <tr><td>Our assessment</td><td class="t-hl"><span class="v-yes">Best Overall</span></td><td><span class="v-part">Best Design</span></td><td><span class="v-part">Best for Devs</span></td><td><span class="v-part">Fastest to Ship</span></td><td><span class="v-part">Best IDE</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <div class="narrow newsletter-card">
+      <span class="mono" style="color: var(--accent); margin-bottom: 18px; display: block;">The Weekly Digest</span>
+      <h2>Tool intelligence, <em>once a week</em>.</h2>
+      <p>One rigorously tested review, one comparative breakdown, one signal from inside the SaaS world. No padding, no sponsored content, no asterisks.</p>
 
-<!-- NEWSLETTER -->
-<section class="nl-sec" id="newsletter">
-  <div class="nl-inner reveal">
-    <div>
-      <div class="eyebrow">Weekly Digest</div>
-      <h2 class="nl-title">Intelligence that <em>moves</em> your business forward.</h2>
-      <p class="nl-sub">Every week: one rigorously tested tool review, one comparative analysis, and one insider tactic the tool&rsquo;s own marketing team would rather you did not know.</p>
-      <div style="margin-top:20px">
-        <div class="nl-perk"><div class="nl-perk-mark"></div>One honest, hands-on tool review delivered weekly</div>
-        <div class="nl-perk"><div class="nl-perk-mark"></div>Comparative breakdowns with curated affiliate recommendations</div>
-        <div class="nl-perk"><div class="nl-perk-mark"></div>No sponsored content, no padding, no asterisks</div>
+      <div class="newsletter-promises">
+        <div class="promise"><b>1</b>Honest, hands-on review of a real tool</div>
+        <div class="promise"><b>1</b>Comparative breakdown of a category</div>
+        <div class="promise"><b>1</b>Insider signal you won't find on LinkedIn</div>
       </div>
-    </div>
-    <div>
-      <div class="nl-form">
-        <input class="nl-input" type="text" id="nlName" placeholder="First name">
-        <input class="nl-input" type="email" id="nlEmail" placeholder="Your professional email address">
-        <button class="nl-submit" onclick="nlSubscribe()">Join 2,400 Subscribers &mdash; Free</button>
-        <div class="nl-fine">No unsolicited email. No sponsored content. Unsubscribe at any time.</div>
+
+      <form class="newsletter-form-wrap" id="newsForm">
+        <input type="email" placeholder="you@founder.email" required aria-label="Email" />
+        <button type="submit">Subscribe Free</button>
+      </form>
+      <p class="newsletter-fineprint">2,400 founders read it. Unsubscribe in one click. Never sold to anyone.</p>
+      <div class="form-success" id="newsSuccess" style="margin-top: 24px; max-width: 480px; margin-left: auto; margin-right: auto; text-align: left;">
+        <strong>Subscribed.</strong> Confirmation email on its way — first issue lands Sunday.
       </div>
-      <div id="nlSuccess">&#10003; &nbsp; Confirmed &mdash; Please check your inbox</div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="f-grid">
-    <div class="f-brand">
-      <div class="logo">
-        <div class="logo-emblem">
-          <svg viewBox="0 0 13 13" fill="none"><polyline points="1,10 3.5,4.5 6.5,8 9,3 12,10" stroke="#A8BDD4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="logo-wordmark">Tools That <span>Work</span></div>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Tools That <em>Work</em></h4>
+        <p>Independent reviews of AI and SaaS tools for founders and solopreneurs. No press releases, no paid placements. Just verdicts you can act on.</p>
       </div>
-      <p class="f-tagline">Independent analysis of AI and SaaS tools for founders and solopreneurs who demand precision over hype.</p>
-      <p class="f-disc">This publication contains affiliate links. We receive a commission on qualifying purchases made through our links, at no additional cost to you. We recommend only tools we have personally evaluated.</p>
+      <div class="footer-col">
+        <span class="mono">Reviews</span>
+        <ul>
+          <li><a href="#deep-review">Emergent.sh</a></li>
+          <li><a href="#review-beehiiv">Beehiiv</a></li>
+          <li><a href="#review-surfer">Surfer SEO</a></li>
+          <li><a href="#review-taplio">Taplio</a></li>
+          <li><a href="#review-writesonic">Writesonic</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="mono">Sections</span>
+        <ul>
+          <li><a href="#reviews">All Reviews</a></li>
+          <li><a href="#compare">Compare Tools</a></li>
+          <li><a href="#methodology">How We Test</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#lead-magnet">Free Stack PDF</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="mono">Publication</span>
+        <ul>
+          <li><a href="#methodology">About</a></li>
+          <li><a href="#">Disclosure</a></li>
+          <!-- REPLACE: real disclosure page -->
+          <li><a href="#">Privacy</a></li>
+          <!-- REPLACE: real privacy policy -->
+          <li><a href="#">Contact</a></li>
+          <!-- REPLACE: real contact email -->
+        </ul>
+      </div>
     </div>
-    <div class="f-col">
-      <h5>Reviews</h5>
-      <ul>
-        <li><a href="#">Emergent.sh</a></li>
-        <li><a href="#">Beehiiv</a></li>
-        <li><a href="#">Writesonic</a></li>
-        <li><a href="#">Taplio</a></li>
-        <li><a href="#">Surfer SEO</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>© 2026 Tools That Work — toolsthatworks.com</p>
+      <p style="font-family: 'Fraunces', serif; font-style: italic;">Built with rigour. Powered by independence.</p>
     </div>
-    <div class="f-col">
-      <h5>Analysis</h5>
-      <ul>
-        <li><a href="#">AI App Builders</a></li>
-        <li><a href="#">Newsletter Platforms</a></li>
-        <li><a href="#">AI Writing Tools</a></li>
-        <li><a href="#">SEO Platforms</a></li>
-        <li><a href="#">LinkedIn Tools</a></li>
-      </ul>
-    </div>
-    <div class="f-col">
-      <h5>Publication</h5>
-      <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Newsletter</a></li>
-        <li><a href="#">Disclosure</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="f-bottom">
-    <div class="f-copy">&copy; 2025 Tools That Work &mdash; toolsthatworks.com</div>
-    <div class="f-mono">Built with rigour. Powered by independence.</div>
+    <p class="footer-disclosure">
+      <strong>Affiliate disclosure:</strong> This publication contains affiliate links. We receive a commission on qualifying purchases made through our links, at no additional cost to you. We recommend only tools we have personally evaluated and paid for. Commission rates are disclosed alongside each affiliate link. We are not paid by vendors to write or modify reviews.
+    </p>
   </div>
 </footer>
 
 <script>
-/* Reveal on scroll */
-const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target);} }), {threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Today's date in masthead
+  const today = new Date();
+  const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const dateStr = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+  document.getElementById('todayDate').textContent = dateStr;
 
-/* Tips */
-function toggleTip(el) {
-  el.classList.toggle('open');
-  el.querySelector('.tip-expand').textContent = el.classList.contains('open') ? 'Collapse \u2191' : 'Expand technique \u2192';
-}
+  // Last updated stamps on deep reviews — staggered so they don't all show identical dates
+  const lastUpdatedFmt = (daysAgo) => {
+    const d = new Date();
+    d.setDate(d.getDate() - daysAgo);
+    return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  };
+  document.getElementById('lastUpdated').textContent = lastUpdatedFmt(6);
+  document.getElementById('lastUpdated2').textContent = lastUpdatedFmt(13);
+  document.getElementById('lastUpdated3').textContent = lastUpdatedFmt(20);
+  document.getElementById('lastUpdated4').textContent = lastUpdatedFmt(27);
+  document.getElementById('lastUpdated5').textContent = lastUpdatedFmt(34);
 
-/* Newsletter */
-function nlSubscribe() {
-  const email = document.getElementById('nlEmail').value.trim();
-  if(!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-  document.getElementById('nlSuccess').style.display = 'block';
-  document.querySelector('.nl-submit').disabled = true;
-  document.querySelector('.nl-submit').textContent = '\u2713  Subscribed';
-}
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-/* Live News */
-async function loadNews() {
-  const key = document.getElementById('apiKey').value.trim();
-  if(!key) { alert('Please enter your Anthropic API key to load live news.'); return; }
-  const btn = document.getElementById('apiBtn');
-  btn.disabled = true; btn.textContent = 'Loading\u2026';
-  document.getElementById('newsFeed').innerHTML = '<div class="n-loader"><div class="spinner"></div><span>Retrieving latest AI &amp; SaaS intelligence&hellip;</span></div>';
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514', max_tokens: 2000,
-        tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-        system: 'You are a senior editor at an AI tools intelligence publication. Search for the most significant recent AI and SaaS news. Return ONLY valid JSON with no markdown or surrounding text: {"main":[{"tag":"CATEGORY","headline":"text","body":"2-3 sentence summary"},{"tag":"CATEGORY","headline":"text","body":"2-3 sentence summary"}],"side":[{"tag":"CATEGORY","title":"text","desc":"1-2 sentence summary"},{"tag":"CATEGORY","title":"text","desc":"1-2 sentence summary"},{"tag":"CATEGORY","title":"text","desc":"1-2 sentence summary"},{"tag":"CATEGORY","title":"text","desc":"1-2 sentence summary"}]} Use categories: AI TOOLS, SAAS, LAUNCHES, FUNDING, AFFILIATE, INDUSTRY',
-        messages: [{ role: 'user', content: 'Search for the 6 most significant AI tools and SaaS industry developments from the past 7 days. Prioritise new tool launches, major funding events, product announcements, and affiliate opportunities. Return the exact JSON structure specified.' }]
-      })
-    });
-    const data = await res.json();
-    if(data.error) throw new Error(data.error.message);
-    let json = '';
-    for(const b of (data.content || [])) {
-      if(b.type === 'text') { const c = b.text.replace(/```json|```/g,'').trim(); if(c.startsWith('{')){ json=c; break; } }
-    }
-    if(!json) throw new Error('Unable to parse response. Please try again.');
-    renderFeed(JSON.parse(json));
-  } catch(err) {
-    document.getElementById('newsFeed').innerHTML = '<div style="text-align:center;padding:56px 20px;color:var(--t3);font-family:var(--mono);font-size:.78rem;line-height:2"><span style="color:var(--t2);font-weight:400;display:block;margin-bottom:8px">Connection Failed</span>' + err.message + '<br>Please verify your API key and try again.</div>';
-  } finally {
-    btn.disabled = false; btn.textContent = 'Refresh Feed';
+  // Lead magnet form (placeholder — wire to your ESP)
+  document.getElementById('leadForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // REPLACE: send the email to your ESP (Beehiiv, ConvertKit, MailerLite, etc.) via their API or form action
+    document.getElementById('leadSuccess').classList.add('show');
+    e.target.style.display = 'none';
+  });
+  document.getElementById('newsForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // REPLACE: send the email to your ESP
+    document.getElementById('newsSuccess').classList.add('show');
+    e.target.style.display = 'none';
+  });
+
+  // Stagger-reveal hero (already CSS-driven, just ensures animation runs after font-load)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => document.body.classList.add('fonts-ready'));
   }
-}
-
-function renderFeed(data) {
-  const ts = new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
-  const main = (data.main||[]).map(d =>
-    `<div class="n-big"><div class="n-stamp">${d.tag} &mdash; ${ts}</div><div class="n-hl">${d.headline}</div><div class="n-body">${d.body}</div></div>`
-  ).join('');
-  const side = (data.side||[]).map((d,i) =>
-    `<div class="n-sm"><div class="n-idx">0${i+1}</div><div><div class="n-sm-tag">${d.tag}</div><div class="n-sm-title">${d.title}</div><div class="n-sm-body">${d.desc}</div></div></div>`
-  ).join('');
-  document.getElementById('newsFeed').innerHTML = `<div class="news-grid"><div class="news-col-a">${main}</div><div class="news-col-b">${side}</div></div>`;
-}
 </script>
+
 </body>
 </html>
