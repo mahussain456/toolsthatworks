@@ -202,42 +202,6 @@
   .stat-mini b { font-size: 1.5rem; display: block; font-weight: 500; }
   .stat-mini span { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--ink-faint); text-transform: uppercase; }
 
-  /* ============ AUTHOR BLOCK ============ */
-  .author-block {
-    padding: 48px 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--bg-deeper);
-  }
-  .author-grid {
-    display: grid; grid-template-columns: 110px 1fr auto; gap: 32px; align-items: center;
-  }
-  @media (max-width: 720px) {
-    .author-grid { grid-template-columns: 80px 1fr; }
-    .author-grid .author-cta { grid-column: 1 / -1; justify-self: start; }
-  }
-  .author-photo {
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-    border: 3px solid var(--bg);
-    box-shadow: var(--paper-shadow);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--bg);
-    font-family: 'Fraunces', serif;
-    font-size: 2.4rem;
-    font-weight: 400;
-    /* REPLACE: set background-image: url('your-photo.jpg'); background-size: cover; */
-  }
-  @media (max-width: 720px) { .author-photo { width: 80px; height: 80px; font-size: 1.8rem; } }
-  .author-meta .mono { color: var(--accent); margin-bottom: 8px; }
-  .author-meta h3 {
-    font-size: 1.5rem; font-weight: 500; margin-bottom: 6px;
-    font-variation-settings: "opsz" 72, "SOFT" 60;
-  }
-  .author-meta p { font-size: 0.98rem; color: var(--ink-light); max-width: 540px; }
-  .author-cta { font-size: 0.9rem; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
-  .author-cta:hover { color: var(--accent); }
-
   /* ============ SECTION TITLES ============ */
   section { padding: 96px 0; border-bottom: 1px solid var(--rule); position: relative; }
   .section-head { margin-bottom: 64px; max-width: 720px; }
@@ -577,22 +541,6 @@
     </div>
   </div>
 </header>
-
-<!-- ============ AUTHOR / CREDIBILITY BLOCK ============ -->
-<!-- REPLACE: Add your real photo (set background-image on .author-photo), your real name, real one-liner bio, and link your real socials. -->
-<section class="author-block" style="padding-bottom: 48px;">
-  <div class="container">
-    <div class="author-grid">
-      <div class="author-photo" aria-label="Author photo">YN</div>
-      <div class="author-meta">
-        <span class="mono">Edited by</span>
-        <h3>Your Name</h3>
-        <p>Solo founder, ex-[your background]. I've personally subscribed to and tested every tool reviewed on this site. No press releases. No paid placements. If a tool sucks, I say so.</p>
-      </div>
-      <a href="#methodology" class="author-cta">Read our testing methodology →</a>
-    </div>
-  </div>
-</section>
 
 <!-- ============ REVIEWS GRID ============ -->
 <section id="reviews">
@@ -1351,7 +1299,7 @@
   // Security in schema.sql restricts this key to INSERT-only access
   // on the newsletter_subscribers table. Public reads are blocked.
   // ============================================================
-  const SUPABASE_URL = 'https://Toolsthatworks.supabase.co';
+  const SUPABASE_URL = 'https://edmajptuokmhxdrmgjzy.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkbWFqcHR1b2ttaHhkcm1nanp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyOTQ4MDUsImV4cCI6MjA5Mjg3MDgwNX0.Si_mB7IxF6OTZc4q6FWcWdSD6NuSyUBISd7VPzsQK-g';
 
   document.getElementById('newsForm').addEventListener('submit', async (e) => {

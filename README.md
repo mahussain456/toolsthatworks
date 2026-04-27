@@ -43,18 +43,12 @@ python3 -m http.server 8000
 
 ## ⚠️ Replace before launching
 
-There are **24 `REPLACE:` markers** in `index.html`. Search the file for `REPLACE` to find them all. The critical categories:
+Search the file for `REPLACE:` to find every placeholder. The critical categories:
 
-### 1. Author identity (5 spots in the author block)
-- `.author-photo` — set `background-image: url('your-photo.jpg'); background-size: cover;` and remove the "YN" placeholder text
-- `<h3>Your Name</h3>` — your real name
-- The bio paragraph below your name
-- (Optional) Add LinkedIn / X / YouTube links to the author block
+### 1. Affiliate links (every "Try X" button)
+Every remaining `href="#"` next to a `<!-- REPLACE: tracked ... affiliate link -->` comment. Use your **customer-facing** affiliate URLs, not partner-program signup URLs (the original site got this wrong on Emergent). Get them from your dashboard at PartnerStack, Impact, ShareASale, or the vendor's direct program.
 
-### 2. Affiliate links (10 spots — every "Try X" button)
-Every `href="#"` next to a `<!-- REPLACE: tracked ... affiliate link -->` comment. Use your **customer-facing** affiliate URLs, not partner-program signup URLs (the original site got this wrong on Emergent). Get them from your dashboard at PartnerStack, Impact, ShareASale, or the vendor's direct program.
-
-### 3. Newsletter signups (Supabase)
+### 2. Newsletter signups (Supabase)
 
 The newsletter form writes directly to a Supabase table you control. You own the data, no ESP middleman, free up to 50K monthly active users.
 
@@ -105,13 +99,13 @@ Supabase is great for capture but lousy at sending. When you're ready to send ac
 
 The form includes an invisible honeypot field (`name="website"`). Real users never fill it; bots fill every field. If it gets filled, the submission silently fake-succeeds without writing to your database. Combined with Supabase's built-in rate limits, this catches roughly 95% of automated signups.
 
-### 4. The Emergent.sh deep review body
+### 3. The Emergent.sh deep review body
 Marked `<!-- REPLACE this paragraph with your actual first impression. -->` etc. Currently written as a credible template. Edit to match your real testing experience — keep the structure (verdict line → drop-cap opener → what works → pull quote → what falls short → pros/cons → final verdict).
 
-### 5. The 4 secondary reviews (Beehiiv, Surfer, Taplio, Writesonic)
+### 4. The 4 secondary reviews (Beehiiv, Surfer, Taplio, Writesonic)
 Same structure. Edit body copy to reflect your actual hands-on findings. The verdicts and structural takes are already written; replace specifics with your real numbers and screenshots.
 
-### 6. Footer pages (3 spots)
+### 5. Footer pages (3 spots)
 `/about`, `/disclosure`, `/privacy`, `/contact` currently link to `#`. Either build real pages, or replace with `mailto:` links and a hosted privacy policy from [iubenda.com](https://www.iubenda.com) or [termly.io](https://termly.io).
 
 ---
