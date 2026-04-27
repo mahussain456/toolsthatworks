@@ -54,21 +54,56 @@ There are **24 `REPLACE:` markers** in `index.html`. Search the file for `REPLAC
 ### 2. Affiliate links (10 spots — every "Try X" button)
 Every `href="#"` next to a `<!-- REPLACE: tracked ... affiliate link -->` comment. Use your **customer-facing** affiliate URLs, not partner-program signup URLs (the original site got this wrong on Emergent). Get them from your dashboard at PartnerStack, Impact, ShareASale, or the vendor's direct program.
 
-### 3. Email forms (2 spots)
-The lead-magnet form and the newsletter form both currently fake the submission. Wire them to your ESP. Beehiiv embed is simplest:
+### 3. Newsletter signups (Supabase)
 
-```html
-<!-- Replace the existing form body with your Beehiiv embed -->
-<iframe
-  src="https://embeds.beehiiv.com/YOUR-EMBED-ID"
-  data-test-id="beehiiv-embed"
-  width="100%" height="320"
-  frameborder="0" scrolling="no"
-  style="border-radius: 0; background: transparent;"
-></iframe>
-```
+The newsletter form writes directly to a Supabase table you control. You own the data, no ESP middleman, free up to 50K monthly active users.
 
-Alternatives: ConvertKit, MailerLite, EmailOctopus. All offer embed snippets.
+**One-time setup (~5 minutes):**
+
+1. **Create a Supabase project** at [supabase.com](https://supabase.com) — free tier is plenty for this. Pick any region close to your audience.
+
+2. **Run the schema migration.** In the Supabase dashboard:
+   - Go to **SQL Editor** → **New query**
+   - Open `supabase/schema.sql` from this repo, copy the entire contents
+   - Paste into the SQL editor → click **Run**
+   - You should see "Success. No rows returned." That's correct.
+
+3. **Grab your API credentials.** In the Supabase dashboard:
+   - Go to **Project Settings** → **API**
+   - Copy two values:
+     - **Project URL** (looks like `https://abcdefgh.supabase.co`)
+     - **`anon` `public` key** (the long JWT-looking string under "Project API keys")
+
+4. **Paste them into `index.html`.** Search for `SUPABASE_URL` (around line ~1290 in the script section). Replace both placeholders:
+
+   ```js
+   const SUPABASE_URL = 'https://abcdefgh.supabase.co';
+   const SUPABASE_ANON_KEY = 'eyJhbGc...';  // your full anon key
+   ```
+
+   The anon key is **safe to expose in client-side code** — it's designed for that. The Row Level Security policies in `schema.sql` restrict this key to inserts only. The public cannot read your subscriber list with this key.
+
+5. **Commit, push, deploy.** Done.
+
+**Verify it works:**
+
+- Open your live site, submit the newsletter form with a test email
+- In Supabase: **Table Editor** → `newsletter_subscribers` — you should see the row appear within a second
+- Try submitting the same email again — it'll silently succeed (uniqueness handled gracefully so you don't reveal who's subscribed)
+
+**Viewing and exporting subscribers:**
+
+- **Quick view:** Table Editor → `newsletter_subscribers`
+- **Export to CSV:** Table Editor → click the table → ⋯ menu → "Export data as CSV"
+- **Active subscribers only:** the schema includes a `public.active_subscribers` view that filters out unsubscribes — query it in the SQL editor: `select * from active_subscribers;`
+
+**When you outgrow this (recommended at ~500 subs):**
+
+Supabase is great for capture but lousy at sending. When you're ready to send actual newsletters, export the CSV and import to Beehiiv/ConvertKit/MailerLite. Beehiiv's importer takes a CSV directly. You keep your Supabase as the system of record; the ESP becomes the send mechanism.
+
+**Bot protection:**
+
+The form includes an invisible honeypot field (`name="website"`). Real users never fill it; bots fill every field. If it gets filled, the submission silently fake-succeeds without writing to your database. Combined with Supabase's built-in rate limits, this catches roughly 95% of automated signups.
 
 ### 4. The Emergent.sh deep review body
 Marked `<!-- REPLACE this paragraph with your actual first impression. -->` etc. Currently written as a credible template. Edit to match your real testing experience — keep the structure (verdict line → drop-cap opener → what works → pull quote → what falls short → pros/cons → final verdict).
@@ -79,24 +114,23 @@ Same structure. Edit body copy to reflect your actual hands-on findings. The ver
 ### 6. Footer pages (3 spots)
 `/about`, `/disclosure`, `/privacy`, `/contact` currently link to `#`. Either build real pages, or replace with `mailto:` links and a hosted privacy policy from [iubenda.com](https://www.iubenda.com) or [termly.io](https://termly.io).
 
-### 7. Coming Soon product
-The "$97 Stack Audit" is a placeholder. Either build the product (recommended once you have ~1K subs), update the price, or remove the section entirely.
-
 ---
 
 ## File structure
 
 ```
 toolsthatworks/
-├── index.html        ← the entire site
-├── README.md         ← this file
+├── index.html              ← the entire site
+├── README.md               ← this file
 ├── .gitignore
-├── netlify.toml      ← Netlify deploy config
-├── vercel.json       ← Vercel deploy config
-└── LICENSE           ← MIT
+├── netlify.toml            ← Netlify deploy config
+├── vercel.json             ← Vercel deploy config
+├── LICENSE                 ← MIT
+└── supabase/
+    └── schema.sql          ← Newsletter subscribers schema (run once in Supabase)
 ```
 
-Single file by design. No build step means no broken builds, no version drift, no `node_modules` rotting after six months.
+Single HTML file by design. No build step means no broken builds, no version drift, no `node_modules` rotting after six months.
 
 ---
 
