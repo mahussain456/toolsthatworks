@@ -443,59 +443,7 @@
   .tactic h4 { font-size: 1.25rem; font-weight: 500; margin-bottom: 12px; line-height: 1.25; font-variation-settings: "opsz" 72, "SOFT" 60; }
   .tactic p { font-size: 0.96rem; color: var(--ink-light); line-height: 1.5; }
 
-  /* ============ LEAD MAGNET ============ */
-  .lead-magnet {
-    background: var(--ink);
-    color: var(--bg);
-    padding: 80px 0;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    overflow: hidden;
-  }
-  .lead-magnet::before {
-    content: '';
-    position: absolute; top: 0; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    opacity: 0.4; pointer-events: none;
-  }
-  .lead-magnet-grid { display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center; position: relative; }
-  @media (max-width: 900px) { .lead-magnet-grid { grid-template-columns: 1fr; } }
-  .lead-magnet .mono { color: var(--accent-soft); margin-bottom: 20px; display: block; }
-  .lead-magnet h2 { color: var(--bg); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 300; margin-bottom: 20px; line-height: 1.05; }
-  .lead-magnet h2 em { font-style: italic; color: var(--accent-soft); font-weight: 400; }
-  .lead-magnet p { font-size: 1.15rem; color: rgba(242, 237, 228, 0.85); line-height: 1.55; margin-bottom: 24px; }
-  .lead-magnet ul { list-style: none; }
-  .lead-magnet ul li { padding: 8px 0 8px 24px; position: relative; color: rgba(242, 237, 228, 0.85); font-size: 1rem; }
-  .lead-magnet ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent-soft); }
-
-  .lm-form-card { background: var(--bg); color: var(--ink); padding: 36px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.4); position: relative; }
-  .lm-form-card::before { content: 'FREE PDF'; position: absolute; top: -10px; left: 24px; background: var(--accent); color: var(--bg); padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; }
-  .lm-form-card h4 { font-size: 1.5rem; font-weight: 500; margin-bottom: 14px; line-height: 1.2; }
-  .lm-form-card p { font-size: 0.95rem; color: var(--ink-light); margin-bottom: 22px; }
-  .form-row { display: flex; flex-direction: column; gap: 12px; }
-  .form-row input {
-    padding: 14px 16px;
-    border: 1px solid var(--ink);
-    background: var(--bg);
-    font-family: 'Newsreader', serif;
-    font-size: 1rem;
-    color: var(--ink);
-    border-radius: 1px;
-    transition: border-color 0.2s;
-  }
-  .form-row input:focus { outline: none; border-color: var(--accent); border-width: 2px; }
-  .form-row button {
-    padding: 14px 16px;
-    background: var(--ink); color: var(--bg);
-    border: none;
-    font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-    border-radius: 1px;
-  }
-  .form-row button:hover { background: var(--accent); }
-  .form-note { font-size: 0.78rem; color: var(--ink-faint); margin-top: 14px; line-height: 1.4; }
+  /* ============ FORM SUCCESS (used by newsletter) ============ */
   .form-success { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent); margin-top: 16px; font-size: 0.95rem; }
   .form-success.show { display: block; }
 
@@ -520,41 +468,6 @@
   }
   .method-step h4 { font-size: 1.15rem; font-weight: 500; margin-bottom: 10px; line-height: 1.25; }
   .method-step p { font-size: 0.92rem; color: var(--ink-light); line-height: 1.5; }
-
-  /* ============ COMING SOON PRODUCT ============ */
-  .product-soft {
-    padding: 80px 0;
-    background: var(--bg-deeper);
-    border-bottom: 1px solid var(--rule);
-  }
-  .product-card {
-    max-width: 760px; margin: 0 auto;
-    background: var(--bg-card);
-    border: 1px solid var(--ink);
-    padding: 56px;
-    text-align: center;
-    box-shadow: var(--paper-shadow);
-    position: relative;
-  }
-  .product-card::before {
-    content: 'COMING SOON'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--accent); color: var(--bg);
-    padding: 6px 16px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; letter-spacing: 0.16em;
-  }
-  .product-card .mono { color: var(--ink-faint); margin-bottom: 14px; display: block; }
-  .product-card h3 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
-  .product-card h3 em { font-style: italic; color: var(--accent); }
-  .product-card p { font-size: 1.1rem; color: var(--ink-light); margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
-  .product-card .price-line {
-    font-family: 'Fraunces', serif;
-    font-size: 1.4rem;
-    margin-bottom: 28px;
-    color: var(--ink);
-  }
-  .product-card .price-line em { color: var(--accent); font-style: italic; font-weight: 500; }
-  .product-card .strike { text-decoration: line-through; color: var(--ink-faint); font-size: 1rem; margin-right: 8px; }
 
   /* ============ NEWSLETTER ============ */
   .newsletter { padding: 96px 0; }
@@ -645,7 +558,7 @@
         <p class="hero-lede anim-up d2">Hands-on, unsponsored reviews of AI and SaaS tools — written for solo founders and operators who'd rather see one honest verdict than ten press releases.</p>
         <div class="hero-actions anim-up d3">
           <a href="#reviews" class="btn">Read the Reviews <span class="btn-arrow">→</span></a>
-          <a href="#lead-magnet" class="btn btn-ghost">Get the Free Stack PDF</a>
+          <a href="#newsletter" class="btn btn-ghost">Subscribe to Weekly Digest</a>
         </div>
       </div>
       <aside class="hero-side anim-up d4">
@@ -1284,37 +1197,6 @@
   </div>
 </section>
 
-<!-- ============ LEAD MAGNET ============ -->
-<section class="lead-magnet" id="lead-magnet">
-  <div class="container">
-    <div class="lead-magnet-grid">
-      <div>
-        <span class="mono">Free Resource</span>
-        <h2>The 27-Tool <em>Solo Founder Stack</em>.</h2>
-        <p>The exact stack we'd use to start an internet business from scratch in 2026 — broken down by stage, with budget tiers, real prices, and our honest take on each.</p>
-        <ul>
-          <li>Stack for $0/month (free tools only) — works to $1K MRR</li>
-          <li>Stack for ~$200/month — the lean operator's loadout</li>
-          <li>Stack for ~$800/month — the full leverage build</li>
-          <li>Tools we paid for and dropped — and what we replaced them with</li>
-        </ul>
-      </div>
-      <div class="lm-form-card">
-        <h4>Get the PDF instantly.</h4>
-        <p>Drop your email. We'll send you the stack PDF, plus the weekly digest. Unsubscribe whenever.</p>
-        <form class="form-row" id="leadForm">
-          <input type="email" placeholder="you@founder.email" required aria-label="Email" />
-          <button type="submit">Send Me the PDF →</button>
-        </form>
-        <p class="form-note">No spam, no sponsored content, no "exclusive offers." Just the stack and the weekly review.</p>
-        <div class="form-success" id="leadSuccess">
-          <strong>Sent.</strong> Check your inbox in 60 seconds — including the spam folder.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ METHODOLOGY ============ -->
 <section class="methodology" id="methodology">
   <div class="container">
@@ -1345,21 +1227,6 @@
         <h4>We disclose every time.</h4>
         <p>If a link is an affiliate link, you'll see the commission rate next to it. If we have a position in the company, we'd recuse and say so.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMING SOON PRODUCT ============ -->
-<section class="product-soft">
-  <div class="container">
-    <div class="product-card">
-      <span class="mono">Pre-launch · Limited to first 200</span>
-      <h3>The Founder <em>Stack Audit</em>.</h3>
-      <p>A 90-minute self-audit that maps your current tool stack against your stage, your team size, and your revenue. Identifies the average $400/month of waste we find on every audit, plus the upgrades that pay for themselves in 60 days.</p>
-      <div class="price-line">
-        <span class="strike">$197</span> <em>$97 launch price</em> for the first 200 readers.
-      </div>
-      <a href="#newsletter" class="btn">Join the Waitlist <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -1415,7 +1282,6 @@
           <li><a href="#compare">Compare Tools</a></li>
           <li><a href="#methodology">How We Test</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
-          <li><a href="#lead-magnet">Free Stack PDF</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1466,13 +1332,7 @@
   menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Lead magnet form (placeholder — wire to your ESP)
-  document.getElementById('leadForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    // REPLACE: send the email to your ESP (Beehiiv, ConvertKit, MailerLite, etc.) via their API or form action
-    document.getElementById('leadSuccess').classList.add('show');
-    e.target.style.display = 'none';
-  });
+  // Newsletter form (placeholder — wire to your ESP)
   document.getElementById('newsForm').addEventListener('submit', (e) => {
     e.preventDefault();
     // REPLACE: send the email to your ESP
