@@ -1299,8 +1299,8 @@
   // Security in schema.sql restricts this key to INSERT-only access
   // on the newsletter_subscribers table. Public reads are blocked.
   // ============================================================
-  const SUPABASE_URL = 'https://edmajptuokmhxdrmgjzy.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkbWFqcHR1b2ttaHhkcm1nanp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyOTQ4MDUsImV4cCI6MjA5Mjg3MDgwNX0.Si_mB7IxF6OTZc4q6FWcWdSD6NuSyUBISd7VPzsQK-g';
+  const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+  const SUPABASE_ANON_KEY = 'YOUR-ANON-PUBLIC-KEY';
 
   document.getElementById('newsForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -1355,22 +1355,41 @@
         body: JSON.stringify({ email: email, source: 'newsletter' })
       });
 
-      // 201 = inserted, 200 = ok, 409 = duplicate (already subscribed — show success silently)
+      // 201 = inserted, 200 = ok, 409 = duplicate (already subscribed — silently succeed)
       if (response.ok || response.status === 409) {
         successEl.classList.add('show');
         form.style.display = 'none';
         document.querySelector('.newsletter-fineprint').style.display = 'none';
-      } else {
-        const errorBody = await response.text();
-        console.error('Subscription failed:', response.status, errorBody);
-        errorMsg.textContent = 'Something went wrong on our end. Please try again in a moment.';
-        errorEl.classList.add('show');
-        button.disabled = false;
-        button.textContent = originalText;
+        return;
       }
+
+      // Translate Supabase failure modes into actionable messages
+      const body = await response.text();
+      console.error(`[Subscribe] HTTP ${response.status}:`, body);
+
+      if (response.status === 404) {
+        errorMsg.textContent = 'Database table not found. Run /supabase/schema.sql in the Supabase SQL editor.';
+      } else if (response.status === 401 || response.status === 403) {
+        errorMsg.textContent = 'Auth rejected by Supabase. Check that SUPABASE_ANON_KEY in index.html matches the "anon public" key in Project Settings → API.';
+      } else if (response.status === 400 && body.includes('valid_email')) {
+        errorMsg.textContent = 'That email format was rejected. Please check it and try again.';
+      } else if (response.status === 400 && body.includes('row-level security')) {
+        errorMsg.textContent = 'RLS policy blocking insert. Re-run /supabase/schema.sql to install the "Anyone can subscribe" policy.';
+      } else {
+        errorMsg.textContent = `Supabase returned ${response.status}. Open DevTools → Console for the full error.`;
+      }
+      errorEl.classList.add('show');
+      button.disabled = false;
+      button.textContent = originalText;
+
     } catch (err) {
-      console.error('Network error:', err);
-      errorMsg.textContent = 'Network error — please check your connection and try again.';
+      console.error('[Subscribe] Fetch threw:', err);
+      // fetch() throws on: invalid URL, DNS failure, CORS preflight rejection, offline
+      if (err instanceof TypeError && /fetch/i.test(err.message)) {
+        errorMsg.textContent = 'Could not reach Supabase. Verify SUPABASE_URL is correct (must end in .supabase.co) and your project is not paused.';
+      } else {
+        errorMsg.textContent = 'Unexpected error. Open DevTools → Console for details.';
+      }
       errorEl.classList.add('show');
       button.disabled = false;
       button.textContent = originalText;
