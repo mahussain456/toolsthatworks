@@ -446,6 +446,9 @@
   /* ============ FORM SUCCESS (used by newsletter) ============ */
   .form-success { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent); margin-top: 16px; font-size: 0.95rem; }
   .form-success.show { display: block; }
+  .form-error { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent-soft); margin-top: 16px; font-size: 0.95rem; color: var(--ink); }
+  .form-error.show { display: block; }
+  .honeypot { position: absolute !important; left: -9999px !important; opacity: 0 !important; pointer-events: none !important; height: 0 !important; width: 0 !important; }
 
   /* ============ METHODOLOGY ============ */
   .methodology h2 em { color: var(--accent); }
@@ -1245,13 +1248,17 @@
         <div class="promise"><b>1</b>Insider signal you won't find on LinkedIn</div>
       </div>
 
-      <form class="newsletter-form-wrap" id="newsForm">
-        <input type="email" placeholder="you@founder.email" required aria-label="Email" />
+      <form class="newsletter-form-wrap" id="newsForm" novalidate>
+        <input type="email" placeholder="you@founder.email" required aria-label="Email address" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot" />
         <button type="submit">Subscribe Free</button>
       </form>
       <p class="newsletter-fineprint">2,400 founders read it. Unsubscribe in one click. Never sold to anyone.</p>
       <div class="form-success" id="newsSuccess" style="margin-top: 24px; max-width: 480px; margin-left: auto; margin-right: auto; text-align: left;">
-        <strong>Subscribed.</strong> Confirmation email on its way — first issue lands Sunday.
+        <strong>Subscribed.</strong> You're on the list — first issue lands Sunday.
+      </div>
+      <div class="form-error" id="newsError" style="margin-top: 24px; max-width: 480px; margin-left: auto; margin-right: auto; text-align: left;">
+        <strong>Hmm, that didn't go through.</strong> <span id="newsErrorMsg">Please check your email and try again.</span>
       </div>
     </div>
   </div>
@@ -1332,12 +1339,94 @@
   menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Newsletter form (placeholder — wire to your ESP)
-  document.getElementById('newsForm').addEventListener('submit', (e) => {
+  // ============================================================
+  // SUPABASE NEWSLETTER INTEGRATION
+  // ------------------------------------------------------------
+  // 1. Create a project at supabase.com (free tier is fine)
+  // 2. Run /supabase/schema.sql in the Supabase SQL editor
+  // 3. Fill in your project URL and anon (public) key below
+  //    Settings → API → "Project URL" and "anon public" key
+  // ------------------------------------------------------------
+  // Note: the anon key is safe to expose in client code. Row Level
+  // Security in schema.sql restricts this key to INSERT-only access
+  // on the newsletter_subscribers table. Public reads are blocked.
+  // ============================================================
+  const SUPABASE_URL = 'https://Toolsthatworks.supabase.com';
+  const SUPABASE_ANON_KEY = 'edmajptuokmhxdrmgjzy';
+
+  document.getElementById('newsForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    // REPLACE: send the email to your ESP
-    document.getElementById('newsSuccess').classList.add('show');
-    e.target.style.display = 'none';
+    const form = e.target;
+    const emailInput = form.querySelector('input[type="email"]');
+    const honeypot = form.querySelector('input[name="website"]');
+    const button = form.querySelector('button');
+    const successEl = document.getElementById('newsSuccess');
+    const errorEl = document.getElementById('newsError');
+    const errorMsg = document.getElementById('newsErrorMsg');
+
+    // Reset any previous error state
+    errorEl.classList.remove('show');
+
+    // Bot check — real users never fill the honeypot
+    if (honeypot.value) {
+      successEl.classList.add('show');  // silently fake-succeed
+      form.style.display = 'none';
+      return;
+    }
+
+    // Email format check
+    const email = emailInput.value.trim().toLowerCase();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValid) {
+      errorMsg.textContent = 'That email looks off — please double-check it.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    // Configuration check
+    if (SUPABASE_URL.includes('YOUR-PROJECT-ID') || SUPABASE_ANON_KEY.includes('YOUR-ANON')) {
+      console.error('Supabase not configured. Update SUPABASE_URL and SUPABASE_ANON_KEY in index.html.');
+      errorMsg.textContent = 'Newsletter signup is not configured yet. Please email us directly.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    button.disabled = true;
+    const originalText = button.textContent;
+    button.textContent = 'Subscribing…';
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/newsletter_subscribers`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email: email, source: 'newsletter' })
+      });
+
+      // 201 = inserted, 200 = ok, 409 = duplicate (already subscribed — show success silently)
+      if (response.ok || response.status === 409) {
+        successEl.classList.add('show');
+        form.style.display = 'none';
+        document.querySelector('.newsletter-fineprint').style.display = 'none';
+      } else {
+        const errorBody = await response.text();
+        console.error('Subscription failed:', response.status, errorBody);
+        errorMsg.textContent = 'Something went wrong on our end. Please try again in a moment.';
+        errorEl.classList.add('show');
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      errorMsg.textContent = 'Network error — please check your connection and try again.';
+      errorEl.classList.add('show');
+      button.disabled = false;
+      button.textContent = originalText;
+    }
   });
 
   // Stagger-reveal hero (already CSS-driven, just ensures animation runs after font-load)
