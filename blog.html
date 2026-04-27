@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Blog — AI Tools, Tips &amp; Tactics for Founders | Tools That Work</title>
+<meta name="description" content="In-depth guides on AI tools, prompting, automation, and the solopreneur tech stack. Hands-on writing for builders — no hype, no fluff, no AI-generated filler." />
+<meta name="keywords" content="AI tools blog, best AI tools for founders 2026, ChatGPT vs Claude, AI prompting guide, build SaaS without code, AI automation for solopreneurs, AI tips and tricks, no-code AI app builder, solopreneur AI stack, AI productivity tactics" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+<meta name="author" content="Tools That Work" />
+<link rel="canonical" href="https://www.toolsthatworks.com/blog.html" />
+<meta property="og:title" content="The Blog — AI Tools, Tips &amp; Tactics for Founders" />
+<meta property="og:description" content="Hands-on writing on AI tools, prompting, and the solopreneur stack. No hype." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.toolsthatworks.com/blog.html" />
+<meta property="og:site_name" content="Tools That Work" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Blog — AI Tools, Tips &amp; Tactics for Founders" />
+<meta name="twitter:description" content="Hands-on writing on AI tools, prompting, and the solopreneur stack." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Tools That Work — Blog",
+  "description": "In-depth guides on AI tools, prompting, automation, and the solopreneur tech stack.",
+  "url": "https://www.toolsthatworks.com/blog.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Tools That Work",
+    "url": "https://www.toolsthatworks.com"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "The Best AI Tools for Solo Founders in 2026 (Hands-On Tested)",
+      "url": "https://www.toolsthatworks.com/blog.html#best-ai-tools-2026",
+      "datePublished": "2026-04-22",
+      "dateModified": "2026-04-27",
+      "author": {"@type": "Organization", "name": "Tools That Work"},
+      "image": "https://www.toolsthatworks.com/og-image.jpg"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "ChatGPT vs Claude in 2026: Which AI Should Founders Actually Pay For?",
+      "url": "https://www.toolsthatworks.com/blog.html#chatgpt-vs-claude",
+      "datePublished": "2026-04-19",
+      "dateModified": "2026-04-26",
+      "author": {"@type": "Organization", "name": "Tools That Work"},
+      "image": "https://www.toolsthatworks.com/og-image.jpg"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to Build a SaaS Without Code in 72 Hours (Real Walkthrough)",
+      "url": "https://www.toolsthatworks.com/blog.html#build-saas-without-code",
+      "datePublished": "2026-04-15",
+      "dateModified": "2026-04-24",
+      "author": {"@type": "Organization", "name": "Tools That Work"},
+      "image": "https://www.toolsthatworks.com/og-image.jpg"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "7 AI Prompting Tactics That Save Solo Founders 10 Hours a Week",
+      "url": "https://www.toolsthatworks.com/blog.html#ai-prompting-tactics",
+      "datePublished": "2026-04-10",
+      "dateModified": "2026-04-23",
+      "author": {"@type": "Organization", "name": "Tools That Work"},
+      "image": "https://www.toolsthatworks.com/og-image.jpg"
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+<style>
+  :root {
+    --bg: #F2EDE4;
+    --bg-deeper: #EAE2D2;
+    --bg-card: #FBF8F1;
+    --ink: #1A1614;
+    --ink-light: #4A4540;
+    --ink-faint: #8A847C;
+    --accent: #7A1F1F;
+    --accent-deep: #5A1515;
+    --accent-soft: #B85A4F;
+    --rule: #C8BEA8;
+    --rule-faint: #DDD3BD;
+    --highlight: #E8D9A8;
+    --paper-shadow: 0 1px 0 rgba(26, 22, 20, 0.04), 0 8px 24px -8px rgba(26, 22, 20, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    font-feature-settings: "kern", "liga", "onum";
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(26,22,20,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none; z-index: 1;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+  .narrow { max-width: 720px; margin: 0 auto; }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1, h2, h3, h4, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-feature-settings: "ss01", "ss02";
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  h1 { font-weight: 400; }
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ============ MASTHEAD ============ */
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+    padding: 14px 0 12px;
+    background: var(--bg);
+    position: relative;
+    z-index: 10;
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .masthead .mono { color: var(--ink-light); }
+  .masthead .accent-text { color: var(--accent); font-weight: 600; }
+
+  /* ============ NAV ============ */
+  nav.primary {
+    border-bottom: 1px solid var(--ink);
+    padding: 18px 0;
+    position: sticky; top: 0;
+    background: rgba(242, 237, 228, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--ink); color: var(--bg) !important;
+    padding: 9px 18px; border-radius: 1px;
+    font-size: 0.85rem !important;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+  .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; color: var(--ink); cursor: pointer; }
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--ink); padding: 24px 32px; gap: 18px; }
+    .menu-btn { display: block; }
+  }
+
+  /* ============ HERO ============ */
+  .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--rule); position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: end; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: ''; width: 24px; height: 1px; background: var(--ink);
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 6.4rem);
+    font-weight: 300;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    margin-bottom: 28px;
+    line-height: 0.96;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .hero-lede {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-light);
+    max-width: 580px;
+    margin-bottom: 36px;
+    font-weight: 350;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; text-decoration: none;
+    font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500;
+    transition: all 0.2s ease; cursor: pointer;
+    border: 1px solid transparent;
+    background: var(--ink); color: var(--bg);
+    border-radius: 1px;
+  }
+  .btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--bg); transform: translateY(-1px); }
+  .btn-arrow { transition: transform 0.2s; }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  .hero-side {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 28px;
+    box-shadow: var(--paper-shadow);
+    position: relative;
+  }
+  .hero-side::before {
+    content: 'CURRENT ISSUE'; position: absolute; top: -10px; left: 24px;
+    background: var(--bg); padding: 0 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.16em; color: var(--accent);
+  }
+  .hero-side h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem; font-weight: 500; line-height: 1.15;
+    margin-bottom: 14px;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .hero-side p { font-size: 0.96rem; color: var(--ink-light); margin-bottom: 20px; }
+  .hero-side .stats { display: flex; gap: 20px; padding-top: 20px; border-top: 1px solid var(--rule-faint); }
+  .stat-mini { font-family: 'Fraunces', serif; }
+  .stat-mini b { font-size: 1.5rem; display: block; font-weight: 500; }
+  .stat-mini span { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--ink-faint); text-transform: uppercase; }
+
+  /* ============ SECTION TITLES ============ */
+  section { padding: 96px 0; border-bottom: 1px solid var(--rule); position: relative; }
+  .section-head { margin-bottom: 64px; max-width: 720px; }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 18px;
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .section-head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-head p { font-size: 1.15rem; color: var(--ink-light); line-height: 1.55; }
+
+  /* ============ REVIEWS GRID ============ */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+  }
+  @media (max-width: 720px) { .reviews-grid { grid-template-columns: 1fr; } }
+  .review-card {
+    background: var(--bg-card);
+    padding: 36px;
+    border-bottom: 1px solid var(--ink);
+    border-right: 1px solid var(--ink);
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column;
+    transition: background 0.25s, transform 0.25s;
+    position: relative;
+    cursor: pointer;
+  }
+  .review-card:hover { background: var(--highlight); }
+  .review-card.feature { grid-column: 1 / -1; background: var(--ink); color: var(--bg); }
+  .review-card.feature:hover { background: var(--accent); }
+  .review-card.feature .review-meta-top { color: var(--bg); }
+  .review-card.feature .review-rating { color: var(--bg); }
+  .review-card.feature .review-rating .num { color: var(--bg); }
+  .review-card.feature .review-tag { background: var(--accent); color: var(--bg); }
+  .review-card.feature h3 { color: var(--bg); }
+  .review-card.feature p { color: var(--bg-deeper); }
+  .review-card.feature .review-cta { color: var(--bg); border-color: var(--bg); }
+
+  .review-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; gap: 12px; }
+  .review-tag {
+    background: var(--ink); color: var(--bg);
+    padding: 5px 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .review-rating { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink-light); }
+  .review-rating .num { font-size: 1.4rem; color: var(--ink); font-weight: 500; }
+
+  .review-card h3 {
+    font-size: 2.1rem; font-weight: 500; margin-bottom: 14px;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+    line-height: 1.05;
+  }
+  .review-card .pitch { font-size: 1rem; color: var(--ink-light); line-height: 1.55; margin-bottom: 24px; flex: 1; }
+
+  .review-card-foot { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--rule-faint); gap: 14px; flex-wrap: wrap; }
+  .review-cta {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem;
+    text-decoration: none; color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .review-card:hover .review-cta { color: var(--accent); border-color: var(--accent); }
+
+  /* ============ FEATURED DEEP REVIEW ============ */
+  .deep-review {
+    padding: 96px 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .deep-review-grid { display: grid; grid-template-columns: 240px 1fr; gap: 64px; }
+  @media (max-width: 900px) { .deep-review-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .deep-review-aside { position: sticky; top: 100px; align-self: start; }
+  @media (max-width: 900px) {
+    .deep-review-aside { position: static; top: auto; }
+  }
+  .deep-review-aside .mono { color: var(--accent); margin-bottom: 18px; display: block; }
+  .deep-review-aside h4 { font-size: 1.2rem; font-weight: 500; margin-bottom: 16px; }
+  .deep-review-meta-block { background: var(--bg-deeper); padding: 22px; border: 1px solid var(--rule); margin-bottom: 20px; }
+  .deep-review-meta-block dl { display: flex; flex-direction: column; gap: 14px; }
+  .deep-review-meta-block dt { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .deep-review-meta-block dd { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; }
+
+  .deep-review-body h2 {
+    font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 300; line-height: 1;
+    margin-bottom: 16px;
+  }
+  .deep-review-body h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .deep-review-body .verdict-line {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem; font-style: italic;
+    color: var(--ink-light); margin-bottom: 36px; line-height: 1.4;
+    padding-bottom: 28px; border-bottom: 1px solid var(--rule);
+  }
+  .deep-review-body p { margin-bottom: 22px; font-size: 1.1rem; line-height: 1.65; }
+  .deep-review-body p:first-of-type::first-letter {
+    font-family: 'Fraunces', serif;
+    font-size: 5rem; font-weight: 400;
+    float: left; line-height: 0.85;
+    padding: 8px 14px 0 0; color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .deep-review-body h3 {
+    font-size: 1.55rem; font-weight: 500; margin: 40px 0 16px;
+    font-variation-settings: "opsz" 72, "SOFT" 60;
+  }
+  .pull-quote {
+    margin: 40px 0;
+    padding: 24px 32px;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-deeper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.45rem; font-style: italic; line-height: 1.35;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72, "SOFT" 80;
+  }
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+  @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+  .pros-cons > div { padding: 24px; border: 1px solid var(--rule); background: var(--bg); }
+  .pros-cons h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .pros h4 { color: #2D5A2D; }
+  .cons h4 { color: var(--accent); }
+  .pros-cons ul { list-style: none; }
+  .pros-cons li { font-size: 0.98rem; padding: 8px 0 8px 24px; position: relative; line-height: 1.45; border-bottom: 1px solid var(--rule-faint); }
+  .pros-cons li:last-child { border-bottom: none; }
+  .pros-cons li::before {
+    position: absolute; left: 0; top: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+  }
+  .pros li::before { content: '+'; color: #2D5A2D; }
+  .cons li::before { content: '–'; color: var(--accent); }
+
+  .verdict-box {
+    margin: 40px 0;
+    padding: 32px;
+    background: var(--ink); color: var(--bg);
+    position: relative;
+  }
+  .verdict-box .mono { color: var(--accent-soft); margin-bottom: 14px; display: block; }
+  .verdict-box p { font-size: 1.15rem; line-height: 1.5; margin-bottom: 24px; color: var(--bg); }
+  .verdict-box .btn { background: var(--accent); }
+  .verdict-box .btn:hover { background: var(--accent-deep); }
+
+  .deep-review.alt { background: var(--bg); }
+  .deep-review.alt .deep-review-meta-block { background: var(--bg-card); }
+  .deep-review.alt .pros-cons > div { background: var(--bg-card); }
+  .deep-review.alt .pull-quote { background: var(--bg-card); }
+
+  /* ============ COMPARISON TABLE ============ */
+  .compare-section { background: var(--bg-deeper); }
+  .compare-table-wrap { overflow-x: auto; border: 1px solid var(--ink); background: var(--bg-card); box-shadow: var(--paper-shadow); }
+  .compare-table { width: 100%; border-collapse: collapse; min-width: 760px; font-family: 'Newsreader', serif; }
+  .compare-table th, .compare-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+  .compare-table th { background: var(--ink); color: var(--bg); font-family: 'Fraunces', serif; font-weight: 500; font-size: 1rem; vertical-align: bottom; }
+  .compare-table th.top-pick { background: var(--accent); position: relative; }
+  .compare-table th.top-pick::after { content: 'TOP PICK'; position: absolute; top: 8px; right: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; opacity: 0.85; }
+  .compare-table tbody tr:hover { background: var(--bg); }
+  .compare-table .row-label { font-weight: 500; font-family: 'Fraunces', serif; background: var(--bg-deeper); }
+  .check-yes { color: #2D5A2D; font-weight: 600; }
+  .check-no { color: var(--ink-faint); }
+  .check-mid { color: #B8860B; }
+  .compare-table tr:last-child td { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; border-bottom: none; }
+
+  /* ============ FOUNDER TACTICS ============ */
+  .tactics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+  @media (max-width: 900px) { .tactics-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .tactics-grid { grid-template-columns: 1fr; } }
+  .tactic {
+    padding: 32px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    transition: background 0.25s;
+    cursor: pointer;
+  }
+  .tactic:hover { background: var(--highlight); }
+  .tactic-num { font-family: 'Fraunces', serif; font-style: italic; color: var(--accent); font-size: 1.6rem; font-weight: 400; display: block; margin-bottom: 16px; }
+  .tactic h4 { font-size: 1.25rem; font-weight: 500; margin-bottom: 12px; line-height: 1.25; font-variation-settings: "opsz" 72, "SOFT" 60; }
+  .tactic p { font-size: 0.96rem; color: var(--ink-light); line-height: 1.5; }
+
+  /* ============ FORM SUCCESS (used by newsletter) ============ */
+  .form-success { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent); margin-top: 16px; font-size: 0.95rem; }
+  .form-success.show { display: block; }
+  .form-error { display: none; padding: 14px; background: var(--bg-deeper); border-left: 3px solid var(--accent-soft); margin-top: 16px; font-size: 0.95rem; color: var(--ink); }
+  .form-error.show { display: block; }
+  .honeypot { position: absolute !important; left: -9999px !important; opacity: 0 !important; pointer-events: none !important; height: 0 !important; width: 0 !important; }
+
+  /* ============ METHODOLOGY ============ */
+  .methodology h2 em { color: var(--accent); }
+  .method-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+  @media (max-width: 900px) { .method-steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .method-steps { grid-template-columns: 1fr; } }
+  .method-step {
+    padding: 32px 28px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .method-step:last-child { border-right: none; }
+  .method-step .num {
+    font-family: 'Fraunces', serif;
+    font-size: 3rem; font-weight: 300;
+    color: var(--accent); line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    display: block; margin-bottom: 18px;
+    font-style: italic;
+  }
+  .method-step h4 { font-size: 1.15rem; font-weight: 500; margin-bottom: 10px; line-height: 1.25; }
+  .method-step p { font-size: 0.92rem; color: var(--ink-light); line-height: 1.5; }
+
+  /* ============ NEWSLETTER ============ */
+  .newsletter { padding: 96px 0; }
+  .newsletter-card {
+    max-width: 720px; margin: 0 auto;
+    text-align: center;
+  }
+  .newsletter h2 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; margin-bottom: 18px; }
+  .newsletter h2 em { color: var(--accent); }
+  .newsletter > .container > .narrow > p { font-size: 1.2rem; color: var(--ink-light); margin-bottom: 36px; }
+  .newsletter-promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; padding: 32px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  @media (max-width: 720px) { .newsletter-promises { grid-template-columns: 1fr; } }
+  .promise { font-family: 'Newsreader', serif; font-size: 1rem; line-height: 1.4; color: var(--ink-light); }
+  .promise b { display: block; font-family: 'Fraunces', serif; font-size: 1.6rem; color: var(--accent); margin-bottom: 6px; font-weight: 500; }
+  .newsletter-form-wrap { display: flex; justify-content: center; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; }
+  .newsletter-form-wrap input { flex: 1; min-width: 240px; padding: 14px 16px; border: 1px solid var(--ink); font-family: 'Newsreader', serif; font-size: 1rem; background: var(--bg-card); border-radius: 1px; }
+  .newsletter-form-wrap input:focus { outline: none; border-color: var(--accent); }
+  .newsletter-form-wrap button { padding: 14px 24px; background: var(--ink); color: var(--bg); border: none; font-family: 'Newsreader', serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: background 0.2s; border-radius: 1px; }
+  .newsletter-form-wrap button:hover { background: var(--accent); }
+  .newsletter-fineprint { font-size: 0.85rem; color: var(--ink-faint); margin-top: 16px; }
+
+  /* ============ FOOTER ============ */
+  footer.site-footer {
+    background: var(--ink); color: var(--bg);
+    padding: 64px 0 32px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+  @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-brand h4 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 500; margin-bottom: 14px; color: var(--bg); }
+  .footer-brand h4 em { color: var(--accent-soft); font-style: italic; }
+  .footer-brand p { font-size: 0.95rem; color: rgba(242, 237, 228, 0.65); line-height: 1.55; max-width: 360px; }
+  .footer-col .mono { color: var(--accent-soft); margin-bottom: 16px; display: block; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { color: rgba(242, 237, 228, 0.75); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent-soft); }
+  .footer-bottom { padding-top: 28px; border-top: 1px solid rgba(242, 237, 228, 0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-bottom p { font-size: 0.85rem; color: rgba(242, 237, 228, 0.55); }
+  .footer-disclosure { font-size: 0.78rem; color: rgba(242, 237, 228, 0.5); margin-top: 14px; max-width: 720px; line-height: 1.5; }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .anim-up { opacity: 0; animation: fadeUp 0.8s ease-out forwards; }
+  .anim-up.d1 { animation-delay: 0.1s; }
+  .anim-up.d2 { animation-delay: 0.2s; }
+  .anim-up.d3 { animation-delay: 0.3s; }
+  .anim-up.d4 { animation-delay: 0.4s; }
+  /* ============================================================ */
+  /* ============ MOBILE RESPONSIVE OVERRIDES ================== */
+  /* ============================================================ */
+  @media (max-width: 720px) {
+    /* Container padding tightens on mobile */
+    .container { padding: 0 20px; }
+
+    /* Masthead — stack the two info bars vertically and shrink */
+    .masthead { padding: 10px 0 8px; }
+    .masthead-inner { gap: 4px; }
+    .masthead .mono { font-size: 0.6rem; line-height: 1.3; }
+
+    /* Nav — tighten spacing, shrink brand */
+    nav.primary { padding: 14px 0; }
+    .brand { font-size: 1.35rem; }
+
+    /* Hero — much shorter padding, tighter copy */
+    .hero { padding: 48px 0 40px; }
+    .hero h1 { font-size: 2.6rem; line-height: 1.0; margin-bottom: 20px; }
+    .hero-lede { font-size: 1.05rem; margin-bottom: 24px; }
+    .hero-actions { gap: 10px; }
+    .hero-actions .btn { padding: 12px 18px; font-size: 0.95rem; }
+    .hero-side { padding: 22px; }
+    .hero-side h4 { font-size: 1.25rem; }
+    .hero-side .stats { gap: 14px; flex-wrap: wrap; }
+    .stat-mini b { font-size: 1.3rem; }
+
+    /* Section padding shrinks dramatically on phone */
+    section { padding: 56px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head h2 { font-size: 2.1rem; }
+    .section-num { font-size: 2.6rem; margin-bottom: 6px; }
+    .section-head p { font-size: 1rem; }
+
+    /* Review cards — tighter padding, smaller headlines */
+    .review-card { padding: 26px 22px; }
+    .review-card h3 { font-size: 1.6rem; margin-bottom: 12px; }
+    .review-card .pitch { font-size: 0.95rem; }
+    .review-card-foot { gap: 10px; padding-top: 14px; }
+    .review-tag { font-size: 0.6rem; }
+
+    /* Deep review — fix the worst offenders from the screenshot */
+    .deep-review { padding: 56px 0; }
+    .deep-review-grid { gap: 24px; }
+    .deep-review-body h2 { font-size: 2rem; line-height: 1.05; }
+    .deep-review-body .verdict-line { font-size: 1.1rem; margin-bottom: 24px; padding-bottom: 20px; }
+    .deep-review-body p { font-size: 1rem; line-height: 1.6; margin-bottom: 18px; }
+    .deep-review-body p:first-of-type::first-letter { font-size: 3.5rem; padding: 4px 10px 0 0; }
+    .deep-review-body h3 { font-size: 1.3rem; margin: 28px 0 12px; }
+    .pull-quote { font-size: 1.15rem; padding: 18px 22px; margin: 28px 0; }
+    .verdict-box { padding: 24px; margin: 28px 0; }
+    .verdict-box p { font-size: 1rem; }
+    .deep-review-meta-block { padding: 18px; }
+    .deep-review-meta-block dl { gap: 12px; }
+    .deep-review-meta-block dd { font-size: 0.95rem; }
+
+    /* Comparison table — keep it scrollable but make the scroll obvious */
+    .compare-table-wrap { box-shadow: var(--paper-shadow), inset -10px 0 8px -8px rgba(26,22,20,0.15); }
+    .compare-table th, .compare-table td { padding: 12px 14px; font-size: 0.88rem; }
+
+    /* Tactics grid — tighter padding */
+    .tactic { padding: 24px 22px; }
+    .tactic h4 { font-size: 1.1rem; }
+    .tactic p { font-size: 0.9rem; }
+
+    /* Methodology — tighter */
+    .method-step { padding: 26px 22px; }
+    .method-step .num { font-size: 2.4rem; margin-bottom: 12px; }
+
+    /* Newsletter — make the signup form work on phones */
+    .newsletter { padding: 56px 0; }
+    .newsletter h2 { font-size: 2.1rem; }
+    .newsletter > .container > .narrow > p { font-size: 1.05rem; margin-bottom: 28px; }
+    .newsletter-promises { padding: 22px 0; gap: 18px; }
+    .promise b { font-size: 1.4rem; }
+    .newsletter-form-wrap { flex-direction: column; gap: 10px; }
+    .newsletter-form-wrap input { width: 100%; min-width: 0; }
+    .newsletter-form-wrap button { width: 100%; }
+
+    /* Footer */
+    footer.site-footer { padding: 48px 0 24px; }
+    .footer-grid { gap: 28px; margin-bottom: 36px; }
+    .footer-brand h4 { font-size: 1.6rem; }
+    .footer-bottom { font-size: 0.8rem; }
+    .footer-bottom p:last-child { display: none; } /* hide the italic tagline on mobile */
+  }
+
+  /* Extra tight on very small phones */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 2.3rem; }
+    .section-head h2 { font-size: 1.85rem; }
+    .deep-review-body h2 { font-size: 1.75rem; }
+    .review-card h3 { font-size: 1.45rem; }
+  }
+
+  /* Prevent any element from causing horizontal scroll on mobile */
+  @media (max-width: 720px) {
+    html, body { overflow-x: hidden; }
+    img, svg, video { max-width: 100%; height: auto; }
+    pre, code { white-space: pre-wrap; word-wrap: break-word; }
+  }
+</style>
+
+  /* ============ BLOG PAGE SPECIFIC ============ */
+  .blog-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--rule); }
+  .blog-hero h1 {
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    font-weight: 300;
+    margin-bottom: 24px;
+    line-height: 0.98;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .blog-hero .lede { font-size: 1.25rem; color: var(--ink-light); max-width: 640px; line-height: 1.5; }
+
+  /* Post index grid */
+  .post-index { padding: 80px 0; border-bottom: 1px solid var(--rule); background: var(--bg-deeper); }
+  .post-index-head { margin-bottom: 56px; }
+  .post-index-head h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 12px; font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .post-index-head h2 em { font-style: italic; color: var(--accent); }
+  .post-index-head p { color: var(--ink-light); font-size: 1.05rem; max-width: 640px; }
+
+  .post-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  @media (max-width: 720px) { .post-grid { grid-template-columns: 1fr; gap: 24px; } }
+  .post-card-link {
+    background: var(--bg-card);
+    border: 1px solid var(--ink);
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: var(--paper-shadow);
+  }
+  .post-card-link:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -12px rgba(26, 22, 20, 0.18); }
+
+  .post-card-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    padding: 24px;
+    text-align: center;
+  }
+  .post-card-img-1 { background: linear-gradient(135deg, #1A1614 0%, #3A2418 50%, #7A1F1F 100%); }
+  .post-card-img-2 { background: linear-gradient(135deg, #2A1F2D 0%, #4A2818 60%, #B85A4F 100%); }
+  .post-card-img-3 { background: linear-gradient(135deg, #1A2A1F 0%, #2D4A2D 60%, #5A8A5A 100%); }
+  .post-card-img-4 { background: linear-gradient(135deg, #1F1A2A 0%, #2D2A4A 60%, #5A5AB8 100%); }
+  .post-card-img::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+  .post-card-img-label {
+    position: relative; z-index: 1;
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.15;
+    max-width: 280px;
+    color: rgba(255,255,255,0.95);
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .post-card-img-label em { color: var(--accent-soft); font-style: normal; font-weight: 500; }
+
+  .post-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .post-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+  .post-card-meta .cat { color: var(--accent); }
+  .post-card-link h3 { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 500; line-height: 1.15; margin-bottom: 14px; font-variation-settings: "opsz" 144, "SOFT" 60; }
+  .post-card-link p { color: var(--ink-light); font-size: 1rem; line-height: 1.55; margin-bottom: 20px; flex: 1; }
+  .post-card-link .read-more { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; align-self: flex-start; transition: color 0.2s, border-color 0.2s; }
+  .post-card-link:hover .read-more { color: var(--accent); border-color: var(--accent); }
+
+  /* Individual posts */
+  .blog-post { padding: 96px 0; border-bottom: 1px solid var(--rule); }
+  .blog-post:nth-of-type(even) { background: var(--bg-card); }
+  .blog-post-inner { max-width: 760px; margin: 0 auto; }
+  @media (max-width: 720px) { .blog-post { padding: 56px 0; } }
+
+  .blog-post .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+  .blog-post .post-meta .cat { color: var(--accent); margin-right: 12px; }
+  .blog-post h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.0; margin-bottom: 24px; font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .blog-post h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .blog-post .deck { font-size: 1.3rem; line-height: 1.45; color: var(--ink-light); margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); font-style: italic; font-family: 'Newsreader', serif; }
+
+  .post-hero-img {
+    width: 100%; aspect-ratio: 1200 / 675;
+    background-size: cover; background-position: center;
+    margin-bottom: 36px;
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-hero-img::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+  .post-hero-img-1 { background: linear-gradient(135deg, #1A1614 0%, #3A2418 50%, #7A1F1F 100%); }
+  .post-hero-img-2 { background: linear-gradient(135deg, #2A1F2D 0%, #4A2818 60%, #B85A4F 100%); }
+  .post-hero-img-3 { background: linear-gradient(135deg, #1A2A1F 0%, #2D4A2D 60%, #5A8A5A 100%); }
+  .post-hero-img-4 { background: linear-gradient(135deg, #1F1A2A 0%, #2D2A4A 60%, #5A5AB8 100%); }
+  .post-hero-img-content { position: relative; z-index: 1; max-width: 600px; }
+  .post-hero-img-content .label-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 16px; display: block; }
+  .post-hero-img-content .label-display { font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 400; font-style: italic; line-height: 1.15; color: rgba(255,255,255,0.95); font-variation-settings: "opsz" 144, "SOFT" 80; }
+  .post-hero-img-content .label-display em { color: var(--accent-soft); font-style: normal; font-weight: 500; }
+
+  .blog-post p { margin-bottom: 22px; font-size: 1.1rem; line-height: 1.65; }
+  .blog-post-inner > article > p:first-of-type::first-letter,
+  .blog-post-inner > article > .post-hero-img + p::first-letter {
+    font-family: 'Fraunces', serif; font-size: 4.5rem; font-weight: 400;
+    float: left; line-height: 0.85; padding: 8px 14px 0 0; color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .blog-post h3 { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 500; margin: 44px 0 16px; font-variation-settings: "opsz" 72, "SOFT" 60; line-height: 1.2; }
+  .blog-post h4 { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 500; margin: 32px 0 12px; line-height: 1.25; }
+  .blog-post ul, .blog-post ol { margin: 0 0 22px 24px; font-size: 1.05rem; line-height: 1.6; }
+  .blog-post li { margin-bottom: 10px; }
+  .blog-post strong { font-weight: 600; color: var(--ink); }
+  .blog-post em { font-style: italic; }
+  .blog-post a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .blog-post a:hover { color: var(--accent-deep); }
+
+  .post-pull-quote {
+    margin: 36px 0;
+    padding: 24px 28px;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-deeper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem; font-style: italic; line-height: 1.35;
+    font-weight: 400;
+    font-variation-settings: "opsz" 72, "SOFT" 80;
+  }
+  .blog-post:nth-of-type(even) .post-pull-quote { background: var(--bg); }
+
+  .post-callout {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: var(--ink); color: var(--bg);
+    position: relative;
+  }
+  .post-callout .label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 10px; display: block; }
+  .post-callout p { font-size: 1.05rem; color: var(--bg); margin-bottom: 0; line-height: 1.55; }
+  .post-callout p strong { color: var(--bg); }
+
+  .post-end-cta {
+    margin: 44px 0 0;
+    padding: 32px;
+    background: var(--bg-deeper);
+    border: 1px solid var(--rule);
+    text-align: center;
+  }
+  .blog-post:nth-of-type(even) .post-end-cta { background: var(--bg); }
+  .post-end-cta h4 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 10px; }
+  .post-end-cta p { font-size: 1rem; color: var(--ink-light); margin-bottom: 18px; }
+
+  .blog-post-tags { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .blog-post-tags .label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-right: 12px; }
+  .blog-post-tag { display: inline-block; padding: 4px 10px; margin: 4px 6px 4px 0; background: var(--bg); border: 1px solid var(--rule); font-size: 0.8rem; color: var(--ink-light); }
+  .blog-post:nth-of-type(even) .blog-post-tag { background: var(--bg-card); }
+
+  /* Image inside post body — visual section breaks */
+  .post-body-img {
+    width: 100%; aspect-ratio: 16 / 9;
+    background-size: cover; background-position: center;
+    margin: 32px 0;
+    border: 1px solid var(--rule);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px;
+  }
+  .post-body-img::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 5px 5px;
+  }
+  .post-body-img-content { position: relative; z-index: 1; text-align: center; max-width: 480px; }
+  .post-body-img-content .mono-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 12px; display: block; }
+  .post-body-img-content .display-label { font-family: 'Fraunces', serif; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 400; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.2; }
+  .post-body-img-content .display-label em { color: var(--accent-soft); font-style: normal; font-weight: 500; }
+
+  /* Body image variants — distinct tonal palettes per post */
+  .pbi-1a { background: linear-gradient(135deg, #1A1614 0%, #4A2818 100%); }
+  .pbi-2a { background: linear-gradient(135deg, #2A1F2D 0%, #7A2A2A 100%); }
+  .pbi-3a { background: linear-gradient(135deg, #1A2A1F 0%, #4A6A4A 100%); }
+  .pbi-4a { background: linear-gradient(135deg, #1F1A2A 0%, #4A4A8A 100%); }
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<div class="masthead">
+  <div class="container">
+    <div class="masthead-inner">
+      <span class="mono">VOL. 01 — INDEPENDENT TOOL INTELLIGENCE</span>
+      <span class="mono"><span id="todayDate"></span> · <span class="accent-text">FOR FOUNDERS &amp; SOLOPRENEURS</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="primary">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">Tools That <em>Work</em></a>
+    <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#reviews">Reviews</a>
+      <a href="blog.html" style="color: var(--accent);">Blog</a>
+      <a href="index.html#compare">Compare</a>
+      <a href="index.html#methodology">How We Test</a>
+      <a href="index.html#newsletter" class="nav-cta">Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="blog-hero">
+  <div class="container">
+    <div class="eyebrow"><span class="mono">The Blog · Updated Weekly</span></div>
+    <h1>AI tools, <em>actually tested</em>.</h1>
+    <p class="lede">Hands-on writing on AI tools, prompting tactics, no-code app building, and the solopreneur tech stack — written for founders who'd rather learn from someone who shipped than read another AI-generated listicle.</p>
+  </div>
+</header>
+
+<!-- ============ POST INDEX ============ -->
+<section class="post-index">
+  <div class="container">
+    <div class="post-index-head">
+      <h2>Latest <em>posts</em>.</h2>
+      <p>Four deep dives this month — every word written by a human, every tool tested with our own credit card, every recommendation backed by something we actually shipped.</p>
+    </div>
+
+    <div class="post-grid">
+      <a href="#best-ai-tools-2026" class="post-card-link">
+        <div class="post-card-img post-card-img-1">
+          <span class="post-card-img-label">The <em>solo founder</em> stack</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta"><span class="cat">Tool Stack</span> · 14 min read · Apr 22, 2026</div>
+          <h3>The Best AI Tools for Solo Founders in 2026 (Hands-On Tested)</h3>
+          <p>The exact stack we'd use to start an internet business from scratch in 2026. Twelve AI tools tested across four months and three real projects, with honest verdicts on which ones earned a permanent slot.</p>
+          <span class="read-more">Read the post →</span>
+        </div>
+      </a>
+
+      <a href="#chatgpt-vs-claude" class="post-card-link">
+        <div class="post-card-img post-card-img-2">
+          <span class="post-card-img-label">ChatGPT <em>vs</em> Claude</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta"><span class="cat">AI Comparison</span> · 11 min read · Apr 19, 2026</div>
+          <h3>ChatGPT vs Claude in 2026: Which AI Should Founders Actually Pay For?</h3>
+          <p>Both are $20/month. Both claim to be the best. We ran the same six founder workflows through each one — coding, writing, research, planning, customer support, and SEO drafting — and tracked exactly where each one wins.</p>
+          <span class="read-more">Read the post →</span>
+        </div>
+      </a>
+
+      <a href="#build-saas-without-code" class="post-card-link">
+        <div class="post-card-img post-card-img-3">
+          <span class="post-card-img-label">SaaS in <em>72 hours</em>, no code</span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta"><span class="cat">Build Guide</span> · 13 min read · Apr 15, 2026</div>
+          <h3>How to Build a SaaS Without Code in 72 Hours (Real Walkthrough)</h3>
+          <p>A step-by-step build log of an actual SaaS product we shipped without touching code. The tools, the prompts, the dead-ends, and the working app we have running today — including the parts where AI failed and we had to find workarounds.</p>
+          <span class="read-more">Read the post →</span>
+        </div>
+      </a>
+
+      <a href="#ai-prompting-tactics" class="post-card-link">
+        <div class="post-card-img post-card-img-4">
+          <span class="post-card-img-label">7 prompting <em>tactics</em></span>
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-meta"><span class="cat">AI Tips &amp; Tricks</span> · 10 min read · Apr 10, 2026</div>
+          <h3>7 AI Prompting Tactics That Save Solo Founders 10 Hours a Week</h3>
+          <p>Forget "act as an expert" prompt templates. These are the prompting patterns we actually use — tested across hundreds of real workflows, with side-by-side examples showing what generic prompts produce versus what these tactics produce.</p>
+          <span class="read-more">Read the post →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ POST 1: BEST AI TOOLS FOR SOLO FOUNDERS ============ -->
+<article class="blog-post" id="best-ai-tools-2026">
+  <div class="container blog-post-inner">
+    <article>
+      <div class="post-meta">
+        <span class="cat">Tool Stack</span>
+        <span>14 min read</span>
+        <span> · Published Apr 22, 2026 · Updated Apr 27, 2026</span>
+      </div>
+
+      <h2>The Best <em>AI Tools for Solo Founders</em> in 2026 (Hands-On Tested)</h2>
+
+      <p class="deck">Twelve tools tested across four months and three real projects. Most underdelivered. Five earned a permanent slot in the stack. Here's what's worth paying for in 2026 — and what to skip even when it's free.</p>
+
+      <div class="post-hero-img post-hero-img-1">
+        <div class="post-hero-img-content">
+          <span class="label-mono">The Solo Founder AI Stack — 2026</span>
+          <span class="label-display">Five tools <em>that earned their place</em>. Seven that didn't.</span>
+        </div>
+      </div>
+
+      <p>Every list of "best AI tools for solo founders" I've read in the last twelve months has the same problem: nobody actually used the tools. They scraped product pages, paraphrased the marketing copy, and shipped a 3,000-word SEO listicle that recommends every product on the page. That's not a review — it's a referral funnel with a thin coating of editorial paint.</p>
+
+      <p>This is different. Over the last four months I subscribed to twelve AI tools — on a personal credit card, monthly billing, no comp accounts — and ran them through three real projects: a paid newsletter (this one), a no-code SaaS prototype, and a content site that ranked on page one of Google in three weeks. Most of the tools didn't survive contact with the work. The ones that did are below.</p>
+
+      <h3>The 5 AI tools every solo founder should pay for in 2026</h3>
+
+      <p>I'm going to skip the "honorable mentions" section that most listicles use to pad their word count. These are the five tools I'd put on a fresh credit card tomorrow if I had to start over. Everything else either failed in testing or duplicates what these five already do.</p>
+
+      <h4>1. Claude Pro — the thinking partner ($20/month)</h4>
+      <p>Claude is the AI I open first when the work involves judgment: structuring an argument, designing a system, writing copy under my own name, debugging code I'd be embarrassed to ship broken. The output reads less like a press release and more like something a sharp colleague would say. The 200K token context window means it can hold an entire codebase or a 500-page PDF in working memory, which changes how you can use it. Claude Code — the terminal coding agent — is included free with Claude Pro and has replaced roughly 70% of what I previously paid Cursor to do.</p>
+
+      <h4>2. ChatGPT Plus — the execution engine ($20/month)</h4>
+      <p>ChatGPT is the AI I open when the work involves doing something fast: image generation with DALL-E, voice mode for working out loud while walking, the GPT marketplace for niche tasks, real-time web search when I need a fact verified before publishing. It's the more versatile of the two, and the ecosystem advantage is real. Pay for both Claude and ChatGPT — they're complementary, not interchangeable, and at $40/month combined they replace tools that previously cost me $400/month.</p>
+
+      <h4>3. Beehiiv — the newsletter platform ($0–$84/month)</h4>
+      <p>The most affiliate-friendly newsletter platform we've tested, with deliverability that measurably beats Substack and ConvertKit. The Boost network — paid recommendations between newsletters — is built into the editor as a first-class block. Free up to 2,500 subscribers, no trial wall. This is where serious newsletter operators are migrating in 2026. <a href="index.html#review-beehiiv">See our full Beehiiv review.</a></p>
+
+      <h4>4. Emergent.sh — the AI app builder ($0–$20/month)</h4>
+      <p>The first AI app builder we've tested where "full-stack" actually means full-stack. Auth, database, Stripe, hosting — all handled. We built a working SaaS prototype in 72 hours, which we'll walk through in the build guide below. If you're a non-technical founder who's been trying to get an MVP shipped for six months, this is the unblock. <a href="index.html#deep-review">See our full Emergent.sh review.</a></p>
+
+      <h4>5. Surfer SEO — the content compass ($89+/month)</h4>
+      <p>Best-in-class on-page SEO scoring. The Content Editor tells you exactly what terms and entities the top-ranking pages are using and shows you a real-time score on your draft. We hit page one in three weeks on a fresh domain — no link building, no PR — using nothing but Surfer-optimized articles. Worth the price if you're publishing weekly. Don't buy it if you publish monthly.</p>
+
+      <div class="post-pull-quote">
+        Pay for both Claude and ChatGPT — they're complementary, not interchangeable. At $40/month combined they replace tools that used to cost $400/month.
+      </div>
+
+      <div class="post-body-img pbi-1a">
+        <div class="post-body-img-content">
+          <span class="mono-label">Stack Cost</span>
+          <span class="display-label">~<em>$130/month</em> for the entire solo founder AI stack</span>
+        </div>
+      </div>
+
+      <h3>The 7 AI tools we tested and dropped</h3>
+
+      <p>The skip list is more useful than the recommend list, because the cost of buying the wrong tool isn't just the subscription — it's the weeks you spent learning it, the data you migrated, and the workflow you built around it before realizing it wasn't worth keeping.</p>
+
+      <h4>Notion AI ($10/user/month, now usage-based)</h4>
+      <p>Fine for keeping AI inside Notion's wiki. Underwhelming for actual work compared to Claude or ChatGPT. The recent shift to usage-based pricing means heavy users will pay more for less. Skip it unless you live in Notion all day.</p>
+
+      <h4>Jasper AI ($49+/month)</h4>
+      <p>Was best-in-class three years ago. Now it's a B+ tool in an A-tier market. ChatGPT Plus + custom GPTs beats it for $20/month. The category is collapsing — Jasper recently sunset its Boss Mode tier and refunded annual subscribers. Read that as a signal.</p>
+
+      <h4>Copy.ai ($49+/month)</h4>
+      <p>Same problem as Jasper. Templates can't compete with general-purpose AI in 2026. The output is consistent but flat — fine for SEO content farms, useless for anything you'd publish under your own name.</p>
+
+      <h4>Lovable ($25+/month)</h4>
+      <p>Excellent for static landing pages and marketing sites. Falls over the moment you need a real backend, custom data models, or anything that isn't a CRUD app. Better than the no-code generation before it, but Emergent.sh is a generation ahead for actual product building.</p>
+
+      <h4>Pictory and similar AI video tools</h4>
+      <p>If you need talking-head video, you need a person. The output from AI video tools in 2026 is recognizable as AI within three seconds. The valid use case is short B-roll for existing content. The marketing pitch — "replace your video team" — is fiction.</p>
+
+      <h4>Most "AI sales" tools</h4>
+      <p>Tools promising autonomous lead generation and outbound sequences are mostly spam-machines that get your domain blocked. We tested four. None outperformed a well-crafted manual outreach process. The category is too immature.</p>
+
+      <h4>Most AI-powered productivity bundles</h4>
+      <p>Tools claiming to "replace your entire workflow with AI" are trying to do too much, and they're worse at every individual thing than the dedicated tool. Pay for specialists. Skip the suites.</p>
+
+      <h3>What changed in 2026 that the lists from 2024 missed</h3>
+
+      <p>If you're reading older "best AI tools" listicles, three structural shifts have made most of their recommendations obsolete:</p>
+
+      <p><strong>1. The mid-tier AI writer category collapsed.</strong> ChatGPT Plus and Claude Pro at $20/month each now do what Jasper, Copy.ai, and Writesonic used to charge $49+ for. The dedicated AI writer category exists today only for content farms and high-volume agencies. For everyone else, it's strictly worse than general-purpose AI.</p>
+
+      <p><strong>2. Coding agents went mainstream.</strong> Claude Code and similar terminal-based agents are now bundled with consumer Pro plans. The standalone "AI for developers" subscription category — Cursor, Codeium, etc — is being squeezed. Cursor still wins on UX for full-time developers, but the value gap to Claude Code is shrinking weekly.</p>
+
+      <p><strong>3. Full-stack AI app builders got real.</strong> The 2024 generation of no-code AI tools were front-end toys. The 2026 generation — Emergent.sh, the latest Lovable, Bolt — actually ship working backends. Non-technical founders who've been waiting for the MVP unblock can stop waiting.</p>
+
+      <h3>How to evaluate any AI tool before subscribing</h3>
+
+      <p>The single highest-ROI hour you'll spend before adopting a new tool is the hour you spend running your real workflow on the free tier. Toy projects lie. The friction you'll feel on day 30 is the friction you should test for on day 1.</p>
+
+      <p>The other three checks I run on every tool before paying:</p>
+
+      <ul>
+        <li><strong>Cancellation flow speed.</strong> If I can't find the cancel button in 60 seconds, the company is hostile to its customers and the product won't get better over time.</li>
+        <li><strong>Changelog velocity.</strong> A public changelog with updates in the last 30 days is the best single signal of product health. Stale changelogs (3+ months silent) are obituaries.</li>
+        <li><strong>Pricing math at 10x usage.</strong> The right tool is rarely the one that wins at today's usage — it's the one that doesn't bankrupt you when you grow.</li>
+      </ul>
+
+      <div class="post-callout">
+        <span class="label">The honest take</span>
+        <p>The best AI stack for solo founders in 2026 is smaller and cheaper than the lists suggest. <strong>Five tools, ~$130 a month, and you have what cost agencies $5K/month to deliver in 2022.</strong> Resist the urge to buy more. Tool sprawl is the silent killer of solo-founder productivity.</p>
+      </div>
+
+      <div class="post-end-cta">
+        <h4>Want the weekly digest?</h4>
+        <p>One rigorously tested review, one comparative breakdown, one signal from inside the SaaS world. Every Sunday.</p>
+        <a href="index.html#newsletter" class="btn">Subscribe Free →</a>
+      </div>
+
+      <div class="blog-post-tags">
+        <span class="label">Tagged</span>
+        <span class="blog-post-tag">Best AI tools 2026</span>
+        <span class="blog-post-tag">Solo founder stack</span>
+        <span class="blog-post-tag">Solopreneur tools</span>
+        <span class="blog-post-tag">AI tool reviews</span>
+        <span class="blog-post-tag">SaaS for founders</span>
+        <span class="blog-post-tag">Indie hacker tools</span>
+      </div>
+    </article>
+  </div>
+</article>
+
+
+<!-- ============ POST 2: CHATGPT VS CLAUDE ============ -->
+<article class="blog-post" id="chatgpt-vs-claude">
+  <div class="container blog-post-inner">
+    <article>
+      <div class="post-meta">
+        <span class="cat">AI Comparison</span>
+        <span>11 min read</span>
+        <span> · Published Apr 19, 2026 · Updated Apr 26, 2026</span>
+      </div>
+
+      <h2>ChatGPT vs Claude in 2026: Which AI Should <em>Founders Actually Pay For</em>?</h2>
+
+      <p class="deck">Both are $20/month. Both claim to be the best. We ran the same six founder workflows through each one and tracked exactly where each one wins — and where each one quietly loses.</p>
+
+      <div class="post-hero-img post-hero-img-2">
+        <div class="post-hero-img-content">
+          <span class="label-mono">ChatGPT vs Claude · Tested 2026</span>
+          <span class="label-display">Two tools, six workflows, <em>one honest verdict</em>.</span>
+        </div>
+      </div>
+
+      <p>Here's the conclusion most ChatGPT vs Claude comparisons bury under 4,000 words of benchmarks: <strong>they're not interchangeable, and you probably want both.</strong> At $20/month each, you're spending $40 to get capabilities that did not exist at any price three years ago. The real question isn't "which one to buy" — it's "which tasks should I route to which one?"</p>
+
+      <p>This guide answers that. We ran six common founder workflows — coding, long-form writing, research synthesis, customer support copy, strategic planning, and SEO content drafting — through both ChatGPT Plus (GPT-5.4 / 5.5) and Claude Pro (Opus 4.6 / Sonnet 4.6) over six weeks. We logged the results, the friction, and the moments where one tool just outperformed the other.</p>
+
+      <h3>The TL;DR (because you're busy)</h3>
+
+      <p>If you only read one paragraph: <strong>Claude wins on writing, coding, and reasoning.</strong> ChatGPT wins on speed, ecosystem breadth, image generation, voice mode, and real-time web search. The benchmark gap on raw capability has narrowed to single digits. The practical gap on specific workflows is much bigger than the benchmarks suggest.</p>
+
+      <h4>Buy ChatGPT Plus if:</h4>
+      <ul>
+        <li>You need image generation (DALL-E is built in)</li>
+        <li>You want voice mode for hands-free brainstorming</li>
+        <li>You depend on real-time web search inside your AI workflow</li>
+        <li>You're inside the Microsoft ecosystem (Copilot integration matters)</li>
+        <li>Your work is broad and varied — many shallow tasks, not a few deep ones</li>
+      </ul>
+
+      <h4>Buy Claude Pro if:</h4>
+      <ul>
+        <li>You write under your own name and the prose has to sound like you</li>
+        <li>You code and want Claude Code (a terminal coding agent, included free)</li>
+        <li>You work with long documents — Claude's 200K context window is a different category</li>
+        <li>You do strategic or analytical work where reasoning quality matters more than speed</li>
+        <li>You want fewer hallucinations on hard reasoning problems</li>
+      </ul>
+
+      <p>If you can swing both, do both. The combined cost is less than one mid-range SaaS subscription.</p>
+
+      <div class="post-pull-quote">
+        Claude is the thinking partner. ChatGPT is the execution engine. Use them like that and you'll stop arguing about which one is better.
+      </div>
+
+      <h3>The six workflows, scored head-to-head</h3>
+
+      <div class="post-body-img pbi-2a">
+        <div class="post-body-img-content">
+          <span class="mono-label">Workflow Test Results</span>
+          <span class="display-label">6 founder workflows · <em>scored side by side</em></span>
+        </div>
+      </div>
+
+      <h4>1. Coding (Winner: Claude — by a clear margin)</h4>
+      <p>Claude wins coding. It's not close in 2026. On SWE-bench Verified — the industry standard for real-world software engineering tasks — Claude Opus 4.6 hits 80.8%; GPT-5.4 lands around 80%. The gap on benchmarks is narrow. The gap on actual code is wider, because Claude is better at the part that matters: writing code that doesn't have subtle bugs in the edge cases. We tested both with the same prompt — implement a debounce function with TypeScript types — and Claude returned cleaner, properly-generic code on the first try; ChatGPT used <code>any</code> in two places and required follow-up prompts to fix.</p>
+
+      <p><strong>The killer feature for solo founders</strong>: Claude Code is a terminal-based coding agent included free with Claude Pro. It reads your entire codebase, edits multiple files, runs commands, uses your local git. For solo developers who used to pay $20/month for Cursor, this is potentially that money back in your stack.</p>
+
+      <h4>2. Long-form writing (Winner: Claude — but it's closer than coding)</h4>
+      <p>Claude produces more natural prose. Sentence length varies. Paragraph transitions flow. The output feels less like an AI imitation of writing and more like writing. ChatGPT is competent but recognizable — there's a particular cadence and word choice ("delve," "tapestry," "in today's competitive landscape") that gives it away within two paragraphs.</p>
+
+      <p>For anything you'd publish under your own name — newsletters, blog posts, pitch decks, founder updates — Claude wins. For drafts you'll heavily rewrite anyway, the gap matters less.</p>
+
+      <h4>3. Research synthesis (Winner: ChatGPT — for breadth, Claude for depth)</h4>
+      <p>If your research question requires real-time web search ("what's the current price of X," "what did Y company announce this week"), ChatGPT wins because it's actually plugged into the live internet. Claude doesn't browse the web natively.</p>
+
+      <p>For research questions where you have the source material already — paste in 10 PDFs, ask Claude to synthesize the patterns — Claude wins on quality of synthesis. Its ability to hold long, multi-document context and reason across all of it is genuinely the standout capability.</p>
+
+      <h4>4. Customer support copy (Winner: ChatGPT — by a small margin)</h4>
+      <p>Both produce competent customer support drafts. ChatGPT is slightly better at the empathetic-but-firm tone most support emails need, and ChatGPT's GPT marketplace has dozens of pre-built support templates that save setup time. Claude can match the quality with a good system prompt, but ChatGPT gets there faster out of the box.</p>
+
+      <h4>5. Strategic planning (Winner: Claude — by a clear margin)</h4>
+      <p>Strategic and analytical work is where Claude's reasoning quality shows up most. Asked the same complex strategic question — "how should I think about pricing for a B2B SaaS targeting solo founders" — Claude produced a better-structured answer, considered more alternatives, and was more honest about uncertainty. ChatGPT gave a faster answer that was less rigorous.</p>
+
+      <p>This category aligns with Claude's lead on GPQA Diamond (PhD-level reasoning), where it scores 91.3% — the widest margin of any major benchmark category.</p>
+
+      <h4>6. SEO content drafting (Winner: ChatGPT — barely)</h4>
+      <p>For SEO-driven content production at volume, ChatGPT's speed and ecosystem advantages tip the balance. The Custom GPTs marketplace has SEO-optimized writing templates pre-built. Output is consistent and fast. Claude produces better-quality prose but is slightly slower and requires more prompt engineering to hit the structural requirements that SEO needs (target word count, FAQ blocks, schema-friendly headings).</p>
+
+      <h3>What about pricing?</h3>
+
+      <p>Both consumer plans are $20/month. There's no cost-based decision at the consumer tier. At higher tiers:</p>
+
+      <ul>
+        <li><strong>Claude Max</strong>: $100+/month for higher usage limits and priority access</li>
+        <li><strong>ChatGPT Pro</strong>: $200/month for the o-series reasoning models, advanced voice, and higher limits</li>
+        <li><strong>API pricing</strong>: Claude Sonnet 4.6 at $3/$15 per million tokens (input/output), GPT-5.4 at $2.50/$15. Effectively a wash unless you're at significant volume.</li>
+      </ul>
+
+      <p>If you're a solo founder, you almost certainly don't need either premium tier. The $20 plan from each is the right answer until proven otherwise by your actual usage hitting limits.</p>
+
+      <h3>The model routing approach (advanced)</h3>
+
+      <p>If you're using AI heavily across many tasks, the smartest 2026 setup isn't picking one — it's routing. I default to Claude for: writing under my name, coding, long documents, strategic work. I default to ChatGPT for: image generation, voice brainstorming, web-search-required research, fast iteration on shallow tasks.</p>
+
+      <p>The mental cost of switching is small. The performance gain is real. Stop arguing about which AI is "better" and start treating them like specialized tools.</p>
+
+      <div class="post-callout">
+        <span class="label">The honest take</span>
+        <p>If forced to pick one for a solo founder, <strong>I'd pick Claude</strong> — the writing quality and Claude Code make it slightly more valuable for the work most founders do most often. But the right answer is to pay for both. $40/month is a rounding error in your tool stack and you'll get capability that one alone can't deliver.</p>
+      </div>
+
+      <div class="post-end-cta">
+        <h4>More tool comparisons in your inbox.</h4>
+        <p>Honest, hands-on AI tool reviews and comparisons every Sunday. No affiliate spam, no vendor promotion.</p>
+        <a href="index.html#newsletter" class="btn">Subscribe Free →</a>
+      </div>
+
+      <div class="blog-post-tags">
+        <span class="label">Tagged</span>
+        <span class="blog-post-tag">ChatGPT vs Claude</span>
+        <span class="blog-post-tag">Claude vs ChatGPT 2026</span>
+        <span class="blog-post-tag">Best AI for founders</span>
+        <span class="blog-post-tag">Claude Pro review</span>
+        <span class="blog-post-tag">ChatGPT Plus review</span>
+        <span class="blog-post-tag">AI for solopreneurs</span>
+      </div>
+    </article>
+  </div>
+</article>
+
+
+<!-- ============ POST 3: BUILD A SAAS WITHOUT CODE ============ -->
+<article class="blog-post" id="build-saas-without-code">
+  <div class="container blog-post-inner">
+    <article>
+      <div class="post-meta">
+        <span class="cat">Build Guide</span>
+        <span>13 min read</span>
+        <span> · Published Apr 15, 2026 · Updated Apr 24, 2026</span>
+      </div>
+
+      <h2>How to Build a <em>SaaS Without Code</em> in 72 Hours (Real Walkthrough)</h2>
+
+      <p class="deck">A step-by-step build log of an actual SaaS we shipped without writing a line of code. The tools, the prompts, the dead-ends, and the working app we have running today — including the parts where AI failed and we had to find workarounds.</p>
+
+      <div class="post-hero-img post-hero-img-3">
+        <div class="post-hero-img-content">
+          <span class="label-mono">No-Code AI App Build Log</span>
+          <span class="label-display">SaaS in <em>72 hours</em>, $0 in dev cost.</span>
+        </div>
+      </div>
+
+      <p>I've been telling non-technical founders for years that the right time to build a SaaS without code was "soon, but not yet." That changed in 2026. The current generation of AI app builders — specifically Emergent.sh, the latest Lovable, and Bolt — finally ship working full-stack applications, not just pretty mockups. The "no-code SaaS" promise is real now in a way it wasn't even six months ago.</p>
+
+      <p>To pressure-test this, I gave myself a constraint: build a real SaaS, with real users and real Stripe payments, in one weekend. No code. No developer help. Just AI tools and a clear-headed idea. This is the build log — every prompt, every wall I hit, every workaround. If you've been waiting for the right moment to ship your idea, this might be it.</p>
+
+      <h3>The product I built</h3>
+
+      <p>The product was deliberately simple — a tool I'd genuinely use and could pitch in one sentence: <strong>a SaaS where freelance writers can submit articles, paying clients can review and comment, and Stripe handles per-article payment.</strong> Not a billion-dollar idea. A focused, useful product I could ship in 72 hours.</p>
+
+      <p>Why this matters: most no-code-SaaS guides online build a glorified to-do app and call it a day. Real SaaS has auth, payments, multi-user roles, notifications, and an admin dashboard. If the build doesn't include those, it's a tutorial, not a product.</p>
+
+      <h3>The stack I used</h3>
+
+      <p>Three tools. That's it.</p>
+
+      <ul>
+        <li><strong>Emergent.sh</strong> — for the actual app build. The one tool that handles auth, database, payments, and hosting natively. <a href="index.html#deep-review">Our full review.</a></li>
+        <li><strong>Claude Pro</strong> — for crafting prompts, debugging issues, and writing the marketing copy. The thinking partner.</li>
+        <li><strong>Stripe</strong> — for payments. Native integration with Emergent.sh on the Pro plan.</li>
+      </ul>
+
+      <p>Total cost for the weekend: $0 (Emergent free tier was enough for the build) + $20 for Claude Pro that I was already paying for. Stripe takes a percentage of transactions, so no upfront cost.</p>
+
+      <h3>Hour 0–6: Spec and prompt</h3>
+
+      <p>The single most important thing in any AI-built product is the spec. Vague spec, vague output. The first six hours weren't building — they were getting the spec right. I drafted it in Claude:</p>
+
+      <p><em>"Build a SaaS app called WriterDeck. Three user types: writers (submit articles), clients (review and pay), admins (manage both). Writers create accounts and submit articles via a markdown editor. Clients see a dashboard of submissions, can comment, request revisions, and approve. Approval triggers Stripe payment from client to platform, with platform taking a 10% fee. Writers can withdraw earned funds via Stripe Connect. Admin can see all transactions and intervene in disputes."</em></p>
+
+      <p>I asked Claude to refine the spec — to identify the parts that would be ambiguous to an AI app builder, to surface edge cases, and to suggest what to defer to V2. The refined spec was about 800 words and identified six subtle issues I hadn't thought through. (Example: what happens if a client requests a revision after paying?)</p>
+
+      <h3>Hour 6–24: First build pass with Emergent.sh</h3>
+
+      <div class="post-body-img pbi-3a">
+        <div class="post-body-img-content">
+          <span class="mono-label">Build Velocity</span>
+          <span class="display-label"><em>~4 hours</em> to a working V0 with auth + database</span>
+        </div>
+      </div>
+
+      <p>I pasted the refined spec into Emergent.sh. About four hours later — including iterative back-and-forth — I had a functional V0. The login worked. The article submission form worked. The client dashboard showed submissions. The database had the right tables. The hosting was already live at a temporary URL.</p>
+
+      <p><strong>What worked surprisingly well:</strong> the auth flow. Emergent provisioned email + password authentication, password reset, and session management without me asking explicitly. It just understood that a SaaS needs login.</p>
+
+      <p><strong>What didn't work first try:</strong> the role-based permissions. Writers could see other writers' drafts. I had to explicitly prompt: "Writers should only see their own articles. Clients should see articles assigned to their organization. Admins see everything." After that prompt, it fixed itself in one iteration.</p>
+
+      <h3>Hour 24–48: Stripe and the real-product polish</h3>
+
+      <p>Stripe was the moment of truth. This is where most no-code tools fall apart — payment integration is hard, and most AI app builders fake it with a checkout link rather than a real product.</p>
+
+      <p>Emergent on the Pro plan ($20/month) genuinely integrates Stripe. I pasted my Stripe test API key, and within an hour it had wired the payment flow: clients see a "Approve and Pay" button, clicking it triggers a Stripe checkout, payment success triggers a webhook that updates the article status, and the writer's earnings increment.</p>
+
+      <p><strong>The wall I hit:</strong> Stripe Connect (the part that lets writers withdraw money) was beyond what the AI builder could ship without significant hand-holding. I deferred this to V2 and shipped with manual payouts for the first month. This is a totally legitimate solo-founder move — your first ten customers don't need every feature, they need it to work.</p>
+
+      <h3>Hour 48–72: Polish, marketing copy, and ship</h3>
+
+      <p>The final 24 hours were the unsexy work. Email templates for password reset and notifications. Error states that didn't look like programmer humor. A landing page. Pricing page copy. An About page. None of this is hard, but all of it takes time.</p>
+
+      <p>I wrote the marketing copy in Claude — three iterations to get the tone right. Pasted into Emergent. Adjusted the CSS variables to make it not look like every other AI-generated app. Connected my custom domain. Tested the entire flow end-to-end with a real Stripe test card.</p>
+
+      <p>Hour 71. The app worked. I tweeted it. Three sign-ups in the first hour. The first paid transaction came through within a day.</p>
+
+      <div class="post-pull-quote">
+        The 2024 generation of "no-code AI" tools were front-end toys. The 2026 generation actually ship working backends with auth, databases, and payments. The unblock for non-technical founders is real now.
+      </div>
+
+      <h3>What I'd do differently</h3>
+
+      <p><strong>Spec longer, build faster.</strong> The hours I "lost" on the spec saved me roughly 12 hours of debugging during the build. Don't skip this. Use Claude to refine the spec until it's tight.</p>
+
+      <p><strong>Defer aggressively.</strong> The Stripe Connect deferral was the right call. Your V1 should ship with the smallest possible feature set that solves the core problem. Everything else is V2.</p>
+
+      <p><strong>Don't trust AI on edge cases.</strong> The role-based permissions issue could have been a security problem in production. Always test the parts where users with different roles interact. AI builders default to permissive — you have to be explicit about what's locked down.</p>
+
+      <p><strong>Buy Pro early.</strong> The free tier of every AI app builder is generous enough to validate the idea, but you'll burn through credits fast once you're seriously building. $20 for the Pro plan saved me roughly four hours of waiting on credit refreshes.</p>
+
+      <h3>The honest limitations</h3>
+
+      <p>I want to be straight about what AI app builders can't do well in 2026, even after the recent generation leap:</p>
+
+      <ul>
+        <li><strong>Complex schemas.</strong> The build slows noticeably once your data model has 30+ tables. Stay simple in V1.</li>
+        <li><strong>Custom integrations.</strong> Native integrations (Stripe, Auth providers, common DBs) are great. Custom third-party APIs require a developer.</li>
+        <li><strong>Performance at scale.</strong> The generated code prioritizes correctness over performance. Once you're past 10K users, you'll likely need to rewrite parts manually.</li>
+        <li><strong>Custom UI beyond templates.</strong> The output looks good in a "modern SaaS" sense, but if your design vision is unusual, you'll fight the tool.</li>
+      </ul>
+
+      <p>None of these are dealbreakers for V1. All of them become real once you're building V3 or V4. AI app builders are a phenomenal launch tool — they're not yet a phenomenal scale tool. Plan for that.</p>
+
+      <div class="post-callout">
+        <span class="label">The honest take</span>
+        <p><strong>Build the V1 with AI. Hire a developer for V3.</strong> The 2026 generation of no-code AI app builders compresses the timeline from "idea to first paying customer" from months to days. That's the unblock you needed. Ship V1 fast, validate the idea with real money, then bring in a developer to take it to scale once you've proven there's a there there.</p>
+      </div>
+
+      <div class="post-end-cta">
+        <h4>Get the build guides in your inbox.</h4>
+        <p>Real SaaS build walkthroughs, AI tool reviews, and the prompting tactics that actually work. Every Sunday.</p>
+        <a href="index.html#newsletter" class="btn">Subscribe Free →</a>
+      </div>
+
+      <div class="blog-post-tags">
+        <span class="label">Tagged</span>
+        <span class="blog-post-tag">No-code SaaS</span>
+        <span class="blog-post-tag">Build SaaS without code</span>
+        <span class="blog-post-tag">AI app builder</span>
+        <span class="blog-post-tag">Emergent.sh tutorial</span>
+        <span class="blog-post-tag">Solo founder MVP</span>
+        <span class="blog-post-tag">No-code app development</span>
+      </div>
+    </article>
+  </div>
+</article>
+
+
+<!-- ============ POST 4: 7 AI PROMPTING TACTICS ============ -->
+<article class="blog-post" id="ai-prompting-tactics">
+  <div class="container blog-post-inner">
+    <article>
+      <div class="post-meta">
+        <span class="cat">AI Tips &amp; Tricks</span>
+        <span>10 min read</span>
+        <span> · Published Apr 10, 2026 · Updated Apr 23, 2026</span>
+      </div>
+
+      <h2>7 <em>AI Prompting Tactics</em> That Save Solo Founders 10 Hours a Week</h2>
+
+      <p class="deck">Forget "act as an expert" prompt templates. These are the prompting patterns I actually use — tested across hundreds of real workflows, with side-by-side examples showing what generic prompts produce versus what these tactics produce.</p>
+
+      <div class="post-hero-img post-hero-img-4">
+        <div class="post-hero-img-content">
+          <span class="label-mono">7 Prompting Patterns That Actually Work</span>
+          <span class="label-display">Skip "act as an expert." <em>Try these instead.</em></span>
+        </div>
+      </div>
+
+      <p>The "best AI prompts" lists circulating in 2026 are mostly garbage. They're either "act as a [profession] and help me [verb]" templates that produce generic output, or hyper-specific 800-word prompt scripts that work for one task and break for everything else. Neither of those approaches survives contact with real founder work.</p>
+
+      <p>What follows is different. These are seven prompting <em>patterns</em> — repeatable structures, not specific scripts — that I use daily across Claude and ChatGPT. Each one is paired with a side-by-side: a generic prompt and the better version, with notes on why the better version works. Steal them, modify them, build your own.</p>
+
+      <h3>1. The "Counterargument" pattern</h3>
+
+      <p>Default AI behavior is to agree with you. Ask it to evaluate an idea and it'll find merit in everything. This is exactly what you don't want when making decisions. The fix is forcing the AI to argue against the position before assessing it.</p>
+
+      <p><strong>Generic prompt:</strong> "Should I launch this product on Product Hunt?"</p>
+
+      <p><strong>The pattern:</strong> "Steelman the case AGAINST launching this product on Product Hunt — give me the strongest version of why this is a bad idea. Then steelman the case for. Then give your honest assessment, weighing both."</p>
+
+      <p>This works because the AI is forced to articulate the counterargument first, which means it can't lean on confirmation bias. The final assessment is meaningfully more grounded. I use this pattern for every non-trivial decision.</p>
+
+      <h3>2. The "Constraint" pattern</h3>
+
+      <p>AI loves to give you a complete answer. Sometimes a complete answer is the wrong answer — what you need is the best answer given a specific constraint. Forcing the constraint up front changes the output dramatically.</p>
+
+      <p><strong>Generic prompt:</strong> "Help me write an email to a customer who's complaining."</p>
+
+      <p><strong>The pattern:</strong> "Write a 60-word email to a complaining customer. The constraint: no apology in the first sentence. Open with what you're going to do for them, not with how sorry you are."</p>
+
+      <p>The constraint forces the AI to skip the boilerplate opening that almost every "customer service email" template defaults to. The output reads like a real human wrote it, not like a customer success template.</p>
+
+      <h3>3. The "Specificity Ladder" pattern</h3>
+
+      <div class="post-body-img pbi-4a">
+        <div class="post-body-img-content">
+          <span class="mono-label">Prompt Quality</span>
+          <span class="display-label">Generic prompts produce generic output. <em>Specificity wins.</em></span>
+        </div>
+      </div>
+
+      <p>The single highest-leverage thing you can do to improve AI output is add specificity. Generic prompts produce generic output, every time. The "specificity ladder" pattern is how I systematically push toward a better prompt.</p>
+
+      <p><strong>Generic:</strong> "Write a tweet about my product."</p>
+
+      <p><strong>One rung up:</strong> "Write a tweet about my product, a no-code SaaS builder for non-technical founders."</p>
+
+      <p><strong>Two rungs up:</strong> "Write a tweet about my product, a no-code SaaS builder for non-technical founders. The audience is on tech Twitter, slightly skeptical of AI hype, and has seen 10 of these launch already this month."</p>
+
+      <p><strong>Three rungs up:</strong> "Write three different tweets in the voice of [insert account I admire] about my product. Audience: tech Twitter, AI-fatigued. Constraint: no emojis, no thread, single tweet, no 'excited to share.' Lead with a specific number or claim that makes me click."</p>
+
+      <p>Each rung produces materially better output than the one below. The work isn't in the writing — it's in noticing how vague your prompt is and adding the missing specificity.</p>
+
+      <h3>4. The "Pre-Mortem" pattern</h3>
+
+      <p>Pre-mortem analysis — "imagine this project failed; what went wrong?" — is one of the most underrated decision-making frameworks in business. It's also a phenomenal AI prompt because it forces the AI to enumerate failure modes you wouldn't have thought to ask about.</p>
+
+      <p><strong>Generic prompt:</strong> "Help me think through this product launch."</p>
+
+      <p><strong>The pattern:</strong> "It's six months from now and this product launch has failed badly. Walk me through the most likely reasons — not the dramatic ones, the boring ones that founders actually trip on. List 8."</p>
+
+      <p>The "boring ones" qualifier is critical. Without it, the AI gives you "you ran out of money" and "the market shifted." With it, you get "your onboarding flow had three steps too many," "your pricing page didn't surface the most popular tier first," "the cancellation rate spiked because you didn't email Day 30 with re-engagement." These are actionable.</p>
+
+      <h3>5. The "Two-Pass" pattern</h3>
+
+      <p>AI tends to optimize for sounding good, not for being right. The two-pass pattern separates draft from criticism, which forces the AI to evaluate its own first answer instead of polishing it.</p>
+
+      <p><strong>Generic prompt:</strong> "Write a sales page for my product."</p>
+
+      <p><strong>The pattern (Pass 1):</strong> "Write a 500-word sales page for my product. Don't worry about polish; focus on the structural argument."</p>
+
+      <p><strong>The pattern (Pass 2):</strong> "Now critique the sales page you just wrote. What are its three biggest weaknesses? Don't be diplomatic — be a hostile reviewer who's seen 500 of these and is sick of all of them."</p>
+
+      <p><strong>The pattern (Pass 3):</strong> "Rewrite the sales page addressing those three weaknesses. The goal isn't to remove the weak parts — it's to use them as opportunities to strengthen the argument."</p>
+
+      <p>The output of Pass 3 is almost always significantly better than what you'd get from a single comprehensive prompt. Iterating against criticism beats iterating against perfection.</p>
+
+      <h3>6. The "Show, Don't Tell" pattern</h3>
+
+      <p>If you want output in a specific style or format, don't describe the style — show an example. AI is dramatically better at pattern-matching against examples than parsing style descriptions.</p>
+
+      <p><strong>Generic prompt:</strong> "Write the email in a casual but professional tone, with short paragraphs, conversational, but informative."</p>
+
+      <p><strong>The pattern:</strong> "Write the email in this voice: [paste a real email you wrote]. Match the sentence rhythm, the way I open and close, the specific words I use. Subject of this email is [X]."</p>
+
+      <p>The improvement is dramatic. AI can mimic a writing voice with one good example far better than it can interpret abstract style instructions. This pattern is also how you make AI output sound like *you* across every channel.</p>
+
+      <h3>7. The "Roleplay the Audience" pattern</h3>
+
+      <p>Most "write copy" AI failures aren't because the AI is bad at writing — they're because the AI doesn't know who's reading. The roleplay pattern fixes this by having the AI inhabit the audience first, then write to them.</p>
+
+      <p><strong>Generic prompt:</strong> "Write a landing page for my product."</p>
+
+      <p><strong>The pattern (step 1):</strong> "Roleplay as a 35-year-old solo founder who's spent the last 8 months trying to find the right newsletter platform. They've tested Substack and ConvertKit and been frustrated. Describe their day-to-day frustrations and what would make them pull out a credit card."</p>
+
+      <p><strong>The pattern (step 2):</strong> "Now write a landing page for [my product] that speaks directly to that person's specific frustrations. Lead with what they were just complaining about."</p>
+
+      <p>You'll be surprised at how much sharper the copy gets. The AI is essentially writing from a clear customer persona it just generated, which is exactly the brief most agencies struggle to produce in a week.</p>
+
+      <div class="post-pull-quote">
+        Generic prompts produce generic output. Every prompting tactic above is fundamentally about removing genericness — through constraint, specificity, role, or example.
+      </div>
+
+      <h3>The meta-tactic: combine them</h3>
+
+      <p>The patterns aren't mutually exclusive. The prompts I use for serious work usually combine three or four. A complete prompt for a sales page might include:</p>
+
+      <ol>
+        <li>Roleplay the audience first (#7)</li>
+        <li>Show a real example of the voice I want (#6)</li>
+        <li>Add specific constraints (#2)</li>
+        <li>Two-pass it for critique and rewrite (#5)</li>
+      </ol>
+
+      <p>That's a 4-pattern stack on a single piece of output. The result is dramatically better than what any single template would produce, and the work is mostly in noticing what's missing rather than learning new commands.</p>
+
+      <h3>The 10-hour-a-week claim</h3>
+
+      <p>I want to back up the headline. The hours saved come from three places:</p>
+
+      <ul>
+        <li><strong>~3 hours/week saved on first drafts</strong> — better prompts mean less rewriting, which is the slowest part of writing.</li>
+        <li><strong>~2 hours/week saved on decisions</strong> — the counterargument and pre-mortem patterns surface considerations faster than thinking alone.</li>
+        <li><strong>~5 hours/week saved on repetitive tasks</strong> — once you've built a 4-pattern prompt for a recurring task (your weekly newsletter, your customer support replies, your sales page A/B variants), reusing it saves the full setup cost every time.</li>
+      </ul>
+
+      <p>Your numbers will vary. The shape of the savings won't.</p>
+
+      <div class="post-callout">
+        <span class="label">The honest take</span>
+        <p>Stop searching for "the perfect AI prompt." It doesn't exist, and you can't reuse it anyway because every situation is slightly different. <strong>Learn three or four patterns and combine them fluently.</strong> That's the actual prompting skill. Everyone arguing about specific prompt templates online is one level too low.</p>
+      </div>
+
+      <div class="post-end-cta">
+        <h4>More AI tactics in your inbox.</h4>
+        <p>The prompting patterns, tool reviews, and tactics we'd actually use ourselves. Every Sunday, free.</p>
+        <a href="index.html#newsletter" class="btn">Subscribe Free →</a>
+      </div>
+
+      <div class="blog-post-tags">
+        <span class="label">Tagged</span>
+        <span class="blog-post-tag">AI prompting</span>
+        <span class="blog-post-tag">ChatGPT prompts</span>
+        <span class="blog-post-tag">Claude prompts</span>
+        <span class="blog-post-tag">AI tips and tricks</span>
+        <span class="blog-post-tag">AI productivity</span>
+        <span class="blog-post-tag">Prompt engineering 2026</span>
+      </div>
+    </article>
+  </div>
+</article>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>Tools That <em>Work</em></h4>
+        <p>Independent reviews of AI and SaaS tools for founders and solopreneurs. No press releases, no paid placements. Just verdicts you can act on.</p>
+      </div>
+      <div class="footer-col">
+        <span class="mono">Reviews</span>
+        <ul>
+          <li><a href="index.html#deep-review">Emergent.sh</a></li>
+          <li><a href="index.html#review-beehiiv">Beehiiv</a></li>
+          <li><a href="index.html#review-surfer">Surfer SEO</a></li>
+          <li><a href="index.html#review-taplio">Taplio</a></li>
+          <li><a href="index.html#review-writesonic">Writesonic</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="mono">Sections</span>
+        <ul>
+          <li><a href="index.html#reviews">All Reviews</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#compare">Compare Tools</a></li>
+          <li><a href="index.html#methodology">How We Test</a></li>
+          <li><a href="index.html#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <span class="mono">Publication</span>
+        <ul>
+          <li><a href="index.html#methodology">About</a></li>
+          <li><a href="#">Disclosure</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Tools That Work — toolsthatworks.com</p>
+      <p style="font-family: 'Fraunces', serif; font-style: italic;">Built with rigour. Powered by independence.</p>
+    </div>
+    <p class="footer-disclosure">
+      <strong>Affiliate disclosure:</strong> This publication contains affiliate links. We receive a commission on qualifying purchases made through our links, at no additional cost to you. We recommend only tools we have personally evaluated and paid for. We are not paid by vendors to write or modify reviews.
+    </p>
+  </div>
+</footer>
+
+<script>
+  const today = new Date();
+  const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  const dateStr = months[today.getMonth()] + ' ' + today.getDate() + ', ' + today.getFullYear();
+  document.getElementById('todayDate').textContent = dateStr;
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
