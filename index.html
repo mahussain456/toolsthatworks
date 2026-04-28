@@ -113,20 +113,35 @@
   .brand {
     display: inline-flex;
     align-items: center;
+    gap: 14px;
     text-decoration: none;
-    line-height: 0;
+    color: var(--ink);
+    line-height: 1;
   }
-  .brand-logo {
-    height: 64px;
-    width: auto;
-    max-width: 100%;
+  .brand-mark {
+    height: 48px;
+    width: 48px;
     display: block;
+    flex-shrink: 0;
   }
+  .brand-wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.65rem;
+    font-weight: 500;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .brand-wordmark em { font-style: italic; font-weight: 400; color: var(--accent); }
   @media (max-width: 720px) {
-    .brand-logo { height: 52px; }
+    .brand { gap: 10px; }
+    .brand-mark { height: 40px; width: 40px; }
+    .brand-wordmark { font-size: 1.35rem; }
   }
   @media (max-width: 380px) {
-    .brand-logo { height: 44px; }
+    .brand-mark { height: 36px; width: 36px; }
+    .brand-wordmark { font-size: 1.2rem; }
   }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a {
@@ -630,7 +645,8 @@
 <nav class="primary">
   <div class="container nav-inner">
     <a href="#" class="brand" aria-label="Tools That Work — home">
-      <img src="/assets/logo-main.png" alt="Tools That Work — Independent Tool Intelligence" class="brand-logo" width="240" height="58" />
+      <img src="/assets/logo-mark.png" alt="" class="brand-mark" width="56" height="56" />
+      <span class="brand-wordmark">Tools That <em>Work</em></span>
     </a>
     <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
     <div class="nav-links" id="navLinks">
