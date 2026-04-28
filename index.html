@@ -113,15 +113,15 @@
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     text-decoration: none;
     color: var(--ink);
     line-height: 1;
   }
   .brand-mark {
-    width: 48px;
-    height: 48px;
-    border: 1.5px solid var(--accent);
+    width: 60px;
+    height: 60px;
+    border: 2.5px solid var(--accent);
     border-radius: 50%;
     display: inline-flex;
     flex-direction: column;
@@ -129,47 +129,48 @@
     justify-content: center;
     flex-shrink: 0;
     position: relative;
-    padding: 4px 0;
+    padding: 6px 0;
+    background: transparent;
   }
   .mark-letter {
     font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
     line-height: 1;
-    font-variation-settings: "opsz" 144;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
     letter-spacing: 0;
     display: block;
   }
   .mark-t { color: var(--ink); }
   .mark-w { color: var(--accent); }
   .mark-divider {
-    width: 60%;
-    height: 1px;
+    width: 75%;
+    height: 2px;
     background: var(--accent);
-    margin: 3px 0;
+    margin: 7px 0;
     display: block;
   }
   .brand-wordmark {
     font-family: 'Fraunces', serif;
-    font-size: 1.65rem;
+    font-size: 1.85rem;
     font-weight: 500;
     font-variation-settings: "opsz" 144, "SOFT" 100;
     letter-spacing: -0.025em;
     line-height: 1;
     color: var(--ink);
   }
-  .brand-wordmark em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .brand-wordmark em { font-style: italic; font-weight: 500; color: var(--accent); }
   @media (max-width: 720px) {
-    .brand { gap: 10px; }
-    .brand-mark { width: 40px; height: 40px; padding: 3px 0; }
-    .mark-letter { font-size: 0.85rem; }
-    .mark-divider { margin: 2px 0; }
-    .brand-wordmark { font-size: 1.35rem; }
+    .brand { gap: 12px; }
+    .brand-mark { width: 48px; height: 48px; padding: 4px 0; border-width: 2px; }
+    .mark-letter { font-size: 1.05rem; }
+    .mark-divider { margin: 5px 0; }
+    .brand-wordmark { font-size: 1.45rem; }
   }
   @media (max-width: 380px) {
-    .brand-mark { width: 36px; height: 36px; }
-    .mark-letter { font-size: 0.78rem; }
-    .brand-wordmark { font-size: 1.2rem; }
+    .brand-mark { width: 42px; height: 42px; }
+    .mark-letter { font-size: 1.05rem; }
+    .brand-wordmark { font-size: 1.25rem; }
   }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a {
