@@ -175,10 +175,35 @@
     line-height: 1;
   }
   .brand-mark {
-    height: 48px;
     width: 48px;
-    display: block;
+    height: 48px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    position: relative;
+    padding: 4px 0;
+  }
+  .mark-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: 0;
+    display: block;
+  }
+  .mark-t { color: var(--ink); }
+  .mark-w { color: var(--accent); }
+  .mark-divider {
+    width: 60%;
+    height: 1px;
+    background: var(--accent);
+    margin: 3px 0;
+    display: block;
   }
   .brand-wordmark {
     font-family: 'Fraunces', serif;
@@ -192,11 +217,14 @@
   .brand-wordmark em { font-style: italic; font-weight: 400; color: var(--accent); }
   @media (max-width: 720px) {
     .brand { gap: 10px; }
-    .brand-mark { height: 40px; width: 40px; }
+    .brand-mark { width: 40px; height: 40px; padding: 3px 0; }
+    .mark-letter { font-size: 0.85rem; }
+    .mark-divider { margin: 2px 0; }
     .brand-wordmark { font-size: 1.35rem; }
   }
   @media (max-width: 380px) {
-    .brand-mark { height: 36px; width: 36px; }
+    .brand-mark { width: 36px; height: 36px; }
+    .mark-letter { font-size: 0.78rem; }
     .brand-wordmark { font-size: 1.2rem; }
   }
   .nav-links { display: flex; gap: 36px; align-items: center; }
@@ -896,7 +924,11 @@
 <nav class="primary">
   <div class="container nav-inner">
     <a href="index.html" class="brand" aria-label="Tools That Work — home">
-      <img src="/assets/logo-mark.png" alt="" class="brand-mark" width="56" height="56" />
+      <span class="brand-mark" aria-hidden="true">
+        <span class="mark-letter mark-t">T</span>
+        <span class="mark-divider"></span>
+        <span class="mark-letter mark-w">W</span>
+      </span>
       <span class="brand-wordmark">Tools That <em>Work</em></span>
     </a>
     <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
