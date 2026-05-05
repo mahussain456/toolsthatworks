@@ -17,6 +17,27 @@
   </url>
 
   <url>
+    <loc>https://www.toolsthatworks.com/about.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.toolsthatworks.com/disclosure.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://www.toolsthatworks.com/privacy.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
     <loc>https://www.toolsthatworks.com/blog.html#best-ai-tools-2026</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
