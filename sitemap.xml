@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://toolsthatworks.com/</loc></url>
-  <url><loc>https://toolsthatworks.com/reviews</loc></url>
-  <url><loc>https://toolsthatworks.com/compare</loc></url>
-  <url><loc>https://toolsthatworks.com/how-we-test</loc></url>
-  <url><loc>https://toolsthatworks.com/about</loc></url>
-  <url><loc>https://toolsthatworks.com/disclosure</loc></url>
-  <url><loc>https://toolsthatworks.com/privacy</loc></url>
-  <url><loc>https://toolsthatworks.com/blog</loc></url>
-  <url><loc>https://toolsthatworks.com/category-ai-app-builders</loc></url>
-  <url><loc>https://toolsthatworks.com/category-ai-writing-seo</loc></url>
-  <url><loc>https://toolsthatworks.com/category-ai-video-image</loc></url>
+  <url><loc>https://toolsthatworks.com/</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/reviews/emergent-sh.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/reviews/beehiiv.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/reviews/surfer-seo.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/reviews/taplio.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/reviews/writesonic.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/comparisons/ai-app-builders.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/comparisons/newsletter-platforms.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/blog.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/about.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/disclosure.html</loc><lastmod>2026-05-09</lastmod></url>
+  <url><loc>https://toolsthatworks.com/privacy.html</loc><lastmod>2026-05-09</lastmod></url>
 </urlset>

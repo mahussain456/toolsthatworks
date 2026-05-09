@@ -1,23 +1,16 @@
 # Tools That Work
 
-Tools That Work is an independent AI and SaaS review publication for founders, operators, creators, and builders.
+Independent AI and SaaS reviews for solo founders.
 
-## What the site covers
-- Hands-on AI and SaaS reviews
-- AI app builders and prompt-to-app platforms
-- AI writing, SEO, newsletter, and content tools
-- AI video, image, and creative production tools
-- Practical comparison pages for software buying decisions
-- Review methodology and affiliate disclosure
-
-## Important pages
+## Key URLs
 - Homepage: https://toolsthatworks.com/
-- Reviews: https://toolsthatworks.com/reviews
-- AI tool comparisons: https://toolsthatworks.com/compare
-- Testing methodology: https://toolsthatworks.com/how-we-test
-- AI app builders: https://toolsthatworks.com/category-ai-app-builders
-- AI writing and SEO tools: https://toolsthatworks.com/category-ai-writing-seo
-- AI video and image tools: https://toolsthatworks.com/category-ai-video-image
+- Emergent.sh review: https://toolsthatworks.com/reviews/emergent-sh.html
+- Beehiiv review: https://toolsthatworks.com/reviews/beehiiv.html
+- Surfer SEO review: https://toolsthatworks.com/reviews/surfer-seo.html
+- Taplio review: https://toolsthatworks.com/reviews/taplio.html
+- Writesonic review: https://toolsthatworks.com/reviews/writesonic.html
+- AI app builders comparison: https://toolsthatworks.com/comparisons/ai-app-builders.html
+- Newsletter platforms comparison placeholder: https://toolsthatworks.com/comparisons/newsletter-platforms.html
 
 ## Editorial policy
-Tools That Work publishes practical reviews and comparisons based on real workflows. Affiliate links may earn commission, but paid placements are not accepted.
+Tools That Work publishes hands-on reviews with affiliate disclosure. No paid placements.

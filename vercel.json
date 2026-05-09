@@ -6,17 +6,69 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     },
     {
       "source": "/(.*).html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/deep-review",
+      "destination": "/reviews/emergent-sh.html",
+      "permanent": true
+    },
+    {
+      "source": "/review-beehiiv",
+      "destination": "/reviews/beehiiv.html",
+      "permanent": true
+    },
+    {
+      "source": "/review-surfer",
+      "destination": "/reviews/surfer-seo.html",
+      "permanent": true
+    },
+    {
+      "source": "/review-taplio",
+      "destination": "/reviews/taplio.html",
+      "permanent": true
+    },
+    {
+      "source": "/review-writesonic",
+      "destination": "/reviews/writesonic.html",
+      "permanent": true
+    },
+    {
+      "source": "/compare",
+      "destination": "/comparisons/ai-app-builders.html",
+      "permanent": true
+    },
+    {
+      "source": "/reviews",
+      "destination": "/#reviews",
+      "permanent": true
     }
   ]
 }
