@@ -1,0 +1,23 @@
+# Tools That Work
+
+Tools That Work is an independent AI and SaaS review publication for founders, operators, creators, and builders.
+
+## What the site covers
+- Hands-on AI and SaaS reviews
+- AI app builders and prompt-to-app platforms
+- AI writing, SEO, newsletter, and content tools
+- AI video, image, and creative production tools
+- Practical comparison pages for software buying decisions
+- Review methodology and affiliate disclosure
+
+## Important pages
+- Homepage: https://toolsthatworks.com/
+- Reviews: https://toolsthatworks.com/reviews
+- AI tool comparisons: https://toolsthatworks.com/compare
+- Testing methodology: https://toolsthatworks.com/how-we-test
+- AI app builders: https://toolsthatworks.com/category-ai-app-builders
+- AI writing and SEO tools: https://toolsthatworks.com/category-ai-writing-seo
+- AI video and image tools: https://toolsthatworks.com/category-ai-video-image
+
+## Editorial policy
+Tools That Work publishes practical reviews and comparisons based on real workflows. Affiliate links may earn commission, but paid placements are not accepted.
